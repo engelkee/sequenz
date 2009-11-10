@@ -10,7 +10,8 @@
 
 @interface NSObject (FTPController)
 
-- (void)uploadDidFinished;
+- (void)uploadDidFinish;
+- (void)uploadDidNotFinishWithError:(NSError *)error;
 
 @end
 

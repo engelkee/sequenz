@@ -97,8 +97,8 @@ MyUploadCallBack(CFWriteStreamRef writeStream, CFStreamEventType type, void * cl
     MyStreamInfo     *info = (MyStreamInfo *)clientCallBackInfo;
     CFIndex          bytesRead;
     CFIndex          bytesAvailable;
-    CFIndex          bytesWritten;
-    CFStreamError    error;
+    CFIndex			bytesWritten;
+    CFErrorRef		error;
     
     assert(writeStream != NULL);
     assert(info        != NULL);
@@ -173,8 +173,9 @@ MyUploadCallBack(CFWriteStreamRef writeStream, CFStreamEventType type, void * cl
             }
             break;
         case kCFStreamEventErrorOccurred:
-            error = CFWriteStreamGetError(info->writeStream);
-            fprintf(stderr, "CFReadStreamGetError returned (%d, %ld)\n", error.domain, error.error);
+            error = CFWriteStreamCopyError(info->writeStream);
+            fprintf(stderr, "CFWriteStreamCopyError returned ( %ld )\n", CFErrorGetCode(error));
+			[self uploadError:(NSError *)error];
             goto exit;
         case kCFStreamEventEndEncountered:
             fprintf(stderr, "\nUpload complete\n");
@@ -291,64 +292,22 @@ MySimpleUpload(CFStringRef uploadDirectory, const UInt8 *bytes, CFIndex length, 
 	CFIndex length = [data length];
 	NSString *urlString = [url absoluteString];
 	// Start uploading a file to the specified URL destination.
-	BOOL status = MySimpleUpload((CFStringRef)urlString, bytes, length, CFSTR("ftp1082640-gwosdek"), CFSTR("155z33"));
+	BOOL status = MySimpleUpload((CFStringRef)urlString, bytes, length, CFSTR("ftp1082640-gwosdek"), CFSTR("155z32"));
 	if (!status) fprintf(stderr, "MySimpleUpload failed\n");
-	
-	
-	/*
-	writeStream = CFWriteStreamCreateWithFTPURL(NULL,(CFURLRef)url);
-	
-	CFErrorRef error = CFWriteStreamCopyError(writeStream);
-	
-	CFWriteStreamSetProperty(writeStream, kCFStreamPropertyFTPUsePassiveMode, [NSNumber numberWithBool:usePassiveMode]);
-	CFWriteStreamSetProperty(writeStream, kCFStreamPropertyFTPAttemptPersistentConnection, [NSNumber numberWithBool:YES]);
-	
-	if (!CFWriteStreamOpen(writeStream)) {
-		NSLog(@"An error %@ occured while sending file\n %@", error, [(NSError *)error userInfo]);
-	}
-	
-	NSLog(@"data to upload: %i", [data length]);
-	
-	const void *cur = [data bytes];
-	const void *end = [data bytes] + [data length];
-	
-	NSLog(@"%i %i %i",cur,end,end-cur);
-	
-	BOOL done = FALSE;
-	
-	while (!done) {
-		if (CFWriteStreamCanAcceptBytes(writeStream)) {
-		
-			int l = CFWriteStreamWrite(writeStream,cur,end-cur);
-			
-			if (l < 0) {
-				CFErrorRef error = CFWriteStreamCopyError(writeStream);
-				NSLog(@"An error %@ occured while writing file\n %@", error, [(NSError *)error userInfo]);
-				return (NSError *)error;
-			} else if (l == 0) {
-				if (CFWriteStreamGetStatus(writeStream) == kCFStreamStatusAtEnd) {
-					done = TRUE;
-					NSLog(@"done!");
-				}
-			} else if (l != [data length]) {
-				cur += l;
-				CFErrorRef error = CFWriteStreamCopyError(writeStream);
-				NSLog(@"An error %@ occured while writing file\n %@", error, [(NSError *)error userInfo]);
-			}
-		}
-	}
-	
-	[self completeUpload];
-	CFWriteStreamClose(writeStream);
-	CFRelease(writeStream);
-	*/
+
 	return status;
 }
 
 - (void)completeUpload {
-	if (delegate != nil && [delegate respondsToSelector:@selector(uploadDidFinished)]) {
-		[delegate uploadDidFinished];
+	if (delegate != nil && [delegate respondsToSelector:@selector(uploadDidFinish)]) {
+		[delegate uploadDidFinish];
 	}
+}
+
+- (void)uploadError:(NSError *)error {
+	if (delegate != nil && [delegate respondsToSelector:@selector(uploadDidNotFinishWithError:)]) {
+		[delegate uploadDidNotFinishWithError:error];
+	}	
 }
 
 @end

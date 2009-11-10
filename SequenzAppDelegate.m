@@ -249,68 +249,21 @@
 		bitmapData = [imageRep representationUsingType:NSJPEGFileType 
 											properties:[NSDictionary dictionaryWithObject:[NSDecimalNumber numberWithFloat:0.7] forKey:NSImageCompressionFactor]];
 	
-		//[bitmapData writeToFile:saveFilePath atomically:YES];
 		
 		BOOL success = [ftpController uploadData:bitmapData toURL:[NSURL URLWithString:@"ftp://gwosdek.net/capture.jpg"]];
 		
-		/*
-		CFErrorRef error;
-		//CFURLRef URL = CFURLCreateWithString(NULL, (CFStringRef)@"capture.jpg", (CFURLRef)[NSURL URLWithString:@"ftp://gwosdek.net"]);
-		CFWriteStreamRef writeStream = CFWriteStreamCreateWithFTPURL(NULL,(CFURLRef)[self composedUploadURL]);
-		error = CFWriteStreamCopyError(writeStream);
-		CFWriteStreamSetProperty(writeStream, kCFStreamPropertyFTPUsePassiveMode, [NSNumber numberWithBool:YES]);
-		CFWriteStreamSetProperty(writeStream, kCFStreamPropertyFTPAttemptPersistentConnection, [NSNumber numberWithBool:YES]);
-		if (!CFWriteStreamOpen(writeStream)) {
-			NSLog(@"An error %@ occured while sending file\n %@", error, [(NSError *)error userInfo]);
-		}
-
-		NSLog(@"data to upload: %i", [bitmapData length]);
-		
-		const void *cur = [bitmapData bytes];
-		const void *end = [bitmapData bytes] + [bitmapData length];
-		NSLog(@"%i %i %i",cur,end,end-cur);
-		BOOL done = FALSE;
-	
-		do {
-			int l = CFWriteStreamWrite(writeStream,cur,end-cur);
-			
-			if (l < 0) {
-				CFErrorRef error = CFWriteStreamCopyError(writeStream);
-				//NSLog(@"An error %@ occured while writing file\n %@", error, [(NSError *)error userInfo]);
-				[self handleFTPError:(NSError *)error];
-				return;
-			} else if (l == 0) {
-				if (CFWriteStreamGetStatus(writeStream) == kCFStreamStatusAtEnd)
-				{
-					done = TRUE;
-					NSLog(@"done!");
-				}
-			} else if (l != [bitmapData length]) {
-				cur += l;
-			}
-			
-		} while (cur < end);
-		
-		CFWriteStreamClose(writeStream);
-		*/
 		[imageRep release];
 		
         CVBufferRelease(imageBuffer);
-	
-		
     }
 }
 
-- (void)uploadDidFinished {
-	NSLog(@"Delegate called: Upload did finished");
+- (void)uploadDidFinish {
+	NSLog(@"Delegate called: Upload did finish");
 }
 
-- (void)handleFTPError:(NSError *)err {
-	if (err) {
-		[self stopRecording];
-		//NSRunCriticalAlertPanel((@"Connection Error: %@", [err localizedDescription]), @"Bla", @"sorry", nil, nil, [err localizedDescription]);
-		NSRunAlertPanel((@"Connection Error: %@", [err localizedDescription]), @"foo", @"ok", nil, nil);
-	}
+- (void)uploadDidNotFinishWithError:(NSError *)error {
+	NSRunAlertPanel((@"Connection Error: %@", [error localizedDescription]), @"foo", @"ok", nil, nil);	
 }
 
 - (void) alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
