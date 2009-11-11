@@ -55,6 +55,8 @@
 - (IBAction)toggleRecording:(id)sender;
 - (IBAction)showPrefsWindow:(id)sender;
 - (IBAction)setServerAdress:(id)sender;
+- (IBAction)setInterval:(id)sender;
+- (IBAction)setIntervalUnit:(id)sender;
 
 
 

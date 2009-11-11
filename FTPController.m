@@ -12,7 +12,7 @@
 
 @implementation FTPController
 
-@synthesize usePassiveMode, writeStream, delegate;
+@synthesize usePassiveMode, delegate;
 
 typedef struct MyStreamInfo {
 	
@@ -95,9 +95,9 @@ static void
 MyUploadCallBack(CFWriteStreamRef writeStream, CFStreamEventType type, void * clientCallBackInfo)
 {
     MyStreamInfo     *info = (MyStreamInfo *)clientCallBackInfo;
-    CFIndex          bytesRead;
-    CFIndex          bytesAvailable;
-    CFIndex			bytesWritten;
+    CFIndex          bytesRead = 0;
+    CFIndex          bytesAvailable = 0;
+    CFIndex			bytesWritten = 0;
     CFErrorRef		error;
     
     assert(writeStream != NULL);
@@ -175,7 +175,6 @@ MyUploadCallBack(CFWriteStreamRef writeStream, CFStreamEventType type, void * cl
         case kCFStreamEventErrorOccurred:
             error = CFWriteStreamCopyError(info->writeStream);
             fprintf(stderr, "CFWriteStreamCopyError returned ( %ld )\n", CFErrorGetCode(error));
-			[self uploadError:(NSError *)error];
             goto exit;
         case kCFStreamEventEndEncountered:
             fprintf(stderr, "\nUpload complete\n");
@@ -287,14 +286,15 @@ MySimpleUpload(CFStringRef uploadDirectory, const UInt8 *bytes, CFIndex length, 
     return success;
 }
 
-- (BOOL)uploadData:(NSData	*)data toURL:(NSURL *)url {
+- (BOOL)uploadData:(NSData	*)data toURL:(NSURL *)url username:(NSString *)user password:(NSString *)pass {
+	[data retain];
 	const UInt8 *bytes = [data bytes];
 	CFIndex length = [data length];
 	NSString *urlString = [url absoluteString];
 	// Start uploading a file to the specified URL destination.
-	BOOL status = MySimpleUpload((CFStringRef)urlString, bytes, length, CFSTR("ftp1082640-gwosdek"), CFSTR("155z32"));
+	BOOL status = MySimpleUpload((CFStringRef)urlString, bytes, length, (CFStringRef)user, (CFStringRef)pass);
 	if (!status) fprintf(stderr, "MySimpleUpload failed\n");
-
+	[data release];
 	return status;
 }
 

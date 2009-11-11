@@ -17,14 +17,12 @@
 
 @interface FTPController : NSObject {
 	BOOL usePassiveMode;
-	CFWriteStreamRef writeStream;
 	id delegate;
 }
 
-- (BOOL)uploadData:(NSData	*)data toURL:(NSURL *)url;
+- (BOOL)uploadData:(NSData	*)data toURL:(NSURL *)url username:(NSString *)user password:(NSString *)pass;
 
 @property BOOL usePassiveMode;
-@property CFWriteStreamRef writeStream;
 @property(assign) id delegate;
 
 @end

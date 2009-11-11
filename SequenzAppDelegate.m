@@ -66,6 +66,7 @@
 
 - (void)awakeFromNib {
 	[self setSubView:settingsView];
+	[serverTextField setStringValue:[userDefaults stringForKey:@"server"]];
 }
 
 - (void)setSubView:(NSView *)theView {
@@ -92,67 +93,43 @@
     [theView setHidden: NO];
 
 }
-/*
-- (IBAction)chooseSaveFolder:(id)sender {
-	NSOpenPanel *op = [NSOpenPanel openPanel];
-	[op setCanChooseFiles:NO];
-	[op setCanChooseDirectories:YES];
-    if ([op runModal] == NSOKButton)
-    {
-        saveFolderPath = [op filename];
-		[pathMenuItem setTitle:saveFolderPath];
-		NSLog(@"Save Path: %@", saveFolderPath);
-		
-    }
-}
-*/
 
 - (IBAction)setServerAdress:(id)sender {
-	NSString *adress = [sender stringValue];
-	[userDefaults setObject:[self simplifyServerAdress:adress] forKey:@"server"];
-	NSLog(@"adress: %@", [self simplifyServerAdress:adress]);
-			
+	[userDefaults setObject:[sender stringValue] forKey:@"server"];
 }
 
-- (NSString *)simplifyServerAdress:(NSString *)URLString {
-	NSURL *url = [NSURL	URLWithString:URLString];
-	if (url) {
-		NSString *scheme = [url scheme];
-		if (scheme == nil) {
-			URLString = [@"ftp://" stringByAppendingString:URLString];
-			url = [NSURL URLWithString:URLString];
-            scheme = [url scheme];
-		}
-		if ([[url host] length]) {
-			return URLString;
-		}
-	}
-	return nil;
+- (IBAction)setInterval:(id)sender {
+	[userDefaults setObject:[NSNumber numberWithInt:[sender intValue]] forKey:@"recordingInterval"];
+}
+
+- (IBAction)setIntervalUnit:(id)sender {
+	[userDefaults setObject:[NSNumber numberWithInt:[sender indexOfSelectedItem]] forKey:@"intervalUnit"];
 }
 
 - (NSURL *)composedUploadURL {
-	NSString *urlString = [NSString stringWithFormat:@"%@://%@:%@@%@%@/%@", [[NSURL URLWithString:[userDefaults stringForKey:@"server"]] scheme],
-						   [userDefaults stringForKey:@"username"],
-						   [passwordTextField stringValue],
-						   [[NSURL URLWithString:[userDefaults stringForKey:@"server"]] host],
-						   [pathTextField stringValue],
-						   [userDefaults stringForKey:@"filename"]];
-
+	NSURL *url = [serverTextField objectValue];
+	url = [url URLByAppendingPathComponent:[pathTextField stringValue]];
+	url = [url URLByAppendingPathComponent:[filenameTextField stringValue]];
+	
+	NSString *extention;
+	NSLog(@"index: %i", [userDefaults integerForKey:@"format"]);
 	switch ([userDefaults integerForKey:@"format"]) {
-		case FORMAT_JPG:
-			urlString = [urlString stringByAppendingString:@".jpg"];				
+		case 0:
+			extention = @"jpg";				
 			break;
-		case FORMAT_PNG:
-			urlString = [urlString stringByAppendingString:@".png"];
+		case 1:
+			extention = @"png";
 			break;
-		case FORMAT_GIF:
-			urlString = [urlString stringByAppendingString:@".gif"];
+		case 2:
+			extention = @"gif";
 			break;
 		default:
-			urlString = [urlString stringByAppendingString:@".jpg"];
+			extention = @"noext";
 			break;
 	}
-	return [NSURL URLWithString:urlString];
+	
+	url = [url URLByAppendingPathExtension:extention];
+	return url;
 }
 
 - (IBAction)showPrefsWindow:(id)sender {
@@ -215,7 +192,7 @@
 	[mCaptureView setCaptureSession:mCaptureSession];
 	[mCaptureSession startRunning];
 	
-	sequenceTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(capturePic:) userInfo:nil repeats:YES];
+	sequenceTimer = [NSTimer scheduledTimerWithTimeInterval:7.0 target:self selector:@selector(capturePic:) userInfo:nil repeats:YES];
 }
 
 - (void)stopRecording {
@@ -232,8 +209,6 @@
 }
 
 - (void)capturePic:(NSTimer *)aTimer {
-
-	NSLog(@"url: %@", [self composedUploadURL]);
 	
 	CVImageBufferRef imageBuffer;
 	
@@ -242,18 +217,49 @@
     }
 	
     if (imageBuffer) {
-
+		float factor;
+		switch ([userDefaults integerForKey:@"quality"]) {
+			case 0:
+				factor = 0.5;
+				break;
+			case 1:
+				factor = 0.75;
+				break;
+			case 2:
+				factor = 1.0;
+				break;
+			default:
+				factor = 0.5;
+				break;
+		}
+		NSLog(@"factor: %f", factor);
+		
+		NSBitmapImageFileType type;
+		switch ([userDefaults integerForKey:@"format"]) {
+			case 0:
+				type = NSJPEGFileType;
+				break;
+			case 1:
+				type = NSPNGFileType;
+				break;
+			case 2:
+				type = NSGIFFileType;
+				break;
+			default:
+				type = NSJPEGFileType;
+				break;
+		}
+		
 		NSBitmapImageRep *imageRep;
 		imageRep = [[NSBitmapImageRep alloc] initWithCIImage:[CIImage imageWithCVImageBuffer:imageBuffer]];
 		NSData *bitmapData;
-		bitmapData = [imageRep representationUsingType:NSJPEGFileType 
-											properties:[NSDictionary dictionaryWithObject:[NSDecimalNumber numberWithFloat:0.7] forKey:NSImageCompressionFactor]];
+		bitmapData = [imageRep representationUsingType:type 
+											properties:[NSDictionary dictionaryWithObject:[NSDecimalNumber numberWithFloat:factor] forKey:NSImageCompressionFactor]];
 	
 		
-		BOOL success = [ftpController uploadData:bitmapData toURL:[NSURL URLWithString:@"ftp://gwosdek.net/capture.jpg"]];
+		BOOL success = [ftpController uploadData:bitmapData toURL:[self composedUploadURL] username:[usernameTextField stringValue] password:[passwordTextField stringValue]];
 		
 		[imageRep release];
-		
         CVBufferRelease(imageBuffer);
     }
 }

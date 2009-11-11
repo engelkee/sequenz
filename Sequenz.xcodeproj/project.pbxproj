@@ -12,6 +12,7 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		F202D17C10AACD5F00905A04 /* URLFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F202D17B10AACD5F00905A04 /* URLFormatter.m */; };
 		F235BBCA10A2D247001B9C73 /* Prefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = F235BBC810A2D247001B9C73 /* Prefs.xib */; };
 		F235BBD610A2D3E8001B9C73 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F235BBD510A2D3E8001B9C73 /* PrefsController.m */; };
 		F24A59F910A096FC0096BC7B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24A59F810A096FC0096BC7B /* QuartzCore.framework */; };
@@ -32,6 +33,8 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Sequenz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sequenz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F202D17A10AACD5F00905A04 /* URLFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLFormatter.h; sourceTree = "<group>"; };
+		F202D17B10AACD5F00905A04 /* URLFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFormatter.m; sourceTree = "<group>"; };
 		F235BBC910A2D247001B9C73 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Prefs.xib; sourceTree = "<group>"; };
 		F235BBD410A2D3E8001B9C73 /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsController.h; sourceTree = "<group>"; };
 		F235BBD510A2D3E8001B9C73 /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsController.m; sourceTree = "<group>"; };
@@ -64,6 +67,8 @@
 				F235BBD510A2D3E8001B9C73 /* PrefsController.m */,
 				F276828510A8362300AD45C2 /* FTPController.h */,
 				F276828610A8362300AD45C2 /* FTPController.m */,
+				F202D17A10AACD5F00905A04 /* URLFormatter.h */,
+				F202D17B10AACD5F00905A04 /* URLFormatter.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				256AC3DA0F4B6AC300CF3369 /* SequenzAppDelegate.m in Sources */,
 				F235BBD610A2D3E8001B9C73 /* PrefsController.m in Sources */,
 				F276828710A8362300AD45C2 /* FTPController.m in Sources */,
+				F202D17C10AACD5F00905A04 /* URLFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
