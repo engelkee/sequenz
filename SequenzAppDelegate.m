@@ -20,10 +20,37 @@
 #define FORMAT_PNG 1
 #define FORMAT_GIF 2
 
+struct MemoryStruct
+{
+	char *memory;
+	size_t size;
+};
+
+static size_t ReadMemoryCallback(void *ptr, size_t size, size_t nmemb, void *pMem)
+{
+	struct MemoryStruct *pRead = (struct MemoryStruct *)pMem; 
+    size_t ReadLength = size * nmemb; 
+    if (pRead->size >= ReadLength) 
+    { 
+        memcpy((char *)ptr, &pRead->memory[0], ReadLength); 
+        pRead->memory += ReadLength; 
+        pRead->size -= ReadLength; 
+        return ReadLength; 
+    } 
+    else if ((pRead->size < ReadLength) && (pRead->size > 0)) 
+    { 
+        size_t ReturnSize = pRead->size; 
+        memcpy((char *)ptr, &pRead->memory[0], pRead->size); 
+        pRead->memory += pRead->size; 
+        pRead->size = 0; 
+        return(ReturnSize); 
+    } 
+    else 
+        return 0; 
+}
 
 @interface SequenzAppDelegate (Private) 
 
-- (NSString *)simplifyServerAdress:(NSString *)URLString;
 - (void)setSubView:(NSView *)theView;
 
 @end
@@ -257,9 +284,60 @@
 											properties:[NSDictionary dictionaryWithObject:[NSDecimalNumber numberWithFloat:factor] forKey:NSImageCompressionFactor]];
 	
 		
-		BOOL success = [ftpController uploadData:bitmapData toURL:[self composedUploadURL] username:[usernameTextField stringValue] password:[passwordTextField stringValue]];
+		//BOOL success = [ftpController uploadData:bitmapData toURL:[self composedUploadURL] username:[usernameTextField stringValue] password:[passwordTextField stringValue]];
+		
+		
+		CURL *curl;
+		CURLcode res;
+		double dUploadSpeed, dTotalTime;
+		
+		struct MemoryStruct sData;
+		
+		sData.memory = (char *)[bitmapData bytes];
+		sData.size = [bitmapData length];
+		
+		/* In windows, this will init the winsock stuff */ 
+		curl_global_init(CURL_GLOBAL_ALL);
+		
+		/* get a curl handle */ 
+		curl = curl_easy_init();
+		if(curl) {
+			
+			/* we want to use our own read function */ 
+			curl_easy_setopt(curl, CURLOPT_READFUNCTION, ReadMemoryCallback);
+			
+			/* enable uploading */ 
+			curl_easy_setopt(curl, CURLOPT_UPLOAD, 1L);
+			
+			/* specify target */ 
+			curl_easy_setopt(curl, CURLOPT_URL, [[[self composedUploadURL] absoluteString] UTF8String]);
+			curl_easy_setopt(curl, CURLOPT_USERNAME, [[usernameTextField stringValue] UTF8String]);
+			curl_easy_setopt(curl, CURLOPT_PASSWORD, [[passwordTextField stringValue] UTF8String]);
+			/* now specify which file to upload */ 
+			curl_easy_setopt(curl, CURLOPT_READDATA, (void *)&sData);
+			
+			/* Set the size of the file to upload (optional).  If you give a *_LARGE
+			 option you MUST make sure that the type of the passed-in argument is a
+			 curl_off_t. If you use CURLOPT_INFILESIZE (without _LARGE) you must
+			 make sure that to pass in a type 'long' argument. */ 
+			curl_easy_setopt(curl, CURLOPT_INFILESIZE_LARGE, (curl_off_t)sData.size);
+			
+			/* Now run off and do what you've been told! */ 
+			res = curl_easy_perform(curl);
+
+			fprintf(stderr, "Fehlercode: %i\n", res);
+			curl_easy_getinfo(curl, CURLINFO_SPEED_UPLOAD, &dUploadSpeed);
+			curl_easy_getinfo(curl, CURLINFO_TOTAL_TIME, &dTotalTime);
+			fprintf(stderr, "Speed: %.3f bytes/sec during %.3f seconds\n", dUploadSpeed, dTotalTime);
+			
+			/* always cleanup */ 
+			curl_easy_cleanup(curl);
+		}
+		
+		curl_global_cleanup();
 		
 		[imageRep release];
+
         CVBufferRelease(imageBuffer);
     }
 }

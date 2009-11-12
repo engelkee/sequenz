@@ -9,6 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import <QTKit/QTKit.h>
 #import <QuartzCore/CoreAnimation.h>
+#import <curl/curl.h>
+#import <sys/types.h>
+#import <sys/stat.h>
 
 @class PrefsController;
 @class FTPController;
