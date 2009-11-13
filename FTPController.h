@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <curl/curl.h>
 
 @interface NSObject (FTPController)
 

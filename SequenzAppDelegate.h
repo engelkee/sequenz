@@ -28,6 +28,8 @@
 	IBOutlet NSView *recordingView;
 	IBOutlet NSView *swapView;
 	
+	IBOutlet NSButton *startStopButton;
+	
 	IBOutlet NSTextField *intervalTextField;
 	IBOutlet NSPopUpButton *intervalUnitPopUp;
 	IBOutlet NSPopUpButton *qualityPopUp;
@@ -48,9 +50,12 @@
 	
 	NSTimer *sequenceTimer;
 	NSString *saveFolderPath;
+	
+	BOOL isRecording;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property BOOL isRecording;
 
 - (void)startRecording;
 - (void)stopRecording;
