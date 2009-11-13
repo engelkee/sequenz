@@ -369,7 +369,7 @@
 						<object class="NSButton" id="602356454">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">256</int>
-							<string key="NSFrame">{{115, 16}, {100, 19}}</string>
+							<string key="NSFrame">{{111, 16}, {100, 19}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="169651002">
@@ -997,6 +997,7 @@
 				<object class="NSMutableArray" key="NSDeclaredKeys">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>server</string>
+					<string>server@length</string>
 				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
@@ -1168,14 +1169,6 @@
 					<int key="connectionID">977</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">toggleRecording:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="602356454"/>
-					</object>
-					<int key="connectionID">978</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">settingsView</string>
 						<reference key="source" ref="976324537"/>
@@ -1304,34 +1297,6 @@
 					<int key="connectionID">1014</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">setServerAdress:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="802953080"/>
-					</object>
-					<int key="connectionID">1019</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: values.server</string>
-						<reference key="source" ref="602356454"/>
-						<reference key="destination" ref="713448826"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="602356454"/>
-							<reference key="NSDestination" ref="713448826"/>
-							<string key="NSLabel">enabled: values.server</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">values.server</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSIsNotNil</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">1024</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: values.filename</string>
 						<reference key="source" ref="696331823"/>
@@ -1428,14 +1393,6 @@
 					<int key="connectionID">1049</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">startStopButton</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="602356454"/>
-					</object>
-					<int key="connectionID">1056</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">toggleRecording:</string>
 						<reference key="source" ref="976324537"/>
@@ -1500,6 +1457,14 @@
 					<int key="connectionID">1073</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">setServerAdress:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="802953080"/>
+					</object>
+					<int key="connectionID">1095</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: values.recordingInterval</string>
 						<reference key="source" ref="83895405"/>
@@ -1511,22 +1476,61 @@
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">values.recordingInterval</string>
 							<object class="NSDictionary" key="NSOptions">
-								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSArray" key="dict.sortedKeys">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<string>NSNullPlaceholder</string>
-									<string>NSValidatesImmediately</string>
-								</object>
-								<object class="NSMutableArray" key="dict.values">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<real value="5"/>
-									<boolean value="YES"/>
-								</object>
+								<string key="NS.key.0">NSNullPlaceholder</string>
+								<real value="5" key="NS.object.0"/>
 							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">1076</int>
+					<int key="connectionID">1108</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: values.server</string>
+						<reference key="source" ref="602356454"/>
+						<reference key="destination" ref="713448826"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="602356454"/>
+							<reference key="NSDestination" ref="713448826"/>
+							<string key="NSLabel">enabled: values.server</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">values.server</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNotNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1113</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">toggleRecording:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="602356454"/>
+					</object>
+					<int key="connectionID">1119</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.server</string>
+						<reference key="source" ref="802953080"/>
+						<reference key="destination" ref="713448826"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="802953080"/>
+							<reference key="NSDestination" ref="713448826"/>
+							<string key="NSLabel">value: values.server</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.server</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSNullPlaceholder</string>
+								<string key="NS.object.0">ftp://domain.com</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1121</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1772,8 +1776,8 @@
 						<reference key="object" ref="439893737"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="602356454"/>
 							<reference ref="47986529"/>
+							<reference ref="602356454"/>
 						</object>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -1829,11 +1833,11 @@
 							<reference ref="68386112"/>
 							<reference ref="188611345"/>
 							<reference ref="735148028"/>
-							<reference ref="802953080"/>
 							<reference ref="1073195406"/>
 							<reference ref="957464914"/>
 							<reference ref="250018772"/>
 							<reference ref="282955374"/>
+							<reference ref="802953080"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Settings</string>
@@ -2302,6 +2306,7 @@
 					<string>29.editorWindowContentRectSynchronizationRect</string>
 					<string>371.IBEditorWindowLastContentRect</string>
 					<string>371.IBPluginDependency</string>
+					<string>371.IBViewEditorWindowController.showingBoundsRectangles</string>
 					<string>371.IBWindowTemplateEditedContentRect</string>
 					<string>371.NSWindowTemplate.visibleAtLaunch</string>
 					<string>371.editorWindowContentRectSynchronizationRect</string>
@@ -2453,9 +2458,10 @@
 					<integer value="1"/>
 					<string>{74, 862}</string>
 					<string>{{6, 978}, {478, 20}}</string>
-					<string>{{652, 369}, {322, 456}}</string>
+					<string>{{878, 493}, {322, 456}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{652, 369}, {322, 456}}</string>
+					<boolean value="YES"/>
+					<string>{{878, 493}, {322, 456}}</string>
 					<integer value="1"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<boolean value="NO"/>
@@ -2465,11 +2471,6 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSMutableArray">
 						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="IBUserGuide">
-							<reference key="view" ref="439893737"/>
-							<double key="location">165</double>
-							<int key="affinity">0</int>
-						</object>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2576,7 +2577,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1076</int>
+			<int key="maxID">1121</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2621,12 +2622,10 @@
 							<string>mCaptureView</string>
 							<string>passwordTextField</string>
 							<string>pathTextField</string>
-							<string>portTextField</string>
 							<string>qualityPopUp</string>
 							<string>recordingView</string>
 							<string>serverTextField</string>
 							<string>settingsView</string>
-							<string>startStopButton</string>
 							<string>swapView</string>
 							<string>usernameTextField</string>
 							<string>window</string>
@@ -2640,12 +2639,10 @@
 							<string>QTCaptureView</string>
 							<string>NSTextField</string>
 							<string>NSTextField</string>
-							<string>NSTextField</string>
 							<string>NSPopUpButton</string>
 							<string>NSView</string>
 							<string>NSTextField</string>
 							<string>NSView</string>
-							<string>NSButton</string>
 							<string>NSView</string>
 							<string>NSTextField</string>
 							<string>NSWindow</string>

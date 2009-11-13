@@ -12,34 +12,31 @@
 @implementation URLFormatter
 
 - (NSString *)stringForObjectValue:(id)anObject {
-	if (![anObject isKindOfClass:[NSURL class]]) {
-		return @"";
-	} else {
-		return [anObject absoluteString];
-	}
-
+	return [anObject description];
 }
 
 - (BOOL)getObjectValue:(id *)anObject forString:(NSString *)string errorDescription:(NSString **)error {
-	NSURL *url = [NSURL	URLWithString:string];
-	NSString *scheme = [url scheme];
 	NSString *err = nil;
-	if( url && scheme == nil ) {
-		if( [string rangeOfString: @"."].length > 0 ) {
-			string = [@"ftp://" stringByAppendingString: string];
-			url = [NSURL URLWithString: string];
-			scheme = [url scheme];
-		} else {
-			url = nil;
+	*anObject = nil;
+	if ([string length] == 0) {
+	} else {
+		NSURL *url = [NSURL	URLWithString:string];
+		NSString *scheme = [url scheme];
+		if( url && scheme == nil ) {
+			if( [string rangeOfString: @"."].length > 0 ) {
+				string = [@"ftp://" stringByAppendingString: string];
+				url = [NSURL URLWithString: string];
+				scheme = [url scheme];
+			} else {
+				url = nil;
+			}
 		}
-	}
-	if(!url || url.host.length == 0) {
-		err = @"Invalid URL";
-		if (error != NULL) {
-			*error = err;
+		if(!url || url.host.length == 0) {
+			err = @"Invalid URL";
 		}
+		*anObject = [url absoluteString];
 	}
-	*anObject = url;
+	if( error ) *error = err;
 	return (err == nil);
 }
 

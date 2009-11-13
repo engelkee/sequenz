@@ -9,9 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import <QTKit/QTKit.h>
 #import <QuartzCore/CoreAnimation.h>
-#import <curl/curl.h>
-#import <sys/types.h>
-#import <sys/stat.h>
 
 @class PrefsController;
 @class FTPController;
@@ -28,8 +25,6 @@
 	IBOutlet NSView *recordingView;
 	IBOutlet NSView *swapView;
 	
-	IBOutlet NSButton *startStopButton;
-	
 	IBOutlet NSTextField *intervalTextField;
 	IBOutlet NSPopUpButton *intervalUnitPopUp;
 	IBOutlet NSPopUpButton *qualityPopUp;
@@ -40,7 +35,6 @@
 	IBOutlet NSTextField *usernameTextField;
 	IBOutlet NSTextField *passwordTextField;
 	IBOutlet NSTextField *pathTextField;
-	IBOutlet NSTextField *portTextField;
 
 	QTCaptureSession *mCaptureSession;
 	QTCaptureDeviceInput *mCaptureDeviceInput;
@@ -49,7 +43,6 @@
 	CVImageBufferRef mCurrentImageBuffer;
 	
 	NSTimer *sequenceTimer;
-	NSString *saveFolderPath;
 	
 	BOOL isRecording;
 }

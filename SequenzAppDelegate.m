@@ -23,7 +23,7 @@
 
 @interface SequenzAppDelegate (Private) 
 								
-- (void)setSubView:(NSView *)theView;
+- (void)switchSubViews;
 
 @end
 
@@ -43,6 +43,7 @@
 	[defaultValues setObject:[NSNumber numberWithInt:1] forKey:@"quality"];
 	[defaultValues setObject:[NSNumber numberWithInt:0] forKey:@"format"];
 	[defaultValues setObject:@"CaptureImage" forKey:@"filename"];
+	//[defaultValues setObject:@"" forKey:@"server"];
 	
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
 }
@@ -72,7 +73,7 @@
 
 - (void)awakeFromNib {
 	[self switchSubViews];
-	[serverTextField setStringValue:[userDefaults stringForKey:@"server"]];
+	//[serverTextField setStringValue:[userDefaults stringForKey:@"server"]];
 }
 
 #pragma mark Private methods
@@ -114,7 +115,7 @@
 }
 
 - (NSURL *)composedUploadURL {
-	NSURL *url = [serverTextField objectValue];
+	NSURL *url = [NSURL URLWithString:[serverTextField objectValue]];
 	url = [url URLByAppendingPathComponent:[pathTextField stringValue]];
 	url = [url URLByAppendingPathComponent:[filenameTextField stringValue]];
 	
@@ -146,7 +147,8 @@
 #pragma mark UI actions
 
 - (IBAction)setServerAdress:(id)sender {
-	[userDefaults setObject:[sender stringValue] forKey:@"server"];
+	//[userDefaults setObject:[sender stringValue] forKey:@"server"];
+	//[[sender stringValue] length] > 0 ? [startStopButton setEnabled:YES] : [startStopButton setEnabled:NO];
 }
 
 - (IBAction)setInterval:(id)sender {
@@ -222,7 +224,6 @@
 	[sequenceTimer invalidate];
 	[mCaptureSession stopRunning];
 	[self setIsRecording:NO];
-	[startStopButton setState:NSOffState];
 	
 	/*
 	QTCaptureDevice *device = [mCaptureDeviceInput device];
