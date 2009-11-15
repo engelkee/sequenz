@@ -10,11 +10,11 @@
 #import <QTKit/QTKit.h>
 #import <QuartzCore/CoreAnimation.h>
 
-@class PrefsController;
+@class Camera;
 @class FTPController;
 
 @interface SequenzAppDelegate : NSObject <NSApplicationDelegate> {
-	PrefsController *prefController;
+	Camera *mCamera;
 	FTPController *ftpController;
 	NSUserDefaults *userDefaults;
 	
@@ -35,12 +35,6 @@
 	IBOutlet NSTextField *usernameTextField;
 	IBOutlet NSTextField *passwordTextField;
 	IBOutlet NSTextField *pathTextField;
-
-	QTCaptureSession *mCaptureSession;
-	QTCaptureDeviceInput *mCaptureDeviceInput;
-	QTCaptureDecompressedVideoOutput *mCaptureDecompressedVideoOutput;
-	
-	CVImageBufferRef mCurrentImageBuffer;
 	
 	NSTimer *sequenceTimer;
 	
@@ -54,7 +48,7 @@
 - (void)stopRecording;
 
 - (IBAction)toggleRecording:(id)sender;
-- (IBAction)showPrefsWindow:(id)sender;
+//- (IBAction)showPrefsWindow:(id)sender;
 - (IBAction)setServerAdress:(id)sender;
 - (IBAction)setInterval:(id)sender;
 - (IBAction)setIntervalUnit:(id)sender;

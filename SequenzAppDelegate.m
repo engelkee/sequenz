@@ -7,7 +7,7 @@
 //
 
 #import "SequenzAppDelegate.h"
-#import "PrefsController.h"
+#import "Camera.h"
 #import "FTPController.h"
 
 
@@ -120,7 +120,7 @@
 	url = [url URLByAppendingPathComponent:[filenameTextField stringValue]];
 	
 	NSString *extention;
-	NSLog(@"index: %i", [userDefaults integerForKey:@"format"]);
+
 	switch ([userDefaults integerForKey:@"format"]) {
 		case 0:
 			extention = @"jpg";				
@@ -158,7 +158,7 @@
 - (IBAction)setIntervalUnit:(id)sender {
 	[userDefaults setObject:[NSNumber numberWithInt:[sender indexOfSelectedItem]] forKey:@"intervalUnit"];
 }
-
+/*
 - (IBAction)showPrefsWindow:(id)sender {
 	if(!prefController) {
 		prefController = [[PrefsController alloc] init];
@@ -166,7 +166,7 @@
 	NSWindow *prefWindow = [prefController window];
 	[prefController showWindow:prefWindow];
 }
-
+*/
 - (IBAction)toggleRecording:(id)sender {	
 	NSInteger state = [sender state];
 	if (state == NSOnState) {
@@ -180,38 +180,10 @@
 
 - (void)startRecording {
 	[self setIsRecording:YES];
-	NSError *error = nil;
-	if (!mCaptureSession) {
-		BOOL success;
-		
-		mCaptureSession = [[QTCaptureSession alloc] init];
-		
-		QTCaptureDevice *device = [QTCaptureDevice defaultInputDeviceWithMediaType:QTMediaTypeVideo];
-		success = [device open:&error];
-		if (!success) {
-			[[NSAlert alertWithError:error] runModal];
-			return;
-		}
-		mCaptureDeviceInput = [[QTCaptureDeviceInput alloc] initWithDevice:device];
-		success = [mCaptureSession addInput:mCaptureDeviceInput error:&error];
-		if (!success) {
-			[[NSAlert alertWithError:error] runModal];
-			return;
-		} 
-		
-		mCaptureDecompressedVideoOutput = [[QTCaptureDecompressedVideoOutput alloc] init];
-        [mCaptureDecompressedVideoOutput setDelegate:self];
-        success = [mCaptureSession addOutput:mCaptureDecompressedVideoOutput error:&error];
-        if (!success) {
-            [[NSAlert alertWithError:error] runModal];
-            return;
-        }
-		
-	}
-	
-	[mCaptureView setCaptureSession:mCaptureSession];
-	[mCaptureSession startRunning];
-	NSLog(@"Interval: %f", [self convertedInterval]);
+	mCamera = [[Camera alloc] init];
+	[mCaptureView setCaptureSession:[mCamera mCaptureSession]];
+	[[mCamera mCaptureSession] startRunning];
+
 	sequenceTimer = [NSTimer scheduledTimerWithTimeInterval:[self convertedInterval]
 													 target:self 
 												   selector:@selector(capturePic:) 
@@ -222,7 +194,8 @@
 - (void)stopRecording {
 	
 	[sequenceTimer invalidate];
-	[mCaptureSession stopRunning];
+	[[mCamera mCaptureSession] stopRunning];
+	[mCamera release];
 	[self setIsRecording:NO];
 	
 	/*
@@ -234,64 +207,46 @@
 }
 
 - (void)capturePic:(NSTimer *)aTimer {
-	
-	CVImageBufferRef imageBuffer;
-	
-    @synchronized (self) {
-        imageBuffer = CVBufferRetain(mCurrentImageBuffer);
-    }
-	
-    if (imageBuffer) {
-		float factor;
-		switch ([userDefaults integerForKey:@"quality"]) {
-			case 0:
-				factor = 0.5;
-				break;
-			case 1:
-				factor = 0.75;
-				break;
-			case 2:
-				factor = 1.0;
-				break;
-			default:
-				factor = 0.5;
-				break;
-		}
-		NSLog(@"factor: %f", factor);
-		
-		NSBitmapImageFileType type;
-		switch ([userDefaults integerForKey:@"format"]) {
-			case 0:
-				type = NSJPEGFileType;
-				break;
-			case 1:
-				type = NSPNGFileType;
-				break;
-			case 2:
-				type = NSGIFFileType;
-				break;
-			default:
-				type = NSJPEGFileType;
-				break;
-		}
-		
-		NSBitmapImageRep *imageRep;
-		imageRep = [[NSBitmapImageRep alloc] initWithCIImage:[CIImage imageWithCVImageBuffer:imageBuffer]];
-		NSData *bitmapData;
-		bitmapData = [imageRep representationUsingType:type 
-											properties:[NSDictionary dictionaryWithObject:[NSDecimalNumber numberWithFloat:factor] 
-																				   forKey:NSImageCompressionFactor]];
-	
-		
-		BOOL success = [ftpController uploadData:bitmapData 
-										   toURL:[self composedUploadURL] 
-										username:[usernameTextField stringValue] 
-										password:[passwordTextField stringValue]];
 
-		[imageRep release];
+	float factor;
+	switch ([userDefaults integerForKey:@"quality"]) {
+		case 0:
+			factor = 0.5;
+			break;
+		case 1:
+			factor = 0.75;
+			break;
+		case 2:
+			factor = 1.0;
+			break;
+		default:
+			factor = 0.5;
+			break;
+	}
+	
+	NSBitmapImageFileType type;
+	switch ([userDefaults integerForKey:@"format"]) {
+		case 0:
+			type = NSJPEGFileType;
+			break;
+		case 1:
+			type = NSPNGFileType;
+			break;
+		case 2:
+			type = NSGIFFileType;
+			break;
+		default:
+			type = NSJPEGFileType;
+			break;
+	}
+	
+	NSData *imageData = [mCamera takePictureWithFileType:type quality:[NSNumber numberWithFloat:factor]];
 
-        CVBufferRelease(imageBuffer);
-    }
+	BOOL success = [ftpController uploadData:imageData 
+									   toURL:[self composedUploadURL] 
+									username:[usernameTextField stringValue] 
+									password:[passwordTextField stringValue]];
+
 }
 
 #pragma mark Delegates
@@ -310,20 +265,6 @@
 
 - (void)sheetDidDismiss:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void  *)contextInfo {
 	[self switchSubViews];
-}
-
-- (void)captureOutput:(QTCaptureOutput *)captureOutput didOutputVideoFrame:(CVImageBufferRef)videoFrame 
-	 withSampleBuffer:(QTSampleBuffer *)sampleBuffer fromConnection:(QTCaptureConnection *)connection {
-	CVImageBufferRef imageBufferToRelease;
-	
-    CVBufferRetain(videoFrame);
-	
-    @synchronized (self) {
-        imageBufferToRelease = mCurrentImageBuffer;
-        mCurrentImageBuffer = videoFrame;
-    }
-    CVBufferRelease(imageBufferToRelease);
-	
 }
 
 @end
