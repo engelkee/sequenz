@@ -16,6 +16,7 @@
 		F235BBCA10A2D247001B9C73 /* Prefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = F235BBC810A2D247001B9C73 /* Prefs.xib */; };
 		F235BBD610A2D3E8001B9C73 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F235BBD510A2D3E8001B9C73 /* PrefsController.m */; };
 		F24A59F910A096FC0096BC7B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24A59F810A096FC0096BC7B /* QuartzCore.framework */; };
+		F260D23510B1EED000E3F7B0 /* sequenz_sw.icns in Resources */ = {isa = PBXBuildFile; fileRef = F260D23410B1EED000E3F7B0 /* sequenz_sw.icns */; };
 		F276828710A8362300AD45C2 /* FTPController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276828610A8362300AD45C2 /* FTPController.m */; };
 		F2B8DE5510ADD1B8002C9AD5 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8DE5410ADD1B8002C9AD5 /* Camera.m */; };
 		F2BC05BC10AB52E700C3C70B /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BC05BB10AB52E700C3C70B /* libcurl.dylib */; };
@@ -41,6 +42,7 @@
 		F235BBD410A2D3E8001B9C73 /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsController.h; sourceTree = "<group>"; };
 		F235BBD510A2D3E8001B9C73 /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsController.m; sourceTree = "<group>"; };
 		F24A59F810A096FC0096BC7B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		F260D23410B1EED000E3F7B0 /* sequenz_sw.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = sequenz_sw.icns; sourceTree = "<group>"; };
 		F276828510A8362300AD45C2 /* FTPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPController.h; sourceTree = "<group>"; };
 		F276828610A8362300AD45C2 /* FTPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPController.m; sourceTree = "<group>"; };
 		F2B8DE5310ADD1B8002C9AD5 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F260D23410B1EED000E3F7B0 /* sequenz_sw.icns */,
 				F235BBC810A2D247001B9C73 /* Prefs.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -197,6 +200,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				F235BBCA10A2D247001B9C73 /* Prefs.xib in Resources */,
+				F260D23510B1EED000E3F7B0 /* sequenz_sw.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
