@@ -17,23 +17,12 @@
 
 @interface PrefsController : NSWindowController {
 
-	IBOutlet NSTextField *ftpServerName;
-	IBOutlet NSTextField *ftpUserName;
-	IBOutlet NSTextField *ftpPassword;
-	IBOutlet NSTextField *ftpPath;
-	IBOutlet NSTextField *ftpPort;
+	IBOutlet NSButton *captureWithTimestamp;
 	
-	IBOutlet NSTextField *captureIntervallValue;
-	IBOutlet NSPopUpButton *captureIntervallUnit;
-	IBOutlet NSPopUpButton *imageQuality;
-	
-	IBOutlet NSView *imagePrefView;
-	IBOutlet NSView *uploadPrefView;
+	//IBOutlet NSView *imagePrefView;
+	//IBOutlet NSView *uploadPrefView;
 }
 
-- (IBAction)setPrefsView:(id)sender;
-- (IBAction)setCaptureIntervallValue:(id)sender;
-- (IBAction)setCaptureIntervallUnit:(id)sender;
-- (IBAction)setImageQuality:(id)sender; 
+//- (IBAction)setPrefsView:(id)sender;
 
 @end

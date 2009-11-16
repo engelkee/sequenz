@@ -20,9 +20,9 @@
 
 - (void)awakeFromNib {
 	NSLog(@"awake");
-	[self setPrefsView:nil];
+	//[self setPrefsView:nil];
 }
-
+/*
 - (IBAction)setPrefsView:(id)sender {
 	NSString * identifier;
     if (sender)
@@ -49,10 +49,7 @@
     
 	
     [[[self window] toolbar] setSelectedItemIdentifier: identifier];
-    /*
-	if ([window contentView] == view)
-        return;
-    */
+
 	NSWindow *window = [self window];
     NSRect windowRect = [window frame];
     float difference = ([view frame].size.height - [[window contentView] frame].size.height) * [window userSpaceScaleFactor];
@@ -86,6 +83,6 @@
 	NSLog(@"bis hier");
 	 
 }
-
+*/
 
 @end

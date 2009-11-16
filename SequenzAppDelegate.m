@@ -158,7 +158,7 @@
 - (IBAction)setIntervalUnit:(id)sender {
 	[userDefaults setObject:[NSNumber numberWithInt:[sender indexOfSelectedItem]] forKey:@"intervalUnit"];
 }
-/*
+
 - (IBAction)showPrefsWindow:(id)sender {
 	if(!prefController) {
 		prefController = [[PrefsController alloc] init];
@@ -166,7 +166,7 @@
 	NSWindow *prefWindow = [prefController window];
 	[prefController showWindow:prefWindow];
 }
-*/
+
 - (IBAction)toggleRecording:(id)sender {	
 	NSInteger state = [sender state];
 	if (state == NSOnState) {

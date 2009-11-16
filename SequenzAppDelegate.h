@@ -12,10 +12,12 @@
 
 @class Camera;
 @class FTPController;
+@class PrefsController;
 
 @interface SequenzAppDelegate : NSObject <NSApplicationDelegate> {
 	Camera *mCamera;
 	FTPController *ftpController;
+	PrefsController *prefController;
 	NSUserDefaults *userDefaults;
 	
     NSWindow *window;
@@ -48,7 +50,7 @@
 - (void)stopRecording;
 
 - (IBAction)toggleRecording:(id)sender;
-//- (IBAction)showPrefsWindow:(id)sender;
+- (IBAction)showPrefsWindow:(id)sender;
 - (IBAction)setServerAdress:(id)sender;
 - (IBAction)setInterval:(id)sender;
 - (IBAction)setIntervalUnit:(id)sender;

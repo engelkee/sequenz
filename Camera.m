@@ -11,6 +11,7 @@
 @interface Camera (Private)
 
 - (void)openShutter;
+- (void)drawCaptureDate:(NSDate *)date toImageRep:(NSBitmapImageRep *)rep;
 
 @end
 
@@ -73,7 +74,9 @@
 		NSBitmapImageRep *imageRep;
 		imageRep = [[NSBitmapImageRep alloc] initWithCIImage:[CIImage imageWithCVImageBuffer:imageBuffer]];
 		
-		[self drawCaptureDate:[NSDate date] toImageRep:imageRep];
+		if ([[NSUserDefaults standardUserDefaults] boolForKey:@"imageWithTimestamp"]) {
+			[self drawCaptureDate:[NSDate date] toImageRep:imageRep];
+		}
 		
 		bitmapData = [imageRep representationUsingType:type 
 											properties:[NSDictionary dictionaryWithObject:qual 
