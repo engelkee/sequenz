@@ -107,8 +107,11 @@
 	NSGraphicsContext *gc = [NSGraphicsContext graphicsContextWithBitmapImageRep:rep];
 	[NSGraphicsContext setCurrentContext:gc];
 	NSString *dateString = [date description];
+	NSColor *color = [NSColor redColor];
 	NSFont *font = [NSFont fontWithName:@"Palatino-Roman" size:18.0];
-	NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+	NSMutableDictionary *attrsDictionary = [NSMutableDictionary dictionary];
+	[attrsDictionary setObject:font forKey:NSFontAttributeName];
+	[attrsDictionary setObject:color forKey:NSForegroundColorAttributeName];
 	[dateString drawAtPoint:NSMakePoint(10.0, 10.0) withAttributes:attrsDictionary];
 	[NSGraphicsContext restoreGraphicsState];
 }
