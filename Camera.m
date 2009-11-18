@@ -7,6 +7,7 @@
 //
 
 #import "Camera.h"
+#import "PrefsController.h"
 
 @interface Camera (Private)
 
@@ -106,9 +107,9 @@
 	[NSGraphicsContext saveGraphicsState];
 	NSGraphicsContext *gc = [NSGraphicsContext graphicsContextWithBitmapImageRep:rep];
 	[NSGraphicsContext setCurrentContext:gc];
-	NSString *dateString = [date description];
-	NSColor *color = [NSColor redColor];
-	NSFont *font = [NSFont fontWithName:@"Palatino-Roman" size:18.0];
+	NSString *dateString = [date descriptionWithLocale:[NSLocale currentLocale]];
+	NSColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] valueForKey:SQTimestampColor]];
+	NSFont *font = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] valueForKey:SQTimestampFont]];
 	NSMutableDictionary *attrsDictionary = [NSMutableDictionary dictionary];
 	[attrsDictionary setObject:font forKey:NSFontAttributeName];
 	[attrsDictionary setObject:color forKey:NSForegroundColorAttributeName];

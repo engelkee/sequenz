@@ -8,12 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-#define IMG_QUAL_LOW 0.5
-#define IMG_QUAL_MID 0.75
-#define IMG_QUAL_HIGH 1.0
-#define INTERVALL_UNIT_SEC 0
-#define INTERVALL_UNIT_MIN 1
-
 extern NSString *SQInsertTimestampFlag;
 extern NSString *SQTimestampColor;
 extern NSString *SQTimestampFont;

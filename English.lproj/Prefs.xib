@@ -30,7 +30,7 @@
 			<object class="NSWindowTemplate" id="362995148">
 				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 426}, {401, 84}}</string>
+				<string key="NSWindowRect">{{196, 426}, {497, 84}}</string>
 				<int key="NSWTFlags">1685586944</int>
 				<string key="NSWindowTitle">Preferences</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -106,7 +106,7 @@
 						<object class="NSButton" id="146756349">
 							<reference key="NSNextResponder" ref="410249537"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{287, 14}, {100, 32}}</string>
+							<string key="NSFrame">{{383, 14}, {100, 32}}</string>
 							<reference key="NSSuperview" ref="410249537"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="477373312">
@@ -126,7 +126,7 @@
 						<object class="NSTextField" id="423292926">
 							<reference key="NSNextResponder" ref="410249537"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{78, 20}, {207, 22}}</string>
+							<string key="NSFrame">{{78, 20}, {303, 22}}</string>
 							<reference key="NSSuperview" ref="410249537"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="721837960">
@@ -153,7 +153,7 @@
 							</object>
 						</object>
 					</array>
-					<string key="NSFrameSize">{401, 84}</string>
+					<string key="NSFrameSize">{497, 84}</string>
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
@@ -375,9 +375,9 @@
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="-3.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="1.IBEditorWindowLastContentRect">{{384, 549}, {401, 84}}</string>
+				<string key="1.IBEditorWindowLastContentRect">{{384, 549}, {497, 84}}</string>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="1.IBWindowTemplateEditedContentRect">{{384, 549}, {401, 84}}</string>
+				<string key="1.IBWindowTemplateEditedContentRect">{{384, 549}, {497, 84}}</string>
 				<boolean value="YES" key="1.NSWindowTemplate.visibleAtLaunch"/>
 				<string key="111.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="112.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
