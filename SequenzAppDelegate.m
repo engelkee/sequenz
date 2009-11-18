@@ -9,6 +9,7 @@
 #import "SequenzAppDelegate.h"
 #import "Camera.h"
 #import "FTPController.h"
+#import "PrefsController.h"
 
 
 #define INTERVAL_UNIT_SEC 0
@@ -43,6 +44,8 @@
 	[defaultValues setObject:[NSNumber numberWithInt:1] forKey:@"quality"];
 	[defaultValues setObject:[NSNumber numberWithInt:0] forKey:@"format"];
 	[defaultValues setObject:@"CaptureImage" forKey:@"filename"];
+	[defaultValues setObject:[NSKeyedArchiver archivedDataWithRootObject:[NSFont fontWithName:@"Times-Roman" size:12.0]] forKey:SQTimestampFont];
+	[defaultValues setObject:[NSKeyedArchiver archivedDataWithRootObject:[NSColor blackColor]] forKey:SQTimestampColor];
 	//[defaultValues setObject:@"" forKey:@"server"];
 	
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];

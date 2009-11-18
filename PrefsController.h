@@ -14,10 +14,16 @@
 #define INTERVALL_UNIT_SEC 0
 #define INTERVALL_UNIT_MIN 1
 
+extern NSString *SQInsertTimestampFlag;
+extern NSString *SQTimestampColor;
+extern NSString *SQTimestampFont;
 
 @interface PrefsController : NSWindowController {
 
 	IBOutlet NSButton *captureWithTimestamp;
+	IBOutlet NSTextField *fontExample;
+	
+	NSUserDefaults *userDefaults;
 	
 	//IBOutlet NSView *imagePrefView;
 	//IBOutlet NSView *uploadPrefView;
