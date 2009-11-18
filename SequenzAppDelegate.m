@@ -56,6 +56,8 @@ NSString *SQFTPPath = @"SQFTPPath";
 	[defaultValues setObject:[NSKeyedArchiver archivedDataWithRootObject:[NSFont fontWithName:@"Times-Roman" size:12.0]] forKey:SQTimestampFont];
 	[defaultValues setObject:[NSKeyedArchiver archivedDataWithRootObject:[NSColor blackColor]] forKey:SQTimestampColor];
 	//[defaultValues setObject:@"" forKey:@"server"];
+	[defaultValues setObject:[NSNumber numberWithBool:YES] forKey:@"SUEnableAutomaticChecks"];
+	
 	
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
 }
