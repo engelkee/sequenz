@@ -75,7 +75,7 @@
 		NSBitmapImageRep *imageRep;
 		imageRep = [[NSBitmapImageRep alloc] initWithCIImage:[CIImage imageWithCVImageBuffer:imageBuffer]];
 		
-		if ([[NSUserDefaults standardUserDefaults] boolForKey:@"imageWithTimestamp"]) {
+		if ([[NSUserDefaults standardUserDefaults] boolForKey:SQInsertTimestampFlag]) {
 			[self drawCaptureDate:[NSDate date] toImageRep:imageRep];
 		}
 		

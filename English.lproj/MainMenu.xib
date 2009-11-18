@@ -24,7 +24,7 @@
 			<integer value="57"/>
 			<integer value="976"/>
 			<integer value="972"/>
-			<integer value="372"/>
+			<integer value="983"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -394,7 +394,7 @@
 							<object class="NSButtonCell" key="NSCell" id="169651002">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Record</string>
+								<string key="NSContents">Start</string>
 								<object class="NSFont" key="NSSupport">
 									<string key="NSName">LucidaGrande-Bold</string>
 									<double key="NSSize">12</double>
@@ -1013,10 +1013,42 @@
 				<string key="NSClassName">NSView</string>
 			</object>
 			<object class="NSUserDefaultsController" id="713448826">
+				<object class="NSMutableArray" key="NSDeclaredKeys">
+					<bool key="EncodedWithXMLCoder">YES</bool>
+					<string>SQRecordingInterval</string>
+					<string>SQIntervalUnit</string>
+					<string>SQImageQuality</string>
+					<string>SQImageFormat</string>
+					<string>SQImageFilename</string>
+					<string>SQFTPServerAddress</string>
+					<string>SQFTPUsername</string>
+					<string>SQFTPPath</string>
+				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 			<object class="NSCustomObject" id="45839822">
 				<string key="NSClassName">URLFormatter</string>
+			</object>
+			<object class="NSCustomView" id="581301559">
+				<nil key="NSNextResponder"/>
+				<int key="NSvFlags">268</int>
+				<object class="NSMutableArray" key="NSSubviews">
+					<bool key="EncodedWithXMLCoder">YES</bool>
+					<object class="NSProgressIndicator" id="155142730">
+						<reference key="NSNextResponder" ref="581301559"/>
+						<int key="NSvFlags">1292</int>
+						<object class="NSPSMatrix" key="NSDrawMatrix"/>
+						<string key="NSFrame">{{129, 75}, {16, 16}}</string>
+						<reference key="NSSuperview" ref="581301559"/>
+						<int key="NSViewLayerContentsRedrawPolicy">2</int>
+						<int key="NSpiFlags">20744</int>
+						<double key="NSMaxValue">100</double>
+					</object>
+				</object>
+				<string key="NSFrameSize">{254, 221}</string>
+				<bool key="NSViewIsLayerTreeHost">YES</bool>
+				<int key="NSViewLayerContentsRedrawPolicy">2</int>
+				<string key="NSClassName">NSView</string>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -1247,38 +1279,6 @@
 					<int key="connectionID">993</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">selectedIndex: values.quality</string>
-						<reference key="source" ref="757186705"/>
-						<reference key="destination" ref="713448826"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="757186705"/>
-							<reference key="NSDestination" ref="713448826"/>
-							<string key="NSLabel">selectedIndex: values.quality</string>
-							<string key="NSBinding">selectedIndex</string>
-							<string key="NSKeyPath">values.quality</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">1001</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">selectedIndex: values.format</string>
-						<reference key="source" ref="162211074"/>
-						<reference key="destination" ref="713448826"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="162211074"/>
-							<reference key="NSDestination" ref="713448826"/>
-							<string key="NSLabel">selectedIndex: values.format</string>
-							<string key="NSBinding">selectedIndex</string>
-							<string key="NSKeyPath">values.format</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">1003</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">usernameTextField</string>
 						<reference key="source" ref="976324537"/>
@@ -1293,62 +1293,6 @@
 						<reference key="destination" ref="188611345"/>
 					</object>
 					<int key="connectionID">1009</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.username</string>
-						<reference key="source" ref="282955374"/>
-						<reference key="destination" ref="713448826"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="282955374"/>
-							<reference key="NSDestination" ref="713448826"/>
-							<string key="NSLabel">value: values.username</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.username</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">1014</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.filename</string>
-						<reference key="source" ref="696331823"/>
-						<reference key="destination" ref="713448826"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="696331823"/>
-							<reference key="NSDestination" ref="713448826"/>
-							<string key="NSLabel">value: values.filename</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.filename</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSNullPlaceholder</string>
-								<string key="NS.object.0">CaptureImage</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">1028</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.path</string>
-						<reference key="source" ref="188611345"/>
-						<reference key="destination" ref="713448826"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="188611345"/>
-							<reference key="NSDestination" ref="713448826"/>
-							<string key="NSLabel">value: values.path</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.path</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSNullPlaceholder</string>
-								<string key="NS.object.0">/path/to/folder</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">1034</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1373,22 +1317,6 @@
 						<reference key="destination" ref="413927090"/>
 					</object>
 					<int key="connectionID">1040</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">selectedIndex: values.intervalUnit</string>
-						<reference key="source" ref="413927090"/>
-						<reference key="destination" ref="713448826"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="413927090"/>
-							<reference key="NSDestination" ref="713448826"/>
-							<string key="NSLabel">selectedIndex: values.intervalUnit</string>
-							<string key="NSBinding">selectedIndex</string>
-							<string key="NSKeyPath">values.intervalUnit</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">1044</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1480,26 +1408,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.recordingInterval</string>
-						<reference key="source" ref="83895405"/>
-						<reference key="destination" ref="713448826"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="83895405"/>
-							<reference key="NSDestination" ref="713448826"/>
-							<string key="NSLabel">value: values.recordingInterval</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.recordingInterval</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSNullPlaceholder</string>
-								<real value="5" key="NS.object.0"/>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">1108</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
 						<string key="label">enabled: values.server</string>
 						<reference key="source" ref="602356454"/>
 						<reference key="destination" ref="713448826"/>
@@ -1527,16 +1435,120 @@
 					<int key="connectionID">1119</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">showPrefsWindow:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="574507311"/>
+					</object>
+					<int key="connectionID">1200</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">startStopButton</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="602356454"/>
+					</object>
+					<int key="connectionID">1201</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.server</string>
+						<string key="label">value: values.SQRecordingInterval</string>
+						<reference key="source" ref="83895405"/>
+						<reference key="destination" ref="713448826"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="83895405"/>
+							<reference key="NSDestination" ref="713448826"/>
+							<string key="NSLabel">value: values.SQRecordingInterval</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.SQRecordingInterval</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSNullPlaceholder</string>
+								<real value="5" key="NS.object.0"/>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1207</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">selectedIndex: values.SQIntervalUnit</string>
+						<reference key="source" ref="413927090"/>
+						<reference key="destination" ref="713448826"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="413927090"/>
+							<reference key="NSDestination" ref="713448826"/>
+							<string key="NSLabel">selectedIndex: values.SQIntervalUnit</string>
+							<string key="NSBinding">selectedIndex</string>
+							<string key="NSKeyPath">values.SQIntervalUnit</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1208</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">selectedIndex: values.SQImageQuality</string>
+						<reference key="source" ref="757186705"/>
+						<reference key="destination" ref="713448826"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="757186705"/>
+							<reference key="NSDestination" ref="713448826"/>
+							<string key="NSLabel">selectedIndex: values.SQImageQuality</string>
+							<string key="NSBinding">selectedIndex</string>
+							<string key="NSKeyPath">values.SQImageQuality</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1209</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">selectedIndex: values.SQImageFormat</string>
+						<reference key="source" ref="162211074"/>
+						<reference key="destination" ref="713448826"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="162211074"/>
+							<reference key="NSDestination" ref="713448826"/>
+							<string key="NSLabel">selectedIndex: values.SQImageFormat</string>
+							<string key="NSBinding">selectedIndex</string>
+							<string key="NSKeyPath">values.SQImageFormat</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1210</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.SQImageFilename</string>
+						<reference key="source" ref="696331823"/>
+						<reference key="destination" ref="713448826"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="696331823"/>
+							<reference key="NSDestination" ref="713448826"/>
+							<string key="NSLabel">value: values.SQImageFilename</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.SQImageFilename</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSNullPlaceholder</string>
+								<string key="NS.object.0">CaptureImage</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1211</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.SQFTPServerAddress</string>
 						<reference key="source" ref="802953080"/>
 						<reference key="destination" ref="713448826"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="802953080"/>
 							<reference key="NSDestination" ref="713448826"/>
-							<string key="NSLabel">value: values.server</string>
+							<string key="NSLabel">value: values.SQFTPServerAddress</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.server</string>
+							<string key="NSKeyPath">values.SQFTPServerAddress</string>
 							<object class="NSDictionary" key="NSOptions">
 								<string key="NS.key.0">NSNullPlaceholder</string>
 								<string key="NS.object.0">ftp://domain.com</string>
@@ -1544,15 +1556,43 @@
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">1121</int>
+					<int key="connectionID">1212</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">showPrefsWindow:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="574507311"/>
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.SQFTPUsername</string>
+						<reference key="source" ref="282955374"/>
+						<reference key="destination" ref="713448826"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="282955374"/>
+							<reference key="NSDestination" ref="713448826"/>
+							<string key="NSLabel">value: values.SQFTPUsername</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.SQFTPUsername</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
 					</object>
-					<int key="connectionID">1200</int>
+					<int key="connectionID">1213</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.SQFTPPath</string>
+						<reference key="source" ref="188611345"/>
+						<reference key="destination" ref="713448826"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="188611345"/>
+							<reference key="NSDestination" ref="713448826"/>
+							<string key="NSLabel">value: values.SQFTPPath</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.SQFTPPath</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSNullPlaceholder</string>
+								<string key="NS.object.0">/path/to/folder</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1214</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2280,6 +2320,20 @@
 						<reference key="object" ref="859147565"/>
 						<reference key="parent" ref="110575045"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1202</int>
+						<reference key="object" ref="581301559"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="155142730"/>
+						</object>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1203</int>
+						<reference key="object" ref="155142730"/>
+						<reference key="parent" ref="581301559"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -2291,6 +2345,9 @@
 					<string>1036.IBPluginDependency</string>
 					<string>1198.IBPluginDependency</string>
 					<string>1199.IBPluginDependency</string>
+					<string>1202.IBEditorWindowLastContentRect</string>
+					<string>1202.IBPluginDependency</string>
+					<string>1203.IBPluginDependency</string>
 					<string>134.IBPluginDependency</string>
 					<string>134.ImportedFromIB2</string>
 					<string>136.IBPluginDependency</string>
@@ -2447,6 +2504,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>{{329, 445}, {254, 221}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2496,10 +2556,10 @@
 					<integer value="1"/>
 					<string>{74, 862}</string>
 					<string>{{6, 978}, {478, 20}}</string>
-					<string>{{878, 493}, {322, 456}}</string>
+					<string>{{646, 216}, {322, 456}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{878, 493}, {322, 456}}</string>
+					<string>{{646, 216}, {322, 456}}</string>
 					<integer value="1"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<boolean value="NO"/>
@@ -2587,9 +2647,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{449, 584}, {320, 338}}</string>
+					<string>{{449, 418}, {320, 338}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{808, 766}, {320, 240}}</string>
+					<string>{{345, 78}, {320, 240}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2615,7 +2675,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1200</int>
+			<int key="maxID">1214</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2664,6 +2724,7 @@
 							<string>recordingView</string>
 							<string>serverTextField</string>
 							<string>settingsView</string>
+							<string>startStopButton</string>
 							<string>swapView</string>
 							<string>usernameTextField</string>
 							<string>window</string>
@@ -2681,6 +2742,7 @@
 							<string>NSView</string>
 							<string>NSTextField</string>
 							<string>NSView</string>
+							<string>NSButton</string>
 							<string>NSView</string>
 							<string>NSTextField</string>
 							<string>NSWindow</string>
@@ -3185,6 +3247,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBFrameworkSource</string>
 						<string key="minorKey">AppKit.framework/Headers/NSPopUpButtonCell.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSProgressIndicator</string>
+					<string key="superclassName">NSView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">AppKit.framework/Headers/NSProgressIndicator.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

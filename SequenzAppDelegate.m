@@ -21,6 +21,15 @@
 #define FORMAT_PNG 1
 #define FORMAT_GIF 2
 
+NSString *SQRecordingInterval = @"SQRecordingInterval";
+NSString *SQIntervalUnit = @"SQIntervalUnit";
+NSString *SQImageQuality = @"SQImageQuality";
+NSString *SQImageFormat = @"SQImageFormat";
+NSString *SQImageFilename = @"SQImageFilename";
+NSString *SQFTPServerAddress = @"SQFTPServerAddress";
+NSString *SQFTPUsername = @"SQFTPUsername";
+NSString *SQFTPPath = @"SQFTPPath";
+
 
 @interface SequenzAppDelegate (Private) 
 								
@@ -39,11 +48,11 @@
 + (void)initialize {
 	NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
 	
-	[defaultValues setObject:[NSNumber numberWithInt:10] forKey:@"recordingInterval"];
-	[defaultValues setObject:[NSNumber numberWithInt:0] forKey:@"intervalUnit"];
-	[defaultValues setObject:[NSNumber numberWithInt:1] forKey:@"quality"];
-	[defaultValues setObject:[NSNumber numberWithInt:0] forKey:@"format"];
-	[defaultValues setObject:@"CaptureImage" forKey:@"filename"];
+	[defaultValues setObject:[NSNumber numberWithInt:10] forKey:SQRecordingInterval];
+	[defaultValues setObject:[NSNumber numberWithInt:0] forKey:SQIntervalUnit];
+	[defaultValues setObject:[NSNumber numberWithInt:1] forKey:SQImageQuality];
+	[defaultValues setObject:[NSNumber numberWithInt:0] forKey:SQImageFormat];
+	[defaultValues setObject:@"CaptureImage" forKey:SQImageFilename];
 	[defaultValues setObject:[NSKeyedArchiver archivedDataWithRootObject:[NSFont fontWithName:@"Times-Roman" size:12.0]] forKey:SQTimestampFont];
 	[defaultValues setObject:[NSKeyedArchiver archivedDataWithRootObject:[NSColor blackColor]] forKey:SQTimestampColor];
 	//[defaultValues setObject:@"" forKey:@"server"];
@@ -124,7 +133,7 @@
 	
 	NSString *extention;
 
-	switch ([userDefaults integerForKey:@"format"]) {
+	switch ([userDefaults integerForKey:SQImageFormat]) {
 		case 0:
 			extention = @"jpg";				
 			break;
@@ -155,11 +164,11 @@
 }
 
 - (IBAction)setInterval:(id)sender {
-	[userDefaults setObject:[NSNumber numberWithInt:[sender intValue]] forKey:@"recordingInterval"];
+	[userDefaults setObject:[NSNumber numberWithInt:[sender intValue]] forKey:SQRecordingInterval];
 }
 
 - (IBAction)setIntervalUnit:(id)sender {
-	[userDefaults setObject:[NSNumber numberWithInt:[sender indexOfSelectedItem]] forKey:@"intervalUnit"];
+	[userDefaults setObject:[NSNumber numberWithInt:[sender indexOfSelectedItem]] forKey:SQIntervalUnit];
 }
 
 - (IBAction)showPrefsWindow:(id)sender {
@@ -212,7 +221,7 @@
 - (void)capturePic:(NSTimer *)aTimer {
 
 	float factor;
-	switch ([userDefaults integerForKey:@"quality"]) {
+	switch ([userDefaults integerForKey:SQImageQuality]) {
 		case 0:
 			factor = 0.5;
 			break;
@@ -228,7 +237,7 @@
 	}
 	
 	NSBitmapImageFileType type;
-	switch ([userDefaults integerForKey:@"format"]) {
+	switch ([userDefaults integerForKey:SQImageFormat]) {
 		case 0:
 			type = NSJPEGFileType;
 			break;
@@ -259,15 +268,20 @@
 }
 
 - (void)uploadDidNotFinishWithError:(NSError *)error {
-	NSBeginAlertSheet(@"A FTP error occured", nil, nil, nil, window, self, @selector(alertDidEnd:returnCode:contextInfo:), @selector(sheetDidDismiss:returnCode:contextInfo:), nil, @"Server message: %@",[error localizedDescription]);
+	NSBeginAlertSheet(@"A FTP error occured", nil, nil, nil, window, 
+					  self, @selector(alertDidEnd:returnCode:contextInfo:), 
+					  @selector(sheetDidDismiss:returnCode:contextInfo:), nil, 
+					  @"Server message: %@",[error localizedDescription]);
 }
 
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
 	[self stopRecording];
+	[self switchSubViews];
+	[startStopButton setState:NSOffState];
 }
 
 - (void)sheetDidDismiss:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void  *)contextInfo {
-	[self switchSubViews];
+	//[self switchSubViews];
 }
 
 @end

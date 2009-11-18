@@ -22,6 +22,8 @@
 	
     NSWindow *window;
 	
+	IBOutlet NSButton *startStopButton;
+	
 	IBOutlet QTCaptureView *mCaptureView;
 	IBOutlet NSView *settingsView;
 	IBOutlet NSView *recordingView;
