@@ -23,8 +23,8 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="976"/>
 			<integer value="983"/>
-			<integer value="57"/>
 			<integer value="972"/>
+			<integer value="57"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -532,37 +532,46 @@
 					<object class="NSTextField" id="3602305">
 						<reference key="NSNextResponder" ref="613468617"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{19, 301}, {72, 17}}</string>
+						<string key="NSFrame">{{17, 300}, {77, 18}}</string>
 						<reference key="NSSuperview" ref="613468617"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="336475597">
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">71304192</int>
 							<string key="NSContents">Recording</string>
-							<object class="NSFont" key="NSSupport" id="794425103">
+							<object class="NSFont" key="NSSupport" id="926601941">
 								<string key="NSName">LucidaGrande-Bold</string>
-								<double key="NSSize">13</double>
+								<double key="NSSize">14</double>
 								<int key="NSfFlags">16</int>
 							</object>
 							<reference key="NSControlView" ref="3602305"/>
 							<reference key="NSBackgroundColor" ref="1010832553"/>
-							<reference key="NSTextColor" ref="710555773"/>
+							<object class="NSColor" key="NSTextColor">
+								<int key="NSColorSpace">3</int>
+								<bytes key="NSWhite">MC4yNQA</bytes>
+								<object class="NSColorSpace" key="NSCustomColorSpace">
+									<int key="NSID">2</int>
+								</object>
+							</object>
 						</object>
 					</object>
 					<object class="NSTextField" id="957464914">
 						<reference key="NSNextResponder" ref="613468617"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{19, 146}, {87, 17}}</string>
+						<string key="NSFrame">{{17, 146}, {94, 18}}</string>
 						<reference key="NSSuperview" ref="613468617"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="74619137">
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">71304192</int>
 							<string key="NSContents">FTP Settings</string>
-							<reference key="NSSupport" ref="794425103"/>
+							<reference key="NSSupport" ref="926601941"/>
 							<reference key="NSControlView" ref="957464914"/>
 							<reference key="NSBackgroundColor" ref="1010832553"/>
-							<reference key="NSTextColor" ref="710555773"/>
+							<object class="NSColor" key="NSTextColor">
+								<int key="NSColorSpace">3</int>
+								<bytes key="NSWhite">MC4yNDU5Njc3NDE5AA</bytes>
+							</object>
 						</object>
 					</object>
 					<object class="NSTextField" id="282955374">
@@ -1834,12 +1843,12 @@
 							<reference ref="735148028"/>
 							<reference ref="802953080"/>
 							<reference ref="1073195406"/>
-							<reference ref="957464914"/>
-							<reference ref="3602305"/>
 							<reference ref="364262318"/>
 							<reference ref="696331823"/>
 							<reference ref="250018772"/>
 							<reference ref="282955374"/>
+							<reference ref="3602305"/>
+							<reference ref="957464914"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Settings</string>
