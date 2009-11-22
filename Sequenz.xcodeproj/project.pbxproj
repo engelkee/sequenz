@@ -34,6 +34,7 @@
 		F24A59F910A096FC0096BC7B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24A59F810A096FC0096BC7B /* QuartzCore.framework */; };
 		F260D3DF10B41D8B00E3F7B0 /* DisabledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F260D3DE10B41D8B00E3F7B0 /* DisabledTextField.m */; };
 		F276828710A8362300AD45C2 /* FTPController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276828610A8362300AD45C2 /* FTPController.m */; };
+		F29E005D10B97DD30048C14C /* SideBarPaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = F29E005C10B97DD30048C14C /* SideBarPaneView.m */; };
 		F2B8DE5510ADD1B8002C9AD5 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8DE5410ADD1B8002C9AD5 /* Camera.m */; };
 		F2BC05BC10AB52E700C3C70B /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BC05BB10AB52E700C3C70B /* libcurl.dylib */; };
 		F2C63D9B10A4E455009AC351 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C63D9A10A4E455009AC351 /* QTKit.framework */; };
@@ -89,6 +90,8 @@
 		F260D3DE10B41D8B00E3F7B0 /* DisabledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisabledTextField.m; sourceTree = "<group>"; };
 		F276828510A8362300AD45C2 /* FTPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPController.h; sourceTree = "<group>"; };
 		F276828610A8362300AD45C2 /* FTPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPController.m; sourceTree = "<group>"; };
+		F29E005B10B97DD30048C14C /* SideBarPaneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBarPaneView.h; sourceTree = "<group>"; };
+		F29E005C10B97DD30048C14C /* SideBarPaneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBarPaneView.m; sourceTree = "<group>"; };
 		F2B8DE5310ADD1B8002C9AD5 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		F2B8DE5410ADD1B8002C9AD5 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
 		F2BC05BB10AB52E700C3C70B /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = /usr/lib/libcurl.dylib; sourceTree = "<absolute>"; };
@@ -128,6 +131,8 @@
 				F2B8DE5410ADD1B8002C9AD5 /* Camera.m */,
 				F260D3DD10B41D8B00E3F7B0 /* DisabledTextField.h */,
 				F260D3DE10B41D8B00E3F7B0 /* DisabledTextField.m */,
+				F29E005B10B97DD30048C14C /* SideBarPaneView.h */,
+				F29E005C10B97DD30048C14C /* SideBarPaneView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 				F202D17C10AACD5F00905A04 /* URLFormatter.m in Sources */,
 				F2B8DE5510ADD1B8002C9AD5 /* Camera.m in Sources */,
 				F260D3DF10B41D8B00E3F7B0 /* DisabledTextField.m in Sources */,
+				F29E005D10B97DD30048C14C /* SideBarPaneView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 @class Camera;
 @class FTPController;
 @class PrefsController;
+@class SideBarPaneView;
 
 @interface SequenzAppDelegate : NSObject <NSApplicationDelegate> {
 	Camera *mCamera;
@@ -25,9 +26,10 @@
 	IBOutlet NSButton *startStopButton;
 	
 	IBOutlet QTCaptureView *mCaptureView;
-	IBOutlet NSView *settingsView;
-	IBOutlet NSView *recordingView;
-	IBOutlet NSView *swapView;
+
+	IBOutlet NSView *sideBarView;
+	IBOutlet SideBarPaneView *recPane;
+	IBOutlet SideBarPaneView *ftpPane;
 	
 	IBOutlet NSTextField *intervalTextField;
 	IBOutlet NSPopUpButton *intervalUnitPopUp;
@@ -50,6 +52,9 @@
 
 - (void)startRecording;
 - (void)stopRecording;
+
+- (IBAction)disclosureTriangleRecPressed:(id)sender;
+- (IBAction)disclosureTriangleFTPPressed:(id)sender;
 
 - (IBAction)toggleRecording:(id)sender;
 - (IBAction)showPrefsWindow:(id)sender;

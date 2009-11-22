@@ -10,6 +10,7 @@
 #import "Camera.h"
 #import "FTPController.h"
 #import "PrefsController.h"
+#import "SideBarPaneView.h"
 
 
 #define INTERVAL_UNIT_SEC 0
@@ -86,12 +87,43 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 - (void)awakeFromNib {
-	[self switchSubViews];
+	//[self switchSubViews];
+	[sideBarView addSubview:recPane];
+	[recPane setPostsFrameChangedNotifications:YES];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(adjustSubview:) name:NSViewFrameDidChangeNotification object:recPane];
+	[sideBarView addSubview:ftpPane];
+	[recPane setPostsFrameChangedNotifications:YES];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(adjustSubview:) name:NSViewFrameDidChangeNotification object:ftpPane];
+	[self repositionViewsIgnoringView:nil];
 	//[serverTextField setStringValue:[userDefaults stringForKey:@"server"]];
 }
 
 #pragma mark Private methods
 
+- (void)adjustSubview:(NSNotification *)notification {
+	[self repositionViewsIgnoringView:[notification object]];
+}
+
+- (void)repositionViewsIgnoringView:(NSView*)viewToIgnore {
+	float top = 0.0;
+	for (NSView *view in [[sideBarView subviews] objectEnumerator]) {
+		NSRect newFrame = [view frame];
+		newFrame.origin.y = [sideBarView frame].size.height - (newFrame.size.height + top);
+		
+		if (view == viewToIgnore)
+			[view setPostsFrameChangedNotifications:NO];
+		
+		[view setFrame:newFrame];
+		
+		if (view == viewToIgnore)
+			[view setPostsFrameChangedNotifications:YES];
+		
+		top += newFrame.size.height;
+	}
+	
+}
+
+/*
 - (void)switchSubViews {
 	NSView *currentView, *newView;
 	NSArray *currentSubViews = [swapView subviews];
@@ -127,7 +159,7 @@ NSString *SQFTPPath = @"SQFTPPath";
     [window setFrame: windowRect display:YES animate:YES];
     [newView setHidden:NO];
 }
-
+*/
 - (NSURL *)composedUploadURL {
 	NSURL *url = [NSURL URLWithString:[serverTextField objectValue]];
 	url = [url URLByAppendingPathComponent:[pathTextField stringValue]];
@@ -159,6 +191,38 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 #pragma mark UI actions
+/*
+- (IBAction)disclosureTriangleRecPressed:(id)sender {
+	//NSWindow *window = [sender window];
+    NSRect frame = [window frame];
+    // The extra +14 accounts for the space between the box and its neighboring views
+    CGFloat sizeChange = [recBox frame].size.height;
+    switch ([sender state]) {
+        case NSOnState:
+            // Show the extra box.
+            [recBox setHidden:NO];
+            // Make the window bigger.
+            //frame.size.height += sizeChange;
+            // Move the origin.
+            //frame.origin.y -= sizeChange;
+            break;
+        case NSOffState:
+            // Make the window smaller.
+            //frame.size.height -= sizeChange;
+            // Move the origin.
+            //frame.origin.y += sizeChange;
+			// Hide the extra box.
+            [recBox setHidden:YES];
+            break;
+        default:
+            break;
+    }
+    [window setFrame:frame display:YES animate:YES];
+}
+*/
+- (IBAction)disclosureTriangleFTPPressed:(id)sender {
+	
+}
 
 - (IBAction)setServerAdress:(id)sender {
 	//[userDefaults setObject:[sender stringValue] forKey:@"server"];
