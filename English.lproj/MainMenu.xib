@@ -2581,6 +2581,10 @@
 					<string>1199.IBPluginDependency</string>
 					<string>1216.IBPluginDependency</string>
 					<string>1219.IBPluginDependency</string>
+					<string>1219.IBViewIntegration.shadowBlurRadius</string>
+					<string>1219.IBViewIntegration.shadowColor</string>
+					<string>1219.IBViewIntegration.shadowOffsetHeight</string>
+					<string>1219.IBViewIntegration.shadowOffsetWidth</string>
 					<string>1220.IBPluginDependency</string>
 					<string>1221.IBPluginDependency</string>
 					<string>1222.IBPluginDependency</string>
@@ -2745,6 +2749,10 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<real value="3"/>
+					<reference ref="153671350"/>
+					<real value="-1"/>
+					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3000,6 +3008,14 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">ShadowBox</string>
+					<string key="superclassName">NSBox</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">ShadowBox.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">SideBarPaneView</string>
 					<string key="superclassName">NSView</string>
 					<object class="NSMutableDictionary" key="actions">
@@ -3015,7 +3031,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>NSBox</string>
+							<string>ShadowBox</string>
 							<string>NSButton</string>
 						</object>
 					</object>

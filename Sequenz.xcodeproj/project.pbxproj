@@ -33,6 +33,7 @@
 		F235BBD610A2D3E8001B9C73 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F235BBD510A2D3E8001B9C73 /* PrefsController.m */; };
 		F24A59F910A096FC0096BC7B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24A59F810A096FC0096BC7B /* QuartzCore.framework */; };
 		F260D3DF10B41D8B00E3F7B0 /* DisabledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F260D3DE10B41D8B00E3F7B0 /* DisabledTextField.m */; };
+		F26EFB0010BAFD7F0066B042 /* ShadowBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F26EFAFF10BAFD7F0066B042 /* ShadowBox.m */; };
 		F276828710A8362300AD45C2 /* FTPController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276828610A8362300AD45C2 /* FTPController.m */; };
 		F29E005D10B97DD30048C14C /* SideBarPaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = F29E005C10B97DD30048C14C /* SideBarPaneView.m */; };
 		F2B8DE5510ADD1B8002C9AD5 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8DE5410ADD1B8002C9AD5 /* Camera.m */; };
@@ -88,6 +89,8 @@
 		F24A59F810A096FC0096BC7B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
 		F260D3DD10B41D8B00E3F7B0 /* DisabledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisabledTextField.h; sourceTree = "<group>"; };
 		F260D3DE10B41D8B00E3F7B0 /* DisabledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisabledTextField.m; sourceTree = "<group>"; };
+		F26EFAFE10BAFD7F0066B042 /* ShadowBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowBox.h; sourceTree = "<group>"; };
+		F26EFAFF10BAFD7F0066B042 /* ShadowBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowBox.m; sourceTree = "<group>"; };
 		F276828510A8362300AD45C2 /* FTPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPController.h; sourceTree = "<group>"; };
 		F276828610A8362300AD45C2 /* FTPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPController.m; sourceTree = "<group>"; };
 		F29E005B10B97DD30048C14C /* SideBarPaneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBarPaneView.h; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				F260D3DE10B41D8B00E3F7B0 /* DisabledTextField.m */,
 				F29E005B10B97DD30048C14C /* SideBarPaneView.h */,
 				F29E005C10B97DD30048C14C /* SideBarPaneView.m */,
+				F26EFAFE10BAFD7F0066B042 /* ShadowBox.h */,
+				F26EFAFF10BAFD7F0066B042 /* ShadowBox.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				F2B8DE5510ADD1B8002C9AD5 /* Camera.m in Sources */,
 				F260D3DF10B41D8B00E3F7B0 /* DisabledTextField.m in Sources */,
 				F29E005D10B97DD30048C14C /* SideBarPaneView.m in Sources */,
+				F26EFB0010BAFD7F0066B042 /* ShadowBox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +346,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../../Downloads\"",
@@ -366,7 +372,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

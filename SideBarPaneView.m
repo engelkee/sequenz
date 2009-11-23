@@ -14,12 +14,13 @@
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code here.
+
     }
     return self;
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
+	
 
 }
 
@@ -30,7 +31,7 @@
     switch ([sender state]) {
         case NSOnState:
             // Show the extra box.
-            [box setHidden:NO];
+            //[box setHidden:NO];
             // Make the window bigger.
             frame.size.height += sizeChange;
             // Move the origin.
@@ -42,7 +43,7 @@
             // Move the origin.
             frame.origin.y += sizeChange;
 			// Hide the extra box.
-            [box setHidden:YES];
+            //[box setHidden:YES];
             break;
         default:
             break;

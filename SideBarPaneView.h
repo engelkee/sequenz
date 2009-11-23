@@ -8,9 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class ShadowBox;
 
 @interface SideBarPaneView : NSView {
-	IBOutlet NSBox *box;
+	IBOutlet ShadowBox *box;
 	IBOutlet NSButton *collapseButton;
 }
 
