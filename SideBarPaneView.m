@@ -20,14 +20,13 @@
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
-    // Drawing code here.
+
 }
 
 - (IBAction)toggleCollapsed:(id)sender {
-	//NSWindow *window = [sender window];
     NSRect frame = [self frame];
     // The extra +14 accounts for the space between the box and its neighboring views
-    CGFloat sizeChange = [box frame].size.height;
+    CGFloat sizeChange = [box frame].size.height + 14;
     switch ([sender state]) {
         case NSOnState:
             // Show the extra box.
@@ -48,7 +47,7 @@
         default:
             break;
     }
-    [self setFrame:frame];
+    [[self animator] setFrame:frame];
 }
 
 @end

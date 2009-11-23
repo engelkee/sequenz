@@ -28,6 +28,7 @@
 	IBOutlet QTCaptureView *mCaptureView;
 
 	IBOutlet NSView *sideBarView;
+	IBOutlet NSScrollView *sideBarScrollView;
 	IBOutlet SideBarPaneView *recPane;
 	IBOutlet SideBarPaneView *ftpPane;
 	
@@ -45,6 +46,8 @@
 	NSTimer *sequenceTimer;
 	
 	BOOL isRecording;
+	
+	float topMargin;
 }
 
 @property (assign) IBOutlet NSWindow *window;
@@ -52,9 +55,6 @@
 
 - (void)startRecording;
 - (void)stopRecording;
-
-- (IBAction)disclosureTriangleRecPressed:(id)sender;
-- (IBAction)disclosureTriangleFTPPressed:(id)sender;
 
 - (IBAction)toggleRecording:(id)sender;
 - (IBAction)showPrefsWindow:(id)sender;

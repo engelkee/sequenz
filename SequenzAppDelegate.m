@@ -34,7 +34,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 
 @interface SequenzAppDelegate (Private) 
 								
-- (void)switchSubViews;
+- (void)repositionViewsIgnoringView:(NSView*)viewToIgnore;
 
 @end
 
@@ -74,6 +74,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 - (void)dealloc {
+	[mCamera release];
 	[ftpController release];
 	[super dealloc];
 }
@@ -83,11 +84,11 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
-
+	[[mCamera mCaptureSession] stopRunning];
 }
 
 - (void)awakeFromNib {
-	//[self switchSubViews];
+	topMargin = NSHeight([[sideBarView superview] frame]) - NSMaxY([sideBarView frame]);
 	[sideBarView addSubview:recPane];
 	[recPane setPostsFrameChangedNotifications:YES];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(adjustSubview:) name:NSViewFrameDidChangeNotification object:recPane];
@@ -96,6 +97,12 @@ NSString *SQFTPPath = @"SQFTPPath";
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(adjustSubview:) name:NSViewFrameDidChangeNotification object:ftpPane];
 	[self repositionViewsIgnoringView:nil];
 	//[serverTextField setStringValue:[userDefaults stringForKey:@"server"]];
+	//[sideBarScrollView setDocumentView:sideBarView];
+	/*
+	mCamera = [[Camera alloc] init];
+	[mCaptureView setCaptureSession:[mCamera mCaptureSession]];
+	[[mCamera mCaptureSession] startRunning];
+	*/
 }
 
 #pragma mark Private methods
@@ -121,45 +128,26 @@ NSString *SQFTPPath = @"SQFTPPath";
 		top += newFrame.size.height;
 	}
 	
-}
-
-/*
-- (void)switchSubViews {
-	NSView *currentView, *newView;
-	NSArray *currentSubViews = [swapView subviews];
-	if ([currentSubViews containsObject:recordingView]) {
-		currentView = recordingView;
-		newView = settingsView;
-	} else if ([currentSubViews containsObject:settingsView]) {
-		currentView = settingsView;
-		newView = recordingView;
-	} else {
-		currentView = nil;
-		newView = settingsView;
-	}
-
+	NSView *contentView = [window contentView];
+	NSRect newSideBarFrame = [sideBarView bounds];
+	newSideBarFrame.origin.y = [contentView frame].size.height - newSideBarFrame.size.height - topMargin;
+	newSideBarFrame.size.height = top;
+	[sideBarView setFrame:newSideBarFrame];
 	
+	NSSize contentViewSize = newSideBarFrame.size;
+	contentViewSize.height += topMargin;
+	
+	/* von mir */
 	NSRect windowRect = [window frame];
-    float dy = ([newView frame].size.height - [[window contentView] frame].size.height + 50) * [window userSpaceScaleFactor];
-    windowRect.origin.y -= dy;
-    windowRect.size.height += dy;
-	float dx = ([newView frame].size.width - [[window contentView] frame].size.width) * [window userSpaceScaleFactor];
-    //windowRect.origin.x -= dx;
-    windowRect.size.width += dx;
+    float dy = (windowRect.size.height - contentViewSize.height);
+    windowRect.origin.y += dy;
+    windowRect.size.height = contentViewSize.height + 50.0 + 22.0;
 	
-	[newView setHidden: YES];
-    //[window setContentView: theView];
+    [window setFrame: windowRect display:YES animate:NO];
+
 	
-	if ([[swapView subviews] count] == 0) {
-		[swapView addSubview:newView];
-	} else {
-		[swapView replaceSubview:currentView with:newView];
-	}
-	
-    [window setFrame: windowRect display:YES animate:YES];
-    [newView setHidden:NO];
 }
-*/
+
 - (NSURL *)composedUploadURL {
 	NSURL *url = [NSURL URLWithString:[serverTextField objectValue]];
 	url = [url URLByAppendingPathComponent:[pathTextField stringValue]];
@@ -191,38 +179,6 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 #pragma mark UI actions
-/*
-- (IBAction)disclosureTriangleRecPressed:(id)sender {
-	//NSWindow *window = [sender window];
-    NSRect frame = [window frame];
-    // The extra +14 accounts for the space between the box and its neighboring views
-    CGFloat sizeChange = [recBox frame].size.height;
-    switch ([sender state]) {
-        case NSOnState:
-            // Show the extra box.
-            [recBox setHidden:NO];
-            // Make the window bigger.
-            //frame.size.height += sizeChange;
-            // Move the origin.
-            //frame.origin.y -= sizeChange;
-            break;
-        case NSOffState:
-            // Make the window smaller.
-            //frame.size.height -= sizeChange;
-            // Move the origin.
-            //frame.origin.y += sizeChange;
-			// Hide the extra box.
-            [recBox setHidden:YES];
-            break;
-        default:
-            break;
-    }
-    [window setFrame:frame display:YES animate:YES];
-}
-*/
-- (IBAction)disclosureTriangleFTPPressed:(id)sender {
-	
-}
 
 - (IBAction)setServerAdress:(id)sender {
 	//[userDefaults setObject:[sender stringValue] forKey:@"server"];
@@ -253,15 +209,15 @@ NSString *SQFTPPath = @"SQFTPPath";
 	} else {
 		[self stopRecording];
 	}
-	[self switchSubViews];
 }
 
 - (void)startRecording {
 	[self setIsRecording:YES];
+	/*
 	mCamera = [[Camera alloc] init];
 	[mCaptureView setCaptureSession:[mCamera mCaptureSession]];
 	[[mCamera mCaptureSession] startRunning];
-
+	 */
 	sequenceTimer = [NSTimer scheduledTimerWithTimeInterval:[self convertedInterval]
 													 target:self 
 												   selector:@selector(capturePic:) 
@@ -272,8 +228,8 @@ NSString *SQFTPPath = @"SQFTPPath";
 - (void)stopRecording {
 	
 	[sequenceTimer invalidate];
-	[[mCamera mCaptureSession] stopRunning];
-	[mCamera release];
+	//[[mCamera mCaptureSession] stopRunning];
+	//[mCamera release];
 	[self setIsRecording:NO];
 	
 	/*
@@ -342,7 +298,6 @@ NSString *SQFTPPath = @"SQFTPPath";
 
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
 	[self stopRecording];
-	[self switchSubViews];
 	[startStopButton setState:NSOffState];
 }
 
