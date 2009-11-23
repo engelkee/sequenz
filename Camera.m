@@ -107,7 +107,8 @@
 	[NSGraphicsContext saveGraphicsState];
 	NSGraphicsContext *gc = [NSGraphicsContext graphicsContextWithBitmapImageRep:rep];
 	[NSGraphicsContext setCurrentContext:gc];
-	NSString *dateString = [date descriptionWithLocale:[NSLocale currentLocale]];
+	NSString *dateString = [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterLongStyle timeStyle:NSDateFormatterFullStyle];
+	NSLog(@"Date string: %@", dateString);
 	NSColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] valueForKey:SQTimestampColor]];
 	NSFont *font = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] valueForKey:SQTimestampFont]];
 	NSMutableDictionary *attrsDictionary = [NSMutableDictionary dictionary];

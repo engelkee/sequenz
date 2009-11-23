@@ -52,8 +52,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 	
 	[defaultValues setObject:[NSNumber numberWithInt:10] forKey:SQRecordingInterval];
 	[defaultValues setObject:[NSNumber numberWithInt:0] forKey:SQIntervalUnit];
-	[defaultValues setObject:[NSNumber numberWithInt:1] forKey:SQImageQuality];
-	[defaultValues setObject:[NSNumber numberWithInt:0] forKey:SQImageFormat];
+	[defaultValues setObject:[NSNumber numberWithFloat:0.5] forKey:SQImageQuality];
 	[defaultValues setObject:@"CaptureImage" forKey:SQImageFilename];
 	[defaultValues setObject:[NSKeyedArchiver archivedDataWithRootObject:[NSFont fontWithName:@"Times-Roman" size:12.0]] forKey:SQTimestampFont];
 	[defaultValues setObject:[NSKeyedArchiver archivedDataWithRootObject:[NSColor blackColor]] forKey:SQTimestampColor];
@@ -99,11 +98,11 @@ NSString *SQFTPPath = @"SQFTPPath";
 	[self repositionViewsIgnoringView:nil];
 	//[serverTextField setStringValue:[userDefaults stringForKey:@"server"]];
 
-	/*
+	
 	mCamera = [[Camera alloc] init];
 	[mCaptureView setCaptureSession:[mCamera mCaptureSession]];
 	[[mCamera mCaptureSession] startRunning];
-	*/
+	
 }
 
 #pragma mark Private methods
@@ -171,22 +170,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 	url = [url URLByAppendingPathComponent:[pathTextField stringValue]];
 	url = [url URLByAppendingPathComponent:[filenameTextField stringValue]];
 	
-	NSString *extention;
-
-	switch ([userDefaults integerForKey:SQImageFormat]) {
-		case 0:
-			extention = @"jpg";				
-			break;
-		case 1:
-			extention = @"png";
-			break;
-		case 2:
-			extention = @"gif";
-			break;
-		default:
-			extention = @"noext";
-			break;
-	}
+	NSString *extention = @"jpg";
 	
 	url = [url URLByAppendingPathExtension:extention];
 	return url;
@@ -259,40 +243,9 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 - (void)capturePic:(NSTimer *)aTimer {
-
-	float factor;
-	switch ([userDefaults integerForKey:SQImageQuality]) {
-		case 0:
-			factor = 0.5;
-			break;
-		case 1:
-			factor = 0.75;
-			break;
-		case 2:
-			factor = 1.0;
-			break;
-		default:
-			factor = 0.5;
-			break;
-	}
+	NSNumber *factor = [userDefaults objectForKey:SQImageQuality];
 	
-	NSBitmapImageFileType type;
-	switch ([userDefaults integerForKey:SQImageFormat]) {
-		case 0:
-			type = NSJPEGFileType;
-			break;
-		case 1:
-			type = NSPNGFileType;
-			break;
-		case 2:
-			type = NSGIFFileType;
-			break;
-		default:
-			type = NSJPEGFileType;
-			break;
-	}
-	
-	NSData *imageData = [mCamera takePictureWithFileType:type quality:[NSNumber numberWithFloat:factor]];
+	NSData *imageData = [mCamera takePictureWithFileType:NSJPEGFileType quality:factor];
 
 	BOOL success = [ftpController uploadData:imageData 
 									   toURL:[self composedUploadURL] 

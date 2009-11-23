@@ -34,8 +34,7 @@
 	
 	IBOutlet NSTextField *intervalTextField;
 	IBOutlet NSPopUpButton *intervalUnitPopUp;
-	IBOutlet NSPopUpButton *qualityPopUp;
-	IBOutlet NSPopUpButton *formatPopUp;
+	IBOutlet NSSlider *qualityPopUp;
 	IBOutlet NSTextField *filenameTextField;
 	
 	IBOutlet NSTextField *serverTextField;

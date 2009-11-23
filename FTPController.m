@@ -66,7 +66,7 @@ static size_t ReadMemoryCallback(void *ptr, size_t size, size_t nmemb, void *pMe
 		curl_easy_setopt(curl, CURLOPT_UPLOAD, 1L);
 		
 		/* enable debug info */
-		//curl_easy_setopt(curl, CURLOPT_VERBOSE, 1);
+		curl_easy_setopt(curl, CURLOPT_VERBOSE, 1);
 		
 		/* specify target */ 
 		curl_easy_setopt(curl, CURLOPT_URL, [[url absoluteString] UTF8String]);

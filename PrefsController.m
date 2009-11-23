@@ -33,7 +33,7 @@ NSString *SQTimestampFont = @"SQTimestampFont";
 	NSFont *font = [NSKeyedUnarchiver unarchiveObjectWithData:[userDefaults objectForKey:SQTimestampFont]];
 	[fontExample setTextColor:[NSKeyedUnarchiver unarchiveObjectWithData:[userDefaults objectForKey:SQTimestampColor]]];
 	[fontExample setFont:font];
-	[fontExample setStringValue:[[NSDate date] descriptionWithLocale:[NSLocale currentLocale]]];
+	[fontExample setStringValue:[NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterLongStyle timeStyle:NSDateFormatterFullStyle]];
 	[[NSColorPanel sharedColorPanel] setColor:[NSKeyedUnarchiver unarchiveObjectWithData:[userDefaults objectForKey:SQTimestampColor]]];
 }
 	 
