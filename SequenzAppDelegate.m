@@ -35,6 +35,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 @interface SequenzAppDelegate (Private) 
 								
 - (void)repositionViewsIgnoringView:(NSView*)viewToIgnore;
+- (NSRect)windowFrameForNewContentViewSize:(NSSize)newSize;
 
 @end
 
@@ -97,7 +98,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(adjustSubview:) name:NSViewFrameDidChangeNotification object:ftpPane];
 	[self repositionViewsIgnoringView:nil];
 	//[serverTextField setStringValue:[userDefaults stringForKey:@"server"]];
-	//[sideBarScrollView setDocumentView:sideBarView];
+
 	/*
 	mCamera = [[Camera alloc] init];
 	[mCaptureView setCaptureSession:[mCamera mCaptureSession]];
@@ -137,15 +138,32 @@ NSString *SQFTPPath = @"SQFTPPath";
 	NSSize contentViewSize = newSideBarFrame.size;
 	contentViewSize.height += topMargin;
 	
-	/* von mir */
+	/* // von mir
 	NSRect windowRect = [window frame];
     float dy = (windowRect.size.height - contentViewSize.height);
     windowRect.origin.y += dy;
     windowRect.size.height = contentViewSize.height + 50.0 + 22.0;
-	
+	NSLog(@"window rect origin y: %f + window rect height: %f = %f", windowRect.origin.y, windowRect.size.height, (windowRect.origin.y + windowRect.size.height));
     [window setFrame: windowRect display:YES animate:NO];
+	*/
+	NSRect newWindowFrame = [self windowFrameForNewContentViewSize:contentViewSize];
+	[window setFrame:newWindowFrame display:YES];
 
 	
+}
+
+- (NSRect)windowFrameForNewContentViewSize:(NSSize)newSize {
+	NSRect windowFrame = [window frame];
+	
+	windowFrame.size.width = newSize.width;
+	
+	float titlebarAreaHeight = windowFrame.size.height - [[window contentView] frame].size.height;
+	float newHeight = newSize.height + titlebarAreaHeight + 50.0;
+	float heightDifference = windowFrame.size.height - newHeight;
+	windowFrame.size.height = newHeight;
+	windowFrame.origin.y += heightDifference;
+	
+	return windowFrame;
 }
 
 - (NSURL *)composedUploadURL {

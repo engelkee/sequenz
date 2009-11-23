@@ -21,10 +21,10 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="372"/>
-			<integer value="972"/>
 			<integer value="81"/>
 			<integer value="1239"/>
+			<integer value="972"/>
+			<integer value="372"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -382,7 +382,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{597, 297}, {400, 567}}</string>
+				<string key="NSWindowRect">{{597, 121}, {400, 743}}</string>
 				<int key="NSWTFlags">1954022400</int>
 				<string key="NSWindowTitle">Sequenz</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -421,7 +421,7 @@
 						<object class="QTCaptureView" id="920306203">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">264</int>
-							<string key="NSFrame">{{0, 267}, {400, 300}}</string>
+							<string key="NSFrame">{{0, 443}, {400, 300}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<object class="NSColor" key="kQTCaptureViewCoderFillColor" id="153671350">
@@ -433,15 +433,14 @@
 						<object class="NSCustomView" id="270234001">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">264</int>
-							<string key="NSFrame">{{0, 50}, {400, 217}}</string>
+							<string key="NSFrame">{{0, 50}, {400, 393}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<string key="NSClassName">NSView</string>
 						</object>
 					</object>
-					<string key="NSFrameSize">{400, 567}</string>
+					<string key="NSFrameSize">{400, 743}</string>
 					<reference key="NSSuperview"/>
-					<bool key="NSViewIsLayerTreeHost">YES</bool>
 					<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
@@ -936,10 +935,6 @@
 				<string key="NSClassName">SideBarPaneView</string>
 			</object>
 			<object class="NSUserDefaultsController" id="713448826">
-				<object class="NSMutableArray" key="NSDeclaredKeys">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>SQFTPServerAddress</string>
-				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 			<object class="NSCustomObject" id="45839822">
@@ -2755,7 +2750,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{510, 251}, {400, 206}}</string>
+					<string>{{584, 487}, {400, 206}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{574, 420}, {400, 500}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2808,10 +2803,10 @@
 					<integer value="1"/>
 					<string>{74, 862}</string>
 					<string>{{6, 978}, {478, 20}}</string>
-					<string>{{488, 138}, {400, 567}}</string>
+					<string>{{538, 193}, {400, 743}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{488, 138}, {400, 567}}</string>
+					<string>{{538, 193}, {400, 743}}</string>
 					<integer value="1"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<boolean value="NO"/>

@@ -48,6 +48,7 @@
             break;
     }
     [[self animator] setFrame:frame];
+	//[self setFrame:frame];
 }
 
 @end
