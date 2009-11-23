@@ -11,7 +11,7 @@
 @class ShadowBox;
 
 @interface SideBarPaneView : NSView {
-	IBOutlet ShadowBox *box;
+	IBOutlet NSBox *box;
 	IBOutlet NSButton *collapseButton;
 }
 
