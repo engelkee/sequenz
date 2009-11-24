@@ -157,7 +157,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 	windowFrame.size.width = newSize.width;
 	
 	float titlebarAreaHeight = windowFrame.size.height - [[window contentView] frame].size.height;
-	float newHeight = newSize.height + titlebarAreaHeight + 50.0;
+	float newHeight = newSize.height + titlebarAreaHeight + 22.0;
 	float heightDifference = windowFrame.size.height - newHeight;
 	windowFrame.size.height = newHeight;
 	windowFrame.origin.y += heightDifference;

@@ -20,13 +20,15 @@
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
+	/*
 	NSRect rect = [self bounds];
 	NSBezierPath *path = [NSBezierPath bezierPath];
 	[path moveToPoint:NSMakePoint(rect.origin.x, rect.origin.y + rect.size.height)];
 	[path lineToPoint:NSMakePoint(rect.origin.x + rect.size.width, rect.origin.y + rect.size.height)];
 	[path setLineWidth:1.0];
-	[[NSColor windowFrameColor] set];
+	[[NSColor colorWithCalibratedWhite:0.18 alpha:1.0] set];
 	[path stroke];
+	 */
 }
 
 - (IBAction)toggleCollapsed:(id)sender {
