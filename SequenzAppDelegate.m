@@ -98,11 +98,12 @@ NSString *SQFTPPath = @"SQFTPPath";
 	[self repositionViewsIgnoringView:nil];
 	//[serverTextField setStringValue:[userDefaults stringForKey:@"server"]];
 
-	
+	[window setMovableByWindowBackground:YES];
+	/*
 	mCamera = [[Camera alloc] init];
 	[mCaptureView setCaptureSession:[mCamera mCaptureSession]];
 	[[mCamera mCaptureSession] startRunning];
-	
+	*/
 }
 
 #pragma mark Private methods

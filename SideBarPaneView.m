@@ -31,6 +31,10 @@
 	 */
 }
 
+- (BOOL)mouseDownCanMoveWindow {
+	return NO;
+}
+
 - (IBAction)toggleCollapsed:(id)sender {
     NSRect frame = [self frame];
     // The extra +14 accounts for the space between the box and its neighboring views
