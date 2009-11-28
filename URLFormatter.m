@@ -26,7 +26,6 @@
 			if( [string rangeOfString: @"."].length > 0 ) {
 				string = [@"ftp://" stringByAppendingString: string];
 				url = [NSURL URLWithString: string];
-				scheme = [url scheme];
 			} else {
 				url = nil;
 			}

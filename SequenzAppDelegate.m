@@ -27,7 +27,7 @@ NSString *SQIntervalUnit = @"SQIntervalUnit";
 NSString *SQImageQuality = @"SQImageQuality";
 NSString *SQImageFormat = @"SQImageFormat";
 NSString *SQImageFilename = @"SQImageFilename";
-NSString *SQFTPServerAddress = @"SQFTPServerAddress";
+NSString *SQFTPServerAddress = @"≥	";
 NSString *SQFTPUsername = @"SQFTPUsername";
 NSString *SQFTPPath = @"SQFTPPath";
 
@@ -109,18 +109,23 @@ NSString *SQFTPPath = @"SQFTPPath";
 	//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraAttributeChanged:) name:QTCaptureDeviceAttributeWillChangeNotification object:nil];
 	
 	[qtSwapView addSubview:mCaptureView];
+	
+	[self checkCameraSuspended];
 }
 
 #pragma mark Private methods
 
 - (void)cameraAttributeChanged:(NSNotification *)notification {
-	NSLog(@"%@", [notification userInfo]);
+	[self checkCameraSuspended];
+}
+
+- (void)checkCameraSuspended {
 	NSNumber *value = [[mCamera device] attributeForKey:QTCaptureDeviceSuspendedAttribute];
 	//NSLog(@"value : %@", [value stringValue]);
 	if (!value) {
 		value = [NSNumber numberWithBool:YES];
 	}
-
+	
 	[self setIsCameraOn:[value boolValue]];
 	
 	NSLog(@"suspended: %i", [self isCameraOn]);
@@ -131,11 +136,10 @@ NSString *SQFTPPath = @"SQFTPPath";
 		[qtSwapView	replaceSubview:mCaptureView with:suspendedView];
 		NSLog(@"lid closed");
 	} else {
-
+		
 		[qtSwapView replaceSubview:suspendedView with:mCaptureView];
 		NSLog(@"lid open");
 	}
-
 }
 
 - (void)adjustSubview:(NSNotification *)notification {
@@ -205,9 +209,17 @@ NSString *SQFTPPath = @"SQFTPPath";
 
 #pragma mark UI actions
 
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+	NSString *selectorString = NSStringFromSelector([menuItem action]);
+	NSLog(@"validate called for %@", selectorString);
+	if ([menuItem action] == @selector(toggleRecording:)) {
+		return (!isCameraOn && !isRecording);
+	} else {
+		return YES;
+	}
+}
+
 - (IBAction)setServerAdress:(id)sender {
-	//[userDefaults setObject:[sender stringValue] forKey:@"server"];
-	//[[sender stringValue] length] > 0 ? [startStopButton setEnabled:YES] : [startStopButton setEnabled:NO];
 }
 
 - (IBAction)setInterval:(id)sender {
@@ -238,11 +250,6 @@ NSString *SQFTPPath = @"SQFTPPath";
 
 - (void)startRecording {
 	[self setIsRecording:YES];
-	/*
-	mCamera = [[Camera alloc] init];
-	[mCaptureView setCaptureSession:[mCamera mCaptureSession]];
-	[[mCamera mCaptureSession] startRunning];
-	 */
 	sequenceTimer = [NSTimer scheduledTimerWithTimeInterval:[self convertedInterval]
 													 target:self 
 												   selector:@selector(capturePic:) 
@@ -253,8 +260,6 @@ NSString *SQFTPPath = @"SQFTPPath";
 - (void)stopRecording {
 	
 	[sequenceTimer invalidate];
-	//[[mCamera mCaptureSession] stopRunning];
-	//[mCamera release];
 	[self setIsRecording:NO];
 	
 	/*
@@ -296,7 +301,6 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 - (void)sheetDidDismiss:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void  *)contextInfo {
-	//[self switchSubViews];
 }
 
 @end

@@ -38,7 +38,7 @@
 	NSRect fillRect = NSMakeRect(rect.origin.x, rect.origin.y + 1.0, rect.size.width, rect.size.height - 3.0);
 	
 	NSBezierPath *path = [NSBezierPath bezierPath];
-	[[NSColor colorWithCalibratedRed:0.12 green:0.12 blue:0.12 alpha:1.0] set];
+	[[NSColor colorWithCalibratedRed:0.32 green:0.32 blue:0.32 alpha:1.0] set];
 	[path moveToPoint:NSMakePoint(rect.origin.x, rect.origin.y + rect.size.height)];
 	[path lineToPoint:NSMakePoint(rect.origin.x + rect.size.width, rect.origin.y + rect.size.height)];
 
