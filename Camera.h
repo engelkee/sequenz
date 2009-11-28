@@ -15,9 +15,11 @@
 	QTCaptureDeviceInput *mCaptureDeviceInput;
 	QTCaptureDecompressedVideoOutput *mCaptureDecompressedVideoOutput;
 	CVImageBufferRef mCurrentImageBuffer;
+	QTCaptureDevice *device;
 }
 
-@property (retain) QTCaptureSession *mCaptureSession;
+@property (retain, readonly) QTCaptureSession *mCaptureSession;
+@property (retain, readonly) QTCaptureDevice *device;
 
 - (NSData *)takePictureWithFileType:(NSBitmapImageFileType)type quality:(NSNumber *)qual;
 

@@ -19,7 +19,7 @@
 
 @implementation Camera
 
-@synthesize mCaptureSession;
+@synthesize mCaptureSession, device;
 
 - (id)init {
 	self = [super init];
@@ -42,19 +42,20 @@
 	NSError *error = nil;
 	BOOL success;
 
-	QTCaptureDevice *device = [QTCaptureDevice defaultInputDeviceWithMediaType:QTMediaTypeVideo];
+	device = [QTCaptureDevice defaultInputDeviceWithMediaType:QTMediaTypeVideo];
 	success = [device open:&error];
 	if (!success) {
 		[[NSAlert alertWithError:error] runModal];
 		return;
 	}
+	
 	mCaptureDeviceInput = [[QTCaptureDeviceInput alloc] initWithDevice:device];
 	success = [mCaptureSession addInput:mCaptureDeviceInput error:&error];
 	if (!success) {
 		[[NSAlert alertWithError:error] runModal];
 		return;
 	} 
-	
+
 	mCaptureDecompressedVideoOutput = [[QTCaptureDecompressedVideoOutput alloc] init];
 	[mCaptureDecompressedVideoOutput setDelegate:self];
 	success = [mCaptureSession addOutput:mCaptureDecompressedVideoOutput error:&error];
@@ -62,7 +63,7 @@
 		[[NSAlert alertWithError:error] runModal];
 		return;
 	}
-	NSLog(@"open shutter");
+	NSLog(@"open shutter with error: %@", [error localizedDescription]);
 }
 
 - (NSData *)takePictureWithFileType:(NSBitmapImageFileType)type quality:(NSNumber *)qual {

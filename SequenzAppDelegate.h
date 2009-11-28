@@ -26,9 +26,9 @@
 	IBOutlet NSButton *startStopButton;
 	
 	IBOutlet QTCaptureView *mCaptureView;
-
+	IBOutlet NSView *qtSwapView;
 	IBOutlet NSView *sideBarView;
-	IBOutlet NSScrollView *sideBarScrollView;
+	IBOutlet NSView *suspendedView;
 	IBOutlet SideBarPaneView *recPane;
 	IBOutlet SideBarPaneView *ftpPane;
 	
@@ -45,12 +45,14 @@
 	NSTimer *sequenceTimer;
 	
 	BOOL isRecording;
+	BOOL isCameraOn;
 	
 	float topMargin;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 @property BOOL isRecording;
+@property BOOL isCameraOn;
 
 - (void)startRecording;
 - (void)stopRecording;

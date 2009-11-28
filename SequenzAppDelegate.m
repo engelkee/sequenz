@@ -43,7 +43,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 
 @implementation SequenzAppDelegate
 
-@synthesize window, isRecording;
+@synthesize window, isRecording, isCameraOn;
 
 #pragma mark Initializing & Terminating
 
@@ -56,9 +56,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 	[defaultValues setObject:@"CaptureImage" forKey:SQImageFilename];
 	[defaultValues setObject:[NSKeyedArchiver archivedDataWithRootObject:[NSFont fontWithName:@"Times-Roman" size:12.0]] forKey:SQTimestampFont];
 	[defaultValues setObject:[NSKeyedArchiver archivedDataWithRootObject:[NSColor blackColor]] forKey:SQTimestampColor];
-	//[defaultValues setObject:@"" forKey:@"server"];
 	[defaultValues setObject:[NSNumber numberWithBool:YES] forKey:@"SUEnableAutomaticChecks"];
-	
 	
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
 }
@@ -96,17 +94,49 @@ NSString *SQFTPPath = @"SQFTPPath";
 	[recPane setPostsFrameChangedNotifications:YES];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(adjustSubview:) name:NSViewFrameDidChangeNotification object:ftpPane];
 	[self repositionViewsIgnoringView:nil];
-	//[serverTextField setStringValue:[userDefaults stringForKey:@"server"]];
 
 	[window setMovableByWindowBackground:YES];
-	/*
+	
+	
+	
 	mCamera = [[Camera alloc] init];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraAttributeChanged:) name:QTCaptureDeviceAttributeDidChangeNotification object:nil];
+	
 	[mCaptureView setCaptureSession:[mCamera mCaptureSession]];
 	[[mCamera mCaptureSession] startRunning];
-	*/
+	
+	//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraAttributeChanged:) name:QTCaptureDeviceAttributeWillChangeNotification object:nil];
+	
+	[qtSwapView addSubview:mCaptureView];
 }
 
 #pragma mark Private methods
+
+- (void)cameraAttributeChanged:(NSNotification *)notification {
+	NSLog(@"%@", [notification userInfo]);
+	NSNumber *value = [[mCamera device] attributeForKey:QTCaptureDeviceSuspendedAttribute];
+	//NSLog(@"value : %@", [value stringValue]);
+	if (!value) {
+		value = [NSNumber numberWithBool:YES];
+	}
+
+	[self setIsCameraOn:[value boolValue]];
+	
+	NSLog(@"suspended: %i", [self isCameraOn]);
+	if ([self isCameraOn]) {
+		if ([self isRecording]) {
+			[self stopRecording];
+		}
+		[qtSwapView	replaceSubview:mCaptureView with:suspendedView];
+		NSLog(@"lid closed");
+	} else {
+
+		[qtSwapView replaceSubview:suspendedView with:mCaptureView];
+		NSLog(@"lid open");
+	}
+
+}
 
 - (void)adjustSubview:(NSNotification *)notification {
 	[self repositionViewsIgnoringView:[notification object]];
@@ -137,15 +167,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 	
 	NSSize contentViewSize = newSideBarFrame.size;
 	contentViewSize.height += topMargin;
-	
-	/* // von mir
-	NSRect windowRect = [window frame];
-    float dy = (windowRect.size.height - contentViewSize.height);
-    windowRect.origin.y += dy;
-    windowRect.size.height = contentViewSize.height + 50.0 + 22.0;
-	NSLog(@"window rect origin y: %f + window rect height: %f = %f", windowRect.origin.y, windowRect.size.height, (windowRect.origin.y + windowRect.size.height));
-    [window setFrame: windowRect display:YES animate:NO];
-	*/
+
 	NSRect newWindowFrame = [self windowFrameForNewContentViewSize:contentViewSize];
 	[window setFrame:newWindowFrame display:YES];
 
