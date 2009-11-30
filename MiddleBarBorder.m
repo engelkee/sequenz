@@ -31,13 +31,16 @@
 }
 
 - (void)changeGradient:(NSNotification *)notification {
-	/*
-	if ([notification name] == NSWindowDidResignKeyNotification) {
+
+	if ([[notification name] isEqualToString:NSWindowDidResignKeyNotification]) {
 		[self setStartColor:[NSColor colorWithCalibratedRed:0.93 green:0.93 blue:0.93 alpha:1.0]];
 		[self setEndColor:[NSColor colorWithCalibratedRed:0.85 green:0.85 blue:0.85 alpha:1.0]];
+		NSLog(@"NSWindowDidResignKeyNotification");
+	} else {
+		[self setStartColor:[NSColor colorWithCalibratedRed:0.81 green:0.81 blue:0.81 alpha:1.0]];
+		[self setEndColor:[NSColor colorWithCalibratedRed:0.65 green:0.65 blue:0.65 alpha:1.0]];
 	}
-	 */
-	
+	[self setNeedsDisplay:YES];
 }
 
 - (BOOL)mouseDownCanMoveWindow {
