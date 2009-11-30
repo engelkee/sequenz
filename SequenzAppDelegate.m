@@ -103,6 +103,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraAttributeChanged:) name:QTCaptureDeviceAttributeDidChangeNotification object:nil];
 	
+	[mCaptureView setDelegate:self];
 	[mCaptureView setCaptureSession:[mCamera mCaptureSession]];
 	[[mCamera mCaptureSession] startRunning];
 	
@@ -286,6 +287,18 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 #pragma mark Delegates
+
+- (CIImage *)view:(QTCaptureView *)view willDisplayImage:(CIImage *)image {
+	NSAffineTransform* flipTransform = [NSAffineTransform transform];
+	CIFilter* flipFilter;
+	CIImage* flippedImage;
+	[flipTransform scaleXBy:-1.0 yBy:1.0]; //horizontal flip
+	flipFilter = [CIFilter filterWithName:@"CIAffineTransform"];
+	[flipFilter setValue:flipTransform forKey:@"inputTransform"];
+	[flipFilter setValue:image forKey:@"inputImage"];
+	flippedImage = [flipFilter valueForKey:@"outputImage"];
+	return flippedImage;
+}
 
 - (void)uploadDidFinish {
 	//NSLog(@"Delegate called: Upload did finish");
