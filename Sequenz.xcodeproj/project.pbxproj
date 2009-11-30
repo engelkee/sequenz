@@ -35,6 +35,8 @@
 		F235BBD610A2D3E8001B9C73 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F235BBD510A2D3E8001B9C73 /* PrefsController.m */; };
 		F24A59F910A096FC0096BC7B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24A59F810A096FC0096BC7B /* QuartzCore.framework */; };
 		F260D3DF10B41D8B00E3F7B0 /* DisabledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F260D3DE10B41D8B00E3F7B0 /* DisabledTextField.m */; };
+		F2675BDA10C3155700F0E7D0 /* media-record.png in Resources */ = {isa = PBXBuildFile; fileRef = F2675BD910C3155700F0E7D0 /* media-record.png */; };
+		F2675BDE10C3165900F0E7D0 /* media-record_sw.png in Resources */ = {isa = PBXBuildFile; fileRef = F2675BDD10C3165900F0E7D0 /* media-record_sw.png */; };
 		F26EFB0010BAFD7F0066B042 /* ShadowBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F26EFAFF10BAFD7F0066B042 /* ShadowBox.m */; };
 		F276828710A8362300AD45C2 /* FTPController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276828610A8362300AD45C2 /* FTPController.m */; };
 		F29E005D10B97DD30048C14C /* SideBarPaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = F29E005C10B97DD30048C14C /* SideBarPaneView.m */; };
@@ -95,6 +97,8 @@
 		F24A59F810A096FC0096BC7B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
 		F260D3DD10B41D8B00E3F7B0 /* DisabledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisabledTextField.h; sourceTree = "<group>"; };
 		F260D3DE10B41D8B00E3F7B0 /* DisabledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisabledTextField.m; sourceTree = "<group>"; };
+		F2675BD910C3155700F0E7D0 /* media-record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media-record.png"; sourceTree = "<group>"; };
+		F2675BDD10C3165900F0E7D0 /* media-record_sw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media-record_sw.png"; sourceTree = "<group>"; };
 		F26EFAFE10BAFD7F0066B042 /* ShadowBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowBox.h; sourceTree = "<group>"; };
 		F26EFAFF10BAFD7F0066B042 /* ShadowBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowBox.m; sourceTree = "<group>"; };
 		F276828510A8362300AD45C2 /* FTPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPController.h; sourceTree = "<group>"; };
@@ -206,6 +210,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F2675BDD10C3165900F0E7D0 /* media-record_sw.png */,
+				F2675BD910C3155700F0E7D0 /* media-record.png */,
 				F2EFB27C10B48A5F0058EA02 /* dsa_pub.pem */,
 				F23101A810B4619A00F714D4 /* sequenz_sw.icns */,
 				F235BBC810A2D247001B9C73 /* Prefs.xib */,
@@ -275,6 +281,8 @@
 				F235BBCA10A2D247001B9C73 /* Prefs.xib in Resources */,
 				F23101A910B4619A00F714D4 /* sequenz_sw.icns in Resources */,
 				F2EFB27D10B48A5F0058EA02 /* dsa_pub.pem in Resources */,
+				F2675BDA10C3155700F0E7D0 /* media-record.png in Resources */,
+				F2675BDE10C3165900F0E7D0 /* media-record_sw.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,6 +25,21 @@
     return self;
 }
 
+- (void)awakeFromNib {
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeGradient:) name:NSWindowDidResignKeyNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeGradient:) name:NSWindowDidBecomeKeyNotification object:nil];
+}
+
+- (void)changeGradient:(NSNotification *)notification {
+	/*
+	if ([notification name] == NSWindowDidResignKeyNotification) {
+		[self setStartColor:[NSColor colorWithCalibratedRed:0.93 green:0.93 blue:0.93 alpha:1.0]];
+		[self setEndColor:[NSColor colorWithCalibratedRed:0.85 green:0.85 blue:0.85 alpha:1.0]];
+	}
+	 */
+	
+}
+
 - (BOOL)mouseDownCanMoveWindow {
 	return YES;
 }
@@ -38,6 +53,7 @@
 	NSRect fillRect = NSMakeRect(rect.origin.x, rect.origin.y + 1.0, rect.size.width, rect.size.height - 3.0);
 	
 	NSBezierPath *path = [NSBezierPath bezierPath];
+
 	[[NSColor colorWithCalibratedRed:0.32 green:0.32 blue:0.32 alpha:1.0] set];
 	[path moveToPoint:NSMakePoint(rect.origin.x, rect.origin.y + rect.size.height)];
 	[path lineToPoint:NSMakePoint(rect.origin.x + rect.size.width, rect.origin.y + rect.size.height)];

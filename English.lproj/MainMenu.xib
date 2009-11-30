@@ -21,12 +21,12 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1220"/>
-			<integer value="81"/>
-			<integer value="1285"/>
-			<integer value="1219"/>
-			<integer value="1284"/>
 			<integer value="869"/>
+			<integer value="1285"/>
+			<integer value="1284"/>
+			<integer value="81"/>
+			<integer value="1239"/>
+			<integer value="1220"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -411,23 +411,31 @@
 								<object class="NSButton" id="602356454">
 									<reference key="NSNextResponder" ref="189265280"/>
 									<int key="NSvFlags">261</int>
-									<string key="NSFrame">{{150, 21}, {100, 19}}</string>
+									<string key="NSFrame">{{181, 11}, {39, 38}}</string>
 									<reference key="NSSuperview" ref="189265280"/>
 									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSButtonCell" key="NSCell" id="169651002">
 										<int key="NSCellFlags">67239424</int>
 										<int key="NSCellFlags2">134217728</int>
-										<string key="NSContents">Start</string>
-										<object class="NSFont" key="NSSupport">
-											<string key="NSName">LucidaGrande-Bold</string>
-											<double key="NSSize">12</double>
-											<int key="NSfFlags">16</int>
+										<string key="NSContents"/>
+										<object class="NSFont" key="NSSupport" id="394438029">
+											<string key="NSName">LucidaGrande</string>
+											<double key="NSSize">13</double>
+											<int key="NSfFlags">1044</int>
 										</object>
 										<reference key="NSControlView" ref="602356454"/>
-										<int key="NSButtonFlags">-927710977</int>
-										<int key="NSButtonFlags2">164</int>
-										<string key="NSAlternateContents">Stop</string>
+										<int key="NSButtonFlags">-931905281</int>
+										<int key="NSButtonFlags2">135</int>
+										<object class="NSCustomResource" key="NSNormalImage">
+											<string key="NSClassName">NSImage</string>
+											<string key="NSResourceName">media-record_sw</string>
+										</object>
+										<object class="NSCustomResource" key="NSAlternateImage">
+											<string key="NSClassName">NSImage</string>
+											<string key="NSResourceName">media-record</string>
+										</object>
+										<string key="NSAlternateContents"/>
 										<string key="NSKeyEquivalent"/>
 										<int key="NSPeriodicDelay">400</int>
 										<int key="NSPeriodicInterval">75</int>
@@ -474,11 +482,7 @@
 							<int key="NSCellFlags">-2080244224</int>
 							<int key="NSCellFlags2">0</int>
 							<string key="NSContents"/>
-							<object class="NSFont" key="NSSupport" id="394438029">
-								<string key="NSName">LucidaGrande</string>
-								<double key="NSSize">13</double>
-								<int key="NSfFlags">1044</int>
-							</object>
+							<reference key="NSSupport" ref="394438029"/>
 							<reference key="NSControlView" ref="473787494"/>
 							<int key="NSButtonFlags">-1198767873</int>
 							<int key="NSButtonFlags2">133</int>
@@ -623,6 +627,7 @@
 														<string>allowsFloats</string>
 														<string>formatterBehavior</string>
 														<string>lenient</string>
+														<string>locale</string>
 														<string>maximum</string>
 														<string>minimum</string>
 														<string>negativeInfinitySymbol</string>
@@ -635,6 +640,9 @@
 														<boolean value="YES"/>
 														<integer value="1040"/>
 														<boolean value="NO"/>
+														<object class="NSLocale">
+															<string key="NS.identifier"/>
+														</object>
 														<real value="60"/>
 														<real value="5"/>
 														<string>-∞</string>
@@ -669,10 +677,10 @@
 													<bool key="NS.raise.underflow">YES</bool>
 													<bool key="NS.raise.dividebyzero">YES</bool>
 												</object>
-												<string key="NS.decimal">,</string>
-												<string key="NS.thousand">.</string>
+												<string key="NS.decimal">.</string>
+												<string key="NS.thousand">,</string>
 												<bool key="NS.hasthousands">YES</bool>
-												<bool key="NS.localized">YES</bool>
+												<bool key="NS.localized">NO</bool>
 												<bool key="NS.allowsfloats">YES</bool>
 											</object>
 											<reference key="NSControlView" ref="83895405"/>
@@ -832,10 +840,6 @@
 				<string key="NSClassName">SideBarPaneView</string>
 			</object>
 			<object class="NSUserDefaultsController" id="713448826">
-				<object class="NSMutableArray" key="NSDeclaredKeys">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>SQFTPServerAddress</string>
-				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 			<object class="NSCustomObject" id="45839822">
@@ -2728,10 +2732,10 @@
 					<integer value="1"/>
 					<string>{74, 862}</string>
 					<string>{{6, 978}, {478, 20}}</string>
-					<string>{{585, 107}, {400, 743}}</string>
+					<string>{{641, 13}, {400, 743}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{585, 107}, {400, 743}}</string>
+					<string>{{641, 13}, {400, 743}}</string>
 					<integer value="1"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<boolean value="NO"/>
@@ -2809,7 +2813,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{475, 454}, {400, 165}}</string>
+					<string>{{422, 441}, {400, 165}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2834,7 +2838,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1305</int>
+			<int key="maxID">1307</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
