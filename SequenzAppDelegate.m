@@ -127,18 +127,15 @@ NSString *SQFTPPath = @"SQFTPPath";
 	}
 	
 	[self setIsCameraOn:[value boolValue]];
-	
-	NSLog(@"suspended: %i", [self isCameraOn]);
+
 	if ([self isCameraOn]) {
 		if ([self isRecording]) {
 			[self stopRecording];
 		}
 		[qtSwapView	replaceSubview:mCaptureView with:suspendedView];
-		NSLog(@"lid closed");
 	} else {
 		
 		[qtSwapView replaceSubview:suspendedView with:mCaptureView];
-		NSLog(@"lid open");
 	}
 }
 
@@ -209,9 +206,16 @@ NSString *SQFTPPath = @"SQFTPPath";
 
 #pragma mark UI actions
 
+- (IBAction)openWebsite:(id)sender {
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://gwosdek.net/sequenz"]];
+}
+
+- (IBAction)openDonate:(id)sender {
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://paypal.com"]];
+}
+
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
 	NSString *selectorString = NSStringFromSelector([menuItem action]);
-	NSLog(@"validate called for %@", selectorString);
 	if ([menuItem action] == @selector(toggleRecording:)) {
 		return (!isCameraOn && !isRecording);
 	} else {
@@ -242,7 +246,6 @@ NSString *SQFTPPath = @"SQFTPPath";
 	NSInteger state = [sender state];
 	if (state == NSOnState) {
 		[self startRecording];
-		NSLog(@"Record pressed");
 	} else {
 		[self stopRecording];
 	}
@@ -285,7 +288,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 #pragma mark Delegates
 
 - (void)uploadDidFinish {
-	NSLog(@"Delegate called: Upload did finish");
+	//NSLog(@"Delegate called: Upload did finish");
 }
 
 - (void)uploadDidNotFinishWithError:(NSError *)error {

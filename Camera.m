@@ -27,7 +27,6 @@
 		mCaptureSession = [[QTCaptureSession alloc] init];
 		[self openShutter];
 	}
-	NSLog(@"Camera init");
 	return self;
 }
 
@@ -63,7 +62,9 @@
 		[[NSAlert alertWithError:error] runModal];
 		return;
 	}
+#ifndef NDEBUG
 	NSLog(@"open shutter with error: %@", [error localizedDescription]);
+#endif
 }
 
 - (NSData *)takePictureWithFileType:(NSBitmapImageFileType)type quality:(NSNumber *)qual {
@@ -83,7 +84,7 @@
 		bitmapData = [imageRep representationUsingType:type 
 											properties:[NSDictionary dictionaryWithObject:qual 
 																				   forKey:NSImageCompressionFactor]];
-		NSLog(@"bitmapData : %i bytes", [bitmapData length]);
+		//NSLog(@"bitmapData : %i bytes", [bitmapData length]);
 		[imageRep release];
 		CVBufferRelease(imageBuffer);
 	}
@@ -109,7 +110,7 @@
 	NSGraphicsContext *gc = [NSGraphicsContext graphicsContextWithBitmapImageRep:rep];
 	[NSGraphicsContext setCurrentContext:gc];
 	NSString *dateString = [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterLongStyle timeStyle:NSDateFormatterFullStyle];
-	NSLog(@"Date string: %@", dateString);
+
 	NSColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] valueForKey:SQTimestampColor]];
 	NSFont *font = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] valueForKey:SQTimestampFont]];
 	NSMutableDictionary *attrsDictionary = [NSMutableDictionary dictionary];

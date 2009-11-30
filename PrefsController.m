@@ -17,7 +17,6 @@ NSString *SQTimestampFont = @"SQTimestampFont";
 - (id)init {
 	self = [super initWithWindowNibName:@"Prefs"];
 	if (self != nil) {
-		NSLog(@"Init PrefsController");
 		userDefaults = [NSUserDefaults standardUserDefaults];
 	}
 	return self;
@@ -38,21 +37,20 @@ NSString *SQTimestampFont = @"SQTimestampFont";
 }
 	 
 - (void)changeFont:(id)sender {
-	NSLog(@"Font changed!");
 	//NSFont *oldFont = [fontExample font];
     NSFont *newFont = [sender convertFont:[NSKeyedUnarchiver unarchiveObjectWithData:[userDefaults objectForKey:SQTimestampFont]]];
 	[userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:newFont] forKey:SQTimestampFont];
     [fontExample setFont:newFont];
 	[fontExample setTextColor:[NSKeyedUnarchiver unarchiveObjectWithData:[userDefaults objectForKey:SQTimestampColor]]];
-	NSLog(@"new font: %@", newFont);
+
 }
 
 - (void)changeColor:(id)sender {
-	NSLog(@"changeColor called");
+	//NSLog(@"changeColor called");
 }
 
 - (void)changeAttributes:(id)sender {
-	NSLog(@"color: %@", [[NSColorPanel sharedColorPanel] color]);
+	//NSLog(@"color: %@", [[NSColorPanel sharedColorPanel] color]);
 	/*
 	NSFont *oldFont = [fontExample font];
 	NSFontDescriptor *fDesc	= [oldFont fontDescriptor];
@@ -78,7 +76,7 @@ NSString *SQTimestampFont = @"SQTimestampFont";
 	*/
 	NSColor *newColor = [[NSColorPanel sharedColorPanel] color];
 	[userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:newColor] forKey:SQTimestampColor];
-	NSLog(@"new color: %@", newColor);
+	//NSLog(@"new color: %@", newColor);
 	[fontExample setTextColor:[NSKeyedUnarchiver unarchiveObjectWithData:[userDefaults objectForKey:SQTimestampColor]]];
 	/*
 	[newString release];

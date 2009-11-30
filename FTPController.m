@@ -97,13 +97,13 @@ static size_t ReadMemoryCallback(void *ptr, size_t size, size_t nmemb, void *pMe
 		
 		curl_easy_getinfo(curl, CURLINFO_SPEED_UPLOAD, &dUploadSpeed);
 		curl_easy_getinfo(curl, CURLINFO_TOTAL_TIME, &dTotalTime);
+#ifndef NDEBUG
 		fprintf(stderr, "Speed: %.3f bytes/sec during %.3f seconds\n", dUploadSpeed, dTotalTime);
-		
+#endif
 		/* always cleanup */ 
 		curl_easy_cleanup(curl);
 		
 		if (res != 0) {
-			fprintf(stderr, "Fehler: %s\n", errorBuffer);
 			[self uploadError:[NSError errorWithDomain:@"CurlErrorDomain" 
 												  code:res 
 											  userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithUTF8String:curl_easy_strerror(res)] 

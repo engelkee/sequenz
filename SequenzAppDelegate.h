@@ -62,6 +62,8 @@
 - (IBAction)setServerAdress:(id)sender;
 - (IBAction)setInterval:(id)sender;
 - (IBAction)setIntervalUnit:(id)sender;
+- (IBAction)openWebsite:(id)sender;
+- (IBAction)openDonate:(id)sender;
 
 
 
