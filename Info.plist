@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string>sequenz_sw</string>
+	<string>sequenz</string>
 	<key>CFBundleIdentifier</key>
 	<string>net.gwosdek.sequenz</string>
 	<key>CFBundleInfoDictionaryVersion</key>
