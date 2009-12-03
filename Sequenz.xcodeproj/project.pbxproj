@@ -30,7 +30,6 @@
 		F202D17C10AACD5F00905A04 /* URLFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F202D17B10AACD5F00905A04 /* URLFormatter.m */; };
 		F20F9AAC10BC46FF0019BEAC /* MiddleBarBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = F20F9AAB10BC46FF0019BEAC /* MiddleBarBorder.m */; };
 		F227522610BE85E9001A37B0 /* CameraSuspendedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F227522510BE85E9001A37B0 /* CameraSuspendedView.m */; };
-		F23101A910B4619A00F714D4 /* sequenz_sw.icns in Resources */ = {isa = PBXBuildFile; fileRef = F23101A810B4619A00F714D4 /* sequenz_sw.icns */; };
 		F235BBCA10A2D247001B9C73 /* Prefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = F235BBC810A2D247001B9C73 /* Prefs.xib */; };
 		F235BBD610A2D3E8001B9C73 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F235BBD510A2D3E8001B9C73 /* PrefsController.m */; };
 		F24A59F910A096FC0096BC7B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24A59F810A096FC0096BC7B /* QuartzCore.framework */; };
@@ -91,7 +90,6 @@
 		F20F9AAB10BC46FF0019BEAC /* MiddleBarBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiddleBarBorder.m; sourceTree = "<group>"; };
 		F227522410BE85E9001A37B0 /* CameraSuspendedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraSuspendedView.h; sourceTree = "<group>"; };
 		F227522510BE85E9001A37B0 /* CameraSuspendedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraSuspendedView.m; sourceTree = "<group>"; };
-		F23101A810B4619A00F714D4 /* sequenz_sw.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = sequenz_sw.icns; sourceTree = "<group>"; };
 		F235BBC910A2D247001B9C73 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Prefs.xib; sourceTree = "<group>"; };
 		F235BBD410A2D3E8001B9C73 /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsController.h; sourceTree = "<group>"; };
 		F235BBD510A2D3E8001B9C73 /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsController.m; sourceTree = "<group>"; };
@@ -216,7 +214,6 @@
 				F2675BDD10C3165900F0E7D0 /* media-record_sw.png */,
 				F2675BD910C3155700F0E7D0 /* media-record.png */,
 				F2EFB27C10B48A5F0058EA02 /* dsa_pub.pem */,
-				F23101A810B4619A00F714D4 /* sequenz_sw.icns */,
 				F235BBC810A2D247001B9C73 /* Prefs.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -282,7 +279,6 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				F235BBCA10A2D247001B9C73 /* Prefs.xib in Resources */,
-				F23101A910B4619A00F714D4 /* sequenz_sw.icns in Resources */,
 				F2EFB27D10B48A5F0058EA02 /* dsa_pub.pem in Resources */,
 				F2675BDA10C3155700F0E7D0 /* media-record.png in Resources */,
 				F2675BDE10C3165900F0E7D0 /* media-record_sw.png in Resources */,

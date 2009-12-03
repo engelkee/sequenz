@@ -27,7 +27,7 @@ NSString *SQIntervalUnit = @"SQIntervalUnit";
 NSString *SQImageQuality = @"SQImageQuality";
 NSString *SQImageFormat = @"SQImageFormat";
 NSString *SQImageFilename = @"SQImageFilename";
-NSString *SQFTPServerAddress = @"≥	";
+NSString *SQFTPServerAddress = @"SQFTPServerAddress";
 NSString *SQFTPUsername = @"SQFTPUsername";
 NSString *SQFTPPath = @"SQFTPPath";
 
@@ -36,6 +36,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 								
 - (void)repositionViewsIgnoringView:(NSView*)viewToIgnore;
 - (NSRect)windowFrameForNewContentViewSize:(NSSize)newSize;
+- (void)checkCameraSuspended;
 
 @end
 
@@ -212,11 +213,11 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 - (IBAction)openDonate:(id)sender {
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://paypal.com"]];
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=dom@gwosdek.net&item_name=Sequenz&no_shipping=1&cn=Comments&tax=0&currency_code=EUR&lc=US"]];
 }
 
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
-	NSString *selectorString = NSStringFromSelector([menuItem action]);
+	//NSString *selectorString = NSStringFromSelector([menuItem action]);
 	if ([menuItem action] == @selector(toggleRecording:)) {
 		return (!isCameraOn && !isRecording);
 	} else {
@@ -279,10 +280,10 @@ NSString *SQFTPPath = @"SQFTPPath";
 	
 	NSData *imageData = [mCamera takePictureWithFileType:NSJPEGFileType quality:factor];
 
-	BOOL success = [ftpController uploadData:imageData 
-									   toURL:[self composedUploadURL] 
-									username:[usernameTextField stringValue] 
-									password:[passwordTextField stringValue]];
+	[ftpController uploadData:imageData 
+						toURL:[self composedUploadURL] 
+					 username:[usernameTextField stringValue] 
+					 password:[passwordTextField stringValue]];
 
 }
 

@@ -37,6 +37,14 @@ static size_t ReadMemoryCallback(void *ptr, size_t size, size_t nmemb, void *pMe
         return 0; 
 }
 
+@interface FTPController (Private)
+
+- (void)completeUpload;
+- (void)uploadError:(NSError *)error;
+
+@end
+
+
 @implementation FTPController
 
 @synthesize usePassiveMode, delegate;
