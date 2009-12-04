@@ -36,5 +36,9 @@
 	<string>86400</string>
 	<key>SUFeedURL</key>
 	<string>http://gwosdek.net/sequenz/appcast/appcast.xml</string>
+	<key>CFBundleHelpBookFolder</key>
+	<string>SequenzHelp</string>
+	<key>CFBundleHelpBookName</key>
+	<string>Sequenz Help</string>
 </dict>
 </plist>

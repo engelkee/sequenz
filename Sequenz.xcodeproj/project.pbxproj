@@ -46,6 +46,7 @@
 		F2EFB27D10B48A5F0058EA02 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = F2EFB27C10B48A5F0058EA02 /* dsa_pub.pem */; };
 		F2EFB2A210B493A60058EA02 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2EFB2A110B493A60058EA02 /* Sparkle.framework */; };
 		F2EFB2A510B493AC0058EA02 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F2EFB2A110B493A60058EA02 /* Sparkle.framework */; };
+		F2F0EC1A10C9359400564C02 /* SequenzHelp in Resources */ = {isa = PBXBuildFile; fileRef = F2F0EC0A10C9359400564C02 /* SequenzHelp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		F2C63D9A10A4E455009AC351 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		F2EFB27C10B48A5F0058EA02 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		F2EFB2A110B493A60058EA02 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		F2F0EC0A10C9359400564C02 /* SequenzHelp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SequenzHelp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F2F0EC0A10C9359400564C02 /* SequenzHelp */,
 				F2BC024510C56E2C00ABC5EA /* sequenz.icns */,
 				F2675BDD10C3165900F0E7D0 /* media-record_sw.png */,
 				F2675BD910C3155700F0E7D0 /* media-record.png */,
@@ -283,6 +286,7 @@
 				F2675BDA10C3155700F0E7D0 /* media-record.png in Resources */,
 				F2675BDE10C3165900F0E7D0 /* media-record_sw.png in Resources */,
 				F2BC024610C56E2C00ABC5EA /* sequenz.icns in Resources */,
+				F2F0EC1A10C9359400564C02 /* SequenzHelp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
