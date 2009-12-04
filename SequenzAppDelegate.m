@@ -134,7 +134,9 @@ NSString *SQFTPPath = @"SQFTPPath";
 
 - (void)checkCameraSuspended {
 	NSNumber *value = [[mCamera device] attributeForKey:QTCaptureDeviceSuspendedAttribute];
-	//NSLog(@"value : %@", [value stringValue]);
+#ifndef NDEBUG
+	NSLog(@"value : %@", [value stringValue]);
+#endif
 	if (!value) {
 		value = [NSNumber numberWithBool:YES];
 	}
