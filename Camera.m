@@ -11,8 +11,8 @@
 
 @interface Camera (Private)
 
-- (void)openShutter;
 - (void)drawCaptureDate:(NSDate *)date toImageRep:(NSBitmapImageRep *)rep;
+- (void)openShutter;
 
 @end
 
@@ -38,33 +38,42 @@
 }
 
 - (void)openShutter {
-	NSError *error = nil;
+	NSError *err = nil;
+	NSAlert *alert;
 	BOOL success;
-
+	
 	device = [QTCaptureDevice defaultInputDeviceWithMediaType:QTMediaTypeVideo];
-	success = [device open:&error];
+	success = [device open:&err];
 	if (!success) {
-		[[NSAlert alertWithError:error] runModal];
+#ifndef NDEBUG
+		NSLog(@"error: %@", [err localizedDescription]);
+#endif
+		alert = [NSAlert alertWithMessageText:@"Could not connect to iSight camera" 
+								defaultButton:@"Quit" 
+							  alternateButton:nil 
+								  otherButton:nil 
+					informativeTextWithFormat:@"Your camera seems to be in use exclusively by an other application.\nPlease quit the other application and try again."];
+		[alert setAlertStyle:NSCriticalAlertStyle];
+		if ([alert runModal] == NSAlertDefaultReturn) {;
+			[[NSApplication sharedApplication] terminate:nil];
+		}
 		return;
 	}
 	
 	mCaptureDeviceInput = [[QTCaptureDeviceInput alloc] initWithDevice:device];
-	success = [mCaptureSession addInput:mCaptureDeviceInput error:&error];
+	success = [mCaptureSession addInput:mCaptureDeviceInput error:&err];
 	if (!success) {
-		[[NSAlert alertWithError:error] runModal];
+		[[NSAlert alertWithError:err] runModal];
 		return;
 	} 
 
 	mCaptureDecompressedVideoOutput = [[QTCaptureDecompressedVideoOutput alloc] init];
 	[mCaptureDecompressedVideoOutput setDelegate:self];
-	success = [mCaptureSession addOutput:mCaptureDecompressedVideoOutput error:&error];
+	success = [mCaptureSession addOutput:mCaptureDecompressedVideoOutput error:&err];
 	if (!success) {
-		[[NSAlert alertWithError:error] runModal];
+		[[NSAlert alertWithError:err] runModal];
 		return;
 	}
-#ifndef NDEBUG
-	NSLog(@"open shutter with error: %@", [error localizedDescription]);
-#endif
 }
 
 - (NSData *)takePictureWithFileType:(NSBitmapImageFileType)type quality:(NSNumber *)qual {

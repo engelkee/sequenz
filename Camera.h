@@ -22,5 +22,6 @@
 @property (retain, readonly) QTCaptureDevice *device;
 
 - (NSData *)takePictureWithFileType:(NSBitmapImageFileType)type quality:(NSNumber *)qual;
+- (void)openShutter;
 
 @end

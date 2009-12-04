@@ -73,20 +73,29 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 - (void)dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[mCamera release];
 	[ftpController release];
 	[super dealloc];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	
+#ifndef NDEBUG
+	NSLog(@"applicationDidFinishLaunching");
+#endif
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
 	[[mCamera mCaptureSession] stopRunning];
+	if ([[mCamera device] isOpen]) {
+		[[mCamera device] close];
+	}
 }
 
 - (void)awakeFromNib {
+#ifndef NDEBUG
+	NSLog(@"awakeFromNib");
+#endif
 	topMargin = NSHeight([[sideBarView superview] frame]) - NSMaxY([sideBarView frame]);
 	[sideBarView addSubview:recPane];
 	[recPane setPostsFrameChangedNotifications:YES];
@@ -97,9 +106,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 	[self repositionViewsIgnoringView:nil];
 
 	[window setMovableByWindowBackground:YES];
-	
-	
-	
+
 	mCamera = [[Camera alloc] init];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraAttributeChanged:) name:QTCaptureDeviceAttributeDidChangeNotification object:nil];
@@ -118,6 +125,10 @@ NSString *SQFTPPath = @"SQFTPPath";
 #pragma mark Private methods
 
 - (void)cameraAttributeChanged:(NSNotification *)notification {
+#ifndef NDEBUG
+	NSLog(@"notification dict: %@", [notification userInfo]);
+	NSLog(@"attribute: %@", [[mCamera device] valueForKey:@"suspended"]);
+#endif
 	[self checkCameraSuspended];
 }
 
