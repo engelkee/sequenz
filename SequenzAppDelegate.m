@@ -11,6 +11,7 @@
 #import "FTPController.h"
 #import "PrefsController.h"
 #import "SideBarPaneView.h"
+#import	"CameraSuspendedView.h"
 
 
 #define INTERVAL_UNIT_SEC 0
@@ -139,6 +140,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 #endif
 	if (!value) {
 		value = [NSNumber numberWithBool:YES];
+		[suspendedView setAttrString:@"Camera used by another application"];
 	}
 	
 	[self setIsCameraOn:[value boolValue]];
@@ -147,10 +149,10 @@ NSString *SQFTPPath = @"SQFTPPath";
 		if ([self isRecording]) {
 			[self stopRecording];
 		}
-		[qtSwapView	replaceSubview:mCaptureView with:suspendedView];
+		[qtSwapView	replaceSubview:mCaptureView with:(NSView *)suspendedView];
 	} else {
 		
-		[qtSwapView replaceSubview:suspendedView with:mCaptureView];
+		[qtSwapView replaceSubview:(NSView *)suspendedView with:mCaptureView];
 	}
 }
 

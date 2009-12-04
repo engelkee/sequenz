@@ -14,6 +14,7 @@
 @class FTPController;
 @class PrefsController;
 @class SideBarPaneView;
+@class CameraSuspendedView;
 
 @interface SequenzAppDelegate : NSObject <NSApplicationDelegate> {
 	Camera *mCamera;
@@ -28,7 +29,7 @@
 	IBOutlet QTCaptureView *mCaptureView;
 	IBOutlet NSView *qtSwapView;
 	IBOutlet NSView *sideBarView;
-	IBOutlet NSView *suspendedView;
+	IBOutlet CameraSuspendedView *suspendedView;
 	IBOutlet SideBarPaneView *recPane;
 	IBOutlet SideBarPaneView *ftpPane;
 	
