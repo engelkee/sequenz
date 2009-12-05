@@ -39,12 +39,26 @@
 
 - (void)openShutter {
 	NSError *err = nil;
-	//NSAlert *alert;
+	NSAlert *alert;
 	BOOL success;
 #ifndef NDEBUG
-	NSLog(@"devices: %@", [QTCaptureDevice inputDevicesWithMediaType:QTMediaTypeVideo]);
+	NSLog(@"devices QTMediaTypeVideo: %@", [QTCaptureDevice inputDevicesWithMediaType:QTMediaTypeVideo]);
 #endif
 	device = [QTCaptureDevice defaultInputDeviceWithMediaType:QTMediaTypeVideo];
+	if (device == nil) {
+		
+		 alert = [NSAlert alertWithMessageText:@"Could not connect to iSight camera" 
+		 defaultButton:@"Quit" 
+		 alternateButton:nil 
+		 otherButton:nil 
+		 informativeTextWithFormat:@"Camera is not connected or it is used exclusively by another application."];
+		 [alert setAlertStyle:NSCriticalAlertStyle];
+		 if ([alert runModal] == NSAlertDefaultReturn) {;
+		 [[NSApplication sharedApplication] terminate:nil];
+		 }
+	
+		return;
+	}
 	success = [device open:&err];
 #ifndef NDEBUG
 	NSLog(@"device: %@", [device localizedDisplayName]);

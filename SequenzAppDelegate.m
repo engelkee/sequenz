@@ -81,9 +81,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-#ifndef NDEBUG
-	NSLog(@"applicationDidFinishLaunching");
-#endif
+
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
@@ -108,15 +106,12 @@ NSString *SQFTPPath = @"SQFTPPath";
 
 	[window setMovableByWindowBackground:YES];
 
-	mCamera = [[Camera alloc] init];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraAttributeChanged:) name:QTCaptureDeviceAttributeDidChangeNotification object:nil];
-	
+	mCamera = [[Camera alloc] init];
 	[mCaptureView setDelegate:self];
 	[mCaptureView setCaptureSession:[mCamera mCaptureSession]];
 	[[mCamera mCaptureSession] startRunning];
-	
-	//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraAttributeChanged:) name:QTCaptureDeviceAttributeWillChangeNotification object:nil];
 	
 	[qtSwapView addSubview:mCaptureView];
 	
@@ -134,18 +129,19 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 - (void)checkCameraSuspended {
+	// check if cam is suspended
 	NSNumber *value = [[mCamera device] attributeForKey:QTCaptureDeviceSuspendedAttribute];
 #ifndef NDEBUG
 	NSLog(@"value : %@", [value stringValue]);
 #endif
-	if (!value) {
+	// if no value available, then there is no device
+	if (value == NULL) {
 		value = [NSNumber numberWithBool:YES];
-		[suspendedView setAttrString:@"Camera used by another application"];
 	}
 	
-	[self setIsCameraOn:[value boolValue]];
+	[self setIsCameraOn:![value boolValue]];
 
-	if ([self isCameraOn]) {
+	if (![self isCameraOn]) {
 		if ([self isRecording]) {
 			[self stopRecording];
 		}
@@ -234,7 +230,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
 	//NSString *selectorString = NSStringFromSelector([menuItem action]);
 	if ([menuItem action] == @selector(toggleRecording:)) {
-		return (!isCameraOn && !isRecording);
+		return (isCameraOn && !isRecording);
 	} else {
 		return YES;
 	}
@@ -278,16 +274,14 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 - (void)stopRecording {
-	
-	[sequenceTimer invalidate];
-	[self setIsRecording:NO];
-	
-	/*
-	QTCaptureDevice *device = [mCaptureDeviceInput device];
-	if ([device isOpen]) {
-		[device close];
+#ifndef NDEBUG
+	NSLog(@"stopRecording called");
+#endif
+	if ([self isRecording]) {
+		[sequenceTimer invalidate];
+		[self setIsRecording:NO];
+		[startStopButton setState:NSOffState];
 	}
-	*/ 
 }
 
 - (void)capturePic:(NSTimer *)aTimer {
@@ -317,7 +311,9 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 - (void)uploadDidFinish {
-	//NSLog(@"Delegate called: Upload did finish");
+#ifndef NDEBUG
+	NSLog(@"Delegate called: Upload did finish");
+#endif
 }
 
 - (void)uploadDidNotFinishWithError:(NSError *)error {
