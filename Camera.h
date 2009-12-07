@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <QTKit/QTKit.h>
 
+@class CameraSuspendedView;
 
 @interface Camera : NSObject {
 	QTCaptureSession *mCaptureSession;

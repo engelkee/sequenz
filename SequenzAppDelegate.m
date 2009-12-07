@@ -37,7 +37,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 								
 - (void)repositionViewsIgnoringView:(NSView*)viewToIgnore;
 - (NSRect)windowFrameForNewContentViewSize:(NSSize)newSize;
-- (void)checkCameraSuspended;
+- (void)checkCameraStatus;
 
 @end
 
@@ -115,7 +115,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraAttributeChanged:) name:QTCaptureDeviceAttributeDidChangeNotification object:nil];
 	
-	[self checkCameraSuspended];
+	[self checkCameraStatus];
 }
 
 #pragma mark Private methods
@@ -125,18 +125,20 @@ NSString *SQFTPPath = @"SQFTPPath";
 	NSLog(@"notification dict: %@", [notification userInfo]);
 	NSLog(@"values for keys: %@", [[mCamera device] dictionaryWithValuesForKeys:[[notification userInfo] allValues]]);
 #endif
-	[self checkCameraSuspended];
+	[self checkCameraStatus];
 }
 
-- (void)checkCameraSuspended {
+- (void)checkCameraStatus {
 	// check if cam is suspended
-	NSNumber *suspended = [[mCamera device] attributeForKey:QTCaptureDeviceSuspendedAttribute];
-	// if no value available, then there is no device
-	if (suspended == NULL) {
-#ifndef NDEBUG
-		NSLog(@"QTCaptureDeviceSuspendedAttribute is NULL");
-#endif
+	QTCaptureDevice *cam = [mCamera device];
+	NSNumber *suspended = nil;
+	
+	if (cam == nil) {
+		[suspendedView setAttrString:@"Camera used by another application"];
 		suspended = [NSNumber numberWithBool:YES];
+	} else {
+		suspended = [cam attributeForKey:QTCaptureDeviceSuspendedAttribute];
+		[suspendedView setAttrString:@"Camera turned off"];
 	}
 	
 #ifndef NDEBUG
