@@ -51,7 +51,7 @@
 		 defaultButton:@"Quit" 
 		 alternateButton:nil 
 		 otherButton:nil 
-		 informativeTextWithFormat:@"Camera is not connected or it is used exclusively by another application."];
+		 informativeTextWithFormat:@"Camera is not connected or it is used exclusively by another application.\nPlease make sure that no other applications are using the camera."];
 		 [alert setAlertStyle:NSCriticalAlertStyle];
 		 if ([alert runModal] == NSAlertDefaultReturn) {;
 		 [[NSApplication sharedApplication] terminate:nil];
@@ -61,23 +61,13 @@
 	}
 	success = [device open:&err];
 #ifndef NDEBUG
-	NSLog(@"device: %@", [device localizedDisplayName]);
+	NSLog(@"device: %@ Uid: %@", [device localizedDisplayName], [device uniqueID]);
 #endif
 	if (!success) {
 #ifndef NDEBUG
 		NSLog(@"error: %@", [err localizedDescription]);
 #endif
-		/*
-		alert = [NSAlert alertWithMessageText:@"Could not connect to iSight camera" 
-								defaultButton:@"Quit" 
-							  alternateButton:nil 
-								  otherButton:nil 
-					informativeTextWithFormat:@"Your camera seems to be in use exclusively by another application."];
-		[alert setAlertStyle:NSCriticalAlertStyle];
-		if ([alert runModal] == NSAlertDefaultReturn) {;
-			[[NSApplication sharedApplication] terminate:nil];
-		}
-		 */
+		[[NSAlert alertWithError:err] runModal];
 		return;
 	}
 	

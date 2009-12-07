@@ -106,14 +106,14 @@ NSString *SQFTPPath = @"SQFTPPath";
 
 	[window setMovableByWindowBackground:YES];
 
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraAttributeChanged:) name:QTCaptureDeviceAttributeDidChangeNotification object:nil];
 	mCamera = [[Camera alloc] init];
 	[mCaptureView setDelegate:self];
 	[mCaptureView setCaptureSession:[mCamera mCaptureSession]];
 	[[mCamera mCaptureSession] startRunning];
 	
 	[qtSwapView addSubview:mCaptureView];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraAttributeChanged:) name:QTCaptureDeviceAttributeDidChangeNotification object:nil];
 	
 	[self checkCameraSuspended];
 }
@@ -123,31 +123,44 @@ NSString *SQFTPPath = @"SQFTPPath";
 - (void)cameraAttributeChanged:(NSNotification *)notification {
 #ifndef NDEBUG
 	NSLog(@"notification dict: %@", [notification userInfo]);
-	NSLog(@"attribute: %@", [[mCamera device] valueForKey:@"suspended"]);
+	NSLog(@"values for keys: %@", [[mCamera device] dictionaryWithValuesForKeys:[[notification userInfo] allValues]]);
 #endif
 	[self checkCameraSuspended];
 }
 
 - (void)checkCameraSuspended {
 	// check if cam is suspended
-	NSNumber *value = [[mCamera device] attributeForKey:QTCaptureDeviceSuspendedAttribute];
-#ifndef NDEBUG
-	NSLog(@"value : %@", [value stringValue]);
-#endif
+	NSNumber *suspended = [[mCamera device] attributeForKey:QTCaptureDeviceSuspendedAttribute];
 	// if no value available, then there is no device
-	if (value == NULL) {
-		value = [NSNumber numberWithBool:YES];
+	if (suspended == NULL) {
+#ifndef NDEBUG
+		NSLog(@"QTCaptureDeviceSuspendedAttribute is NULL");
+#endif
+		suspended = [NSNumber numberWithBool:YES];
 	}
 	
-	[self setIsCameraOn:![value boolValue]];
+#ifndef NDEBUG
+	NSLog(@"suspended : %@", [suspended stringValue]);
+#endif
 
+	[self setIsCameraOn:![suspended boolValue]];
+	
+#ifndef NDEBUG
+	NSLog(@"isCameraOn: %i", isCameraOn);
+#endif
+	
 	if (![self isCameraOn]) {
 		if ([self isRecording]) {
 			[self stopRecording];
 		}
+#ifndef NDEBUG
+		NSLog(@"swap to suspended view");
+#endif
 		[qtSwapView	replaceSubview:mCaptureView with:(NSView *)suspendedView];
 	} else {
-		
+#ifndef NDEBUG
+		NSLog(@"swap to capture view");
+#endif
 		[qtSwapView replaceSubview:(NSView *)suspendedView with:mCaptureView];
 	}
 }

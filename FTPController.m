@@ -73,7 +73,8 @@ static size_t ReadMemoryCallback(void *ptr, size_t size, size_t nmemb, void *pMe
 		/* enable uploading */ 
 		curl_easy_setopt(curl, CURLOPT_UPLOAD, 1L);
 #ifndef NDEBUG
-		curl_version_info_data *vdata = curl_version_info(CURLVERSION_NOW);
+		char *version = curl_version();
+		fprintf(stderr, "curl version: %s\n", version);
 		/* enable debug info */
 		curl_easy_setopt(curl, CURLOPT_VERBOSE, 1);
 #endif		
