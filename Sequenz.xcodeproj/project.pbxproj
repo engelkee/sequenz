@@ -39,6 +39,7 @@
 		F2675BDE10C3165900F0E7D0 /* media-record_sw.png in Resources */ = {isa = PBXBuildFile; fileRef = F2675BDD10C3165900F0E7D0 /* media-record_sw.png */; };
 		F26EFB0010BAFD7F0066B042 /* ShadowBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F26EFAFF10BAFD7F0066B042 /* ShadowBox.m */; };
 		F276828710A8362300AD45C2 /* FTPController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276828610A8362300AD45C2 /* FTPController.m */; };
+		F29B181110CE899C00B9260E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F29B180F10CE899C00B9260E /* Localizable.strings */; };
 		F29E005D10B97DD30048C14C /* SideBarPaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = F29E005C10B97DD30048C14C /* SideBarPaneView.m */; };
 		F2B8DE5510ADD1B8002C9AD5 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8DE5410ADD1B8002C9AD5 /* Camera.m */; };
 		F2BC024610C56E2C00ABC5EA /* sequenz.icns in Resources */ = {isa = PBXBuildFile; fileRef = F2BC024510C56E2C00ABC5EA /* sequenz.icns */; };
@@ -105,6 +106,10 @@
 		F26EFAFF10BAFD7F0066B042 /* ShadowBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowBox.m; sourceTree = "<group>"; };
 		F276828510A8362300AD45C2 /* FTPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPController.h; sourceTree = "<group>"; };
 		F276828610A8362300AD45C2 /* FTPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPController.m; sourceTree = "<group>"; };
+		F29B17CC10CE7FBA00B9260E /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		F29B17EB10CE87BB00B9260E /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/Prefs.xib; sourceTree = "<group>"; };
+		F29B181010CE899C00B9260E /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F29B181210CE8BEE00B9260E /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F29E005B10B97DD30048C14C /* SideBarPaneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBarPaneView.h; sourceTree = "<group>"; };
 		F29E005C10B97DD30048C14C /* SideBarPaneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBarPaneView.m; sourceTree = "<group>"; };
 		F2B8DE5310ADD1B8002C9AD5 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
@@ -224,6 +229,7 @@
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				F29B180F10CE899C00B9260E /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -291,6 +297,7 @@
 				F2BC024610C56E2C00ABC5EA /* sequenz.icns in Resources */,
 				F2F0EC1A10C9359400564C02 /* SequenzHelp in Resources */,
 				F221D5CD10CE5D3B007453AC /* Credits.rtf in Resources */,
+				F29B181110CE899C00B9260E /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +361,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1DDD58150DA1D0A300B32029 /* English */,
+				F29B17CC10CE7FBA00B9260E /* German */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -362,8 +370,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				F235BBC910A2D247001B9C73 /* English */,
+				F29B17EB10CE87BB00B9260E /* German */,
 			);
 			name = Prefs.xib;
+			sourceTree = "<group>";
+		};
+		F29B180F10CE899C00B9260E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F29B181010CE899C00B9260E /* English */,
+				F29B181210CE8BEE00B9260E /* German */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

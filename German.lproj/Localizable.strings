@@ -1,0 +1,19 @@
+/* 
+   Localizable.strings
+   Sequenz
+
+   Created by Dominik Gwosdek on 08.12.09.
+   Copyright 2009 Dominik Gwosdek. All rights reserved.
+ */
+
+/* camera used status string */
+"Camera used by another application" = "Die Kamera wird von einem anderen Programm verwendet.";
+
+/* camera suspended status string */
+"Camera turned off" = "Die Kamera ist aus.";
+
+/* FTP error alert sheet title */
+"A FTP error occured" = "Ein FTP Fehler ist aufgetreten";
+
+/* FTP error alert sheet message text */
+"Server message: %@" = "Server Nachricht: %@";

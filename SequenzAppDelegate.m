@@ -134,11 +134,11 @@ NSString *SQFTPPath = @"SQFTPPath";
 	NSNumber *suspended = nil;
 	
 	if (cam == nil) {
-		[suspendedView setAttrString:@"Camera used by another application"];
+		[suspendedView setAttrString:NSLocalizedString(@"Camera used by another application", @"camera used status string")];
 		suspended = [NSNumber numberWithBool:YES];
 	} else {
 		suspended = [cam attributeForKey:QTCaptureDeviceSuspendedAttribute];
-		[suspendedView setAttrString:@"Camera turned off"];
+		[suspendedView setAttrString:NSLocalizedString(@"Camera turned off", @"camera suspended status string")];
 	}
 	
 #ifndef NDEBUG
@@ -329,10 +329,10 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 - (void)uploadDidNotFinishWithError:(NSError *)error {
-	NSBeginAlertSheet(@"A FTP error occured", nil, nil, nil, window, 
+	NSBeginAlertSheet(NSLocalizedString(@"A FTP error occured", @"FTP error alert sheet title"), nil, nil, nil, window, 
 					  self, @selector(alertDidEnd:returnCode:contextInfo:), 
 					  @selector(sheetDidDismiss:returnCode:contextInfo:), nil, 
-					  @"Server message: %@",[error localizedDescription]);
+					  NSLocalizedString(@"Server message: %@", @"FTP error alert sheet message text"),[error localizedDescription]);
 }
 
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {

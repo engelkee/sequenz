@@ -10,9 +10,7 @@
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			<string key="NS.object.0">740</string>
 		</object>
-		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-			<integer value="2"/>
-		</array>
+		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs"/>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 		</array>
@@ -38,12 +36,12 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{196, 377}, {581, 133}}</string>
 				<int key="NSWTFlags">1685586944</int>
-				<string key="NSWindowTitle">Preferences</string>
+				<string key="NSWindowTitle">Einstellungen</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
 				<object class="NSView" key="NSWindowView" id="410249537">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSButton" id="690770780">
@@ -55,7 +53,7 @@
 							<object class="NSButtonCell" key="NSCell" id="741622803">
 								<int key="NSCellFlags">-2080244224</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Capture with timestamp</string>
+								<string key="NSContents">Aufnahme mit Zeitstempel</string>
 								<object class="NSFont" key="NSSupport" id="154565773">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">13</double>
@@ -86,7 +84,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="726277523">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">71304192</int>
-								<string key="NSContents">Example:</string>
+								<string key="NSContents">Beispiel:</string>
 								<reference key="NSSupport" ref="154565773"/>
 								<reference key="NSControlView" ref="716951714"/>
 								<object class="NSColor" key="NSBackgroundColor" id="727578048">
@@ -118,7 +116,7 @@
 							<object class="NSButtonCell" key="NSCell" id="477373312">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Choose...</string>
+								<string key="NSContents">Ändern...</string>
 								<reference key="NSSupport" ref="154565773"/>
 								<reference key="NSControlView" ref="146756349"/>
 								<int key="NSButtonFlags">-2038284033</int>
@@ -140,7 +138,7 @@
 								<int key="NSCellFlags2">1212154880</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="154565773"/>
-								<string key="NSPlaceholderString">Example</string>
+								<string key="NSPlaceholderString">Beispiel</string>
 								<reference key="NSControlView" ref="423292926"/>
 								<bool key="NSDrawsBackground">YES</bool>
 								<object class="NSColor" key="NSBackgroundColor">
@@ -167,7 +165,7 @@
 							<object class="NSButtonCell" key="NSCell" id="157400330">
 								<int key="NSCellFlags">-2080244224</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Automatically check daily</string>
+								<string key="NSContents">Automatisch täglich prüfen</string>
 								<reference key="NSSupport" ref="154565773"/>
 								<reference key="NSControlView" ref="333568559"/>
 								<int key="NSButtonFlags">1211912703</int>
@@ -189,7 +187,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="942432269">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">71304192</int>
-								<string key="NSContents">Images:</string>
+								<string key="NSContents">Bilder:</string>
 								<reference key="NSSupport" ref="154565773"/>
 								<reference key="NSControlView" ref="184038626"/>
 								<reference key="NSBackgroundColor" ref="727578048"/>
@@ -205,7 +203,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="702557000">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">71304192</int>
-								<string key="NSContents">Check for update:</string>
+								<string key="NSContents">Updates:</string>
 								<reference key="NSSupport" ref="154565773"/>
 								<reference key="NSControlView" ref="456015404"/>
 								<reference key="NSBackgroundColor" ref="727578048"/>
@@ -214,7 +212,6 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{581, 133}</string>
-					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMaxSize">{1.79769e+308, 1.79769e+308}</string>
@@ -495,6 +492,8 @@
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1.IBWindowTemplateEditedContentRect">{{315, 281}, {581, 133}}</string>
 				<boolean value="YES" key="1.NSWindowTemplate.visibleAtLaunch"/>
+				<string key="1.windowTemplate.maxSize">{1.79769e+308, 1.79769e+308}</string>
+				<string key="1.windowTemplate.minSize">{0, 0}</string>
 				<string key="111.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="112.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="119.CustomClassName">DisabledTextField</string>
