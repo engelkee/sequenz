@@ -270,9 +270,8 @@ NSString *SQFTPPath = @"SQFTPPath";
 	[prefController showWindow:prefWindow];
 }
 
-- (IBAction)toggleRecording:(id)sender {	
-	NSInteger state = [sender state];
-	if (state == NSOnState) {
+- (IBAction)toggleRecording:(id)sender {
+	if (![self isRecording]) {
 		[self startRecording];
 	} else {
 		[self stopRecording];
@@ -281,6 +280,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 
 - (void)startRecording {
 	[self setIsRecording:YES];
+	[startStopButton setState:NSOnState];
 	sequenceTimer = [NSTimer scheduledTimerWithTimeInterval:[self convertedInterval]
 													 target:self 
 												   selector:@selector(capturePic:) 
@@ -289,9 +289,6 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 - (void)stopRecording {
-#ifndef NDEBUG
-	NSLog(@"stopRecording called");
-#endif
 	if ([self isRecording]) {
 		[sequenceTimer invalidate];
 		[self setIsRecording:NO];
@@ -340,7 +337,6 @@ NSString *SQFTPPath = @"SQFTPPath";
 
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
 	[self stopRecording];
-	[startStopButton setState:NSOffState];
 }
 
 - (void)sheetDidDismiss:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void  *)contextInfo {

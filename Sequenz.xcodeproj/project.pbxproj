@@ -29,6 +29,7 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		F202D17C10AACD5F00905A04 /* URLFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F202D17B10AACD5F00905A04 /* URLFormatter.m */; };
 		F20F9AAC10BC46FF0019BEAC /* MiddleBarBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = F20F9AAB10BC46FF0019BEAC /* MiddleBarBorder.m */; };
+		F221D5CD10CE5D3B007453AC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F221D5CC10CE5D3B007453AC /* Credits.rtf */; };
 		F227522610BE85E9001A37B0 /* CameraSuspendedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F227522510BE85E9001A37B0 /* CameraSuspendedView.m */; };
 		F235BBCA10A2D247001B9C73 /* Prefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = F235BBC810A2D247001B9C73 /* Prefs.xib */; };
 		F235BBD610A2D3E8001B9C73 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F235BBD510A2D3E8001B9C73 /* PrefsController.m */; };
@@ -42,7 +43,6 @@
 		F2B8DE5510ADD1B8002C9AD5 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8DE5410ADD1B8002C9AD5 /* Camera.m */; };
 		F2BC024610C56E2C00ABC5EA /* sequenz.icns in Resources */ = {isa = PBXBuildFile; fileRef = F2BC024510C56E2C00ABC5EA /* sequenz.icns */; };
 		F2BC05BC10AB52E700C3C70B /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BC05BB10AB52E700C3C70B /* libcurl.dylib */; };
-		F2BD03B510C96E1C0038341A /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F2BD03B410C96E1C0038341A /* Credits.rtf */; };
 		F2C63D9B10A4E455009AC351 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C63D9A10A4E455009AC351 /* QTKit.framework */; };
 		F2EFB27D10B48A5F0058EA02 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = F2EFB27C10B48A5F0058EA02 /* dsa_pub.pem */; };
 		F2EFB2A210B493A60058EA02 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2EFB2A110B493A60058EA02 /* Sparkle.framework */; };
@@ -90,6 +90,7 @@
 		F202D17B10AACD5F00905A04 /* URLFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFormatter.m; sourceTree = "<group>"; };
 		F20F9AAA10BC46FF0019BEAC /* MiddleBarBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiddleBarBorder.h; sourceTree = "<group>"; };
 		F20F9AAB10BC46FF0019BEAC /* MiddleBarBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiddleBarBorder.m; sourceTree = "<group>"; };
+		F221D5CC10CE5D3B007453AC /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		F227522410BE85E9001A37B0 /* CameraSuspendedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraSuspendedView.h; sourceTree = "<group>"; };
 		F227522510BE85E9001A37B0 /* CameraSuspendedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraSuspendedView.m; sourceTree = "<group>"; };
 		F235BBC910A2D247001B9C73 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Prefs.xib; sourceTree = "<group>"; };
@@ -110,7 +111,6 @@
 		F2B8DE5410ADD1B8002C9AD5 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
 		F2BC024510C56E2C00ABC5EA /* sequenz.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = sequenz.icns; sourceTree = "<group>"; };
 		F2BC05BB10AB52E700C3C70B /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = /usr/lib/libcurl.dylib; sourceTree = "<absolute>"; };
-		F2BD03B410C96E1C0038341A /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		F2C63D9A10A4E455009AC351 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		F2EFB27C10B48A5F0058EA02 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		F2EFB2A110B493A60058EA02 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F2BD03B410C96E1C0038341A /* Credits.rtf */,
+				F221D5CC10CE5D3B007453AC /* Credits.rtf */,
 				F2F0EC0A10C9359400564C02 /* SequenzHelp */,
 				F2BC024510C56E2C00ABC5EA /* sequenz.icns */,
 				F2675BDD10C3165900F0E7D0 /* media-record_sw.png */,
@@ -290,7 +290,7 @@
 				F2675BDE10C3165900F0E7D0 /* media-record_sw.png in Resources */,
 				F2BC024610C56E2C00ABC5EA /* sequenz.icns in Resources */,
 				F2F0EC1A10C9359400564C02 /* SequenzHelp in Resources */,
-				F2BD03B510C96E1C0038341A /* Credits.rtf in Resources */,
+				F221D5CD10CE5D3B007453AC /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

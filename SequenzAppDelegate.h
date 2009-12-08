@@ -16,11 +16,7 @@
 @class SideBarPaneView;
 @class CameraSuspendedView;
 
-#if (MAC_OS_X_VERSION_MAX_ALLOWED <= MAC_OS_X_VERSION_10_5)
-@interface SequenzAppDelegate : NSObject {
-#else
 @interface SequenzAppDelegate : NSObject <NSApplicationDelegate> {
-#endif
 	Camera *mCamera;
 	FTPController *ftpController;
 	PrefsController *prefController;

@@ -21,12 +21,12 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1220"/>
-			<integer value="1285"/>
-			<integer value="81"/>
-			<integer value="1284"/>
 			<integer value="869"/>
 			<integer value="1239"/>
+			<integer value="1220"/>
+			<integer value="81"/>
+			<integer value="1284"/>
+			<integer value="1285"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1413,14 +1413,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">toggleRecording:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="705341025"/>
-					</object>
-					<int key="connectionID">1057</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">setServerAdress:</string>
 						<reference key="source" ref="976324537"/>
 						<reference key="destination" ref="802953080"/>
@@ -1752,6 +1744,14 @@
 						</object>
 					</object>
 					<int key="connectionID">1316</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">toggleRecording:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="705341025"/>
+					</object>
+					<int key="connectionID">1317</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2920,7 +2920,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1316</int>
+			<int key="maxID">1317</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2951,6 +2951,29 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">SequenzAppDelegate</string>
 					<string key="superclassName">NSObject</string>
+					<object class="NSMutableDictionary" key="actions">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>openDonate:</string>
+							<string>openWebsite:</string>
+							<string>setInterval:</string>
+							<string>setIntervalUnit:</string>
+							<string>setServerAdress:</string>
+							<string>showPrefsWindow:</string>
+							<string>toggleRecording:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
@@ -2970,6 +2993,7 @@
 							<string>startStopButton</string>
 							<string>suspendedView</string>
 							<string>usernameTextField</string>
+							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -2988,6 +3012,7 @@
 							<string>NSButton</string>
 							<string>CameraSuspendedView</string>
 							<string>NSTextField</string>
+							<string>NSWindow</string>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
