@@ -41,7 +41,6 @@
 		F276828710A8362300AD45C2 /* FTPController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276828610A8362300AD45C2 /* FTPController.m */; };
 		F29B181110CE899C00B9260E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F29B180F10CE899C00B9260E /* Localizable.strings */; };
 		F29E005D10B97DD30048C14C /* SideBarPaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = F29E005C10B97DD30048C14C /* SideBarPaneView.m */; };
-		F2B8DE5510ADD1B8002C9AD5 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8DE5410ADD1B8002C9AD5 /* Camera.m */; };
 		F2BC024610C56E2C00ABC5EA /* sequenz.icns in Resources */ = {isa = PBXBuildFile; fileRef = F2BC024510C56E2C00ABC5EA /* sequenz.icns */; };
 		F2BC05BC10AB52E700C3C70B /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BC05BB10AB52E700C3C70B /* libcurl.dylib */; };
 		F2C63D9B10A4E455009AC351 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C63D9A10A4E455009AC351 /* QTKit.framework */; };
@@ -114,8 +113,6 @@
 		F29B181210CE8BEE00B9260E /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F29E005B10B97DD30048C14C /* SideBarPaneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBarPaneView.h; sourceTree = "<group>"; };
 		F29E005C10B97DD30048C14C /* SideBarPaneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBarPaneView.m; sourceTree = "<group>"; };
-		F2B8DE5310ADD1B8002C9AD5 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
-		F2B8DE5410ADD1B8002C9AD5 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
 		F2BC024510C56E2C00ABC5EA /* sequenz.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = sequenz.icns; sourceTree = "<group>"; };
 		F2BC05BB10AB52E700C3C70B /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = /usr/lib/libcurl.dylib; sourceTree = "<absolute>"; };
 		F2C63D9A10A4E455009AC351 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
@@ -155,8 +152,6 @@
 				F276828610A8362300AD45C2 /* FTPController.m */,
 				F202D17A10AACD5F00905A04 /* URLFormatter.h */,
 				F202D17B10AACD5F00905A04 /* URLFormatter.m */,
-				F2B8DE5310ADD1B8002C9AD5 /* Camera.h */,
-				F2B8DE5410ADD1B8002C9AD5 /* Camera.m */,
 				F260D3DD10B41D8B00E3F7B0 /* DisabledTextField.h */,
 				F260D3DE10B41D8B00E3F7B0 /* DisabledTextField.m */,
 				F29E005B10B97DD30048C14C /* SideBarPaneView.h */,
@@ -339,7 +334,6 @@
 				F235BBD610A2D3E8001B9C73 /* PrefsController.m in Sources */,
 				F276828710A8362300AD45C2 /* FTPController.m in Sources */,
 				F202D17C10AACD5F00905A04 /* URLFormatter.m in Sources */,
-				F2B8DE5510ADD1B8002C9AD5 /* Camera.m in Sources */,
 				F260D3DF10B41D8B00E3F7B0 /* DisabledTextField.m in Sources */,
 				F29E005D10B97DD30048C14C /* SideBarPaneView.m in Sources */,
 				F26EFB0010BAFD7F0066B042 /* ShadowBox.m in Sources */,
