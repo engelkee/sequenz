@@ -15,16 +15,19 @@
 @class PrefsController;
 @class SideBarPaneView;
 @class CameraSuspendedView;
+@class CameraController;
 
 @interface SequenzAppDelegate : NSObject <NSApplicationDelegate> {
 	Camera *mCamera;
 	FTPController *ftpController;
 	PrefsController *prefController;
 	NSUserDefaults *userDefaults;
+	CameraController *camController;
 	
     NSWindow *window;
 	
 	IBOutlet NSButton *startStopButton;
+	IBOutlet NSMenu *camMenu;
 	
 	IBOutlet QTCaptureView *mCaptureView;
 	IBOutlet NSView *qtSwapView;

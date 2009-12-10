@@ -17,3 +17,6 @@
 
 /* FTP error alert sheet message text */
 "Server message: %@" = "Server Nachricht: %@";
+
+/* no camera status string */
+"No camera available" = "Keine Kamera verfügbar";

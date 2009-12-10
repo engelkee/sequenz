@@ -83,7 +83,8 @@ static size_t ReadMemoryCallback(void *ptr, size_t size, size_t nmemb, void *pMe
 		
 		/* enable TLS/SSL transfer */
 		curl_easy_setopt(curl, CURLOPT_USE_SSL, CURLUSESSL_TRY);
-		curl_easy_setopt(curl, CURLOPT_FTPSSLAUTH, CURLFTPAUTH_DEFAULT);
+		curl_easy_setopt(curl, CURLOPT_FTPSSLAUTH, CURLFTPAUTH_TLS);
+		curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0);
 		
 		/* set username & password */
 		curl_easy_setopt(curl, CURLOPT_USERNAME, [user UTF8String]);

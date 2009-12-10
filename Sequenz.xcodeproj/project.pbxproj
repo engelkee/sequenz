@@ -45,6 +45,7 @@
 		F2BC024610C56E2C00ABC5EA /* sequenz.icns in Resources */ = {isa = PBXBuildFile; fileRef = F2BC024510C56E2C00ABC5EA /* sequenz.icns */; };
 		F2BC05BC10AB52E700C3C70B /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BC05BB10AB52E700C3C70B /* libcurl.dylib */; };
 		F2C63D9B10A4E455009AC351 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C63D9A10A4E455009AC351 /* QTKit.framework */; };
+		F2C99F7F10D017CB008B28BD /* CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C99F7E10D017CB008B28BD /* CameraController.m */; };
 		F2EFB27D10B48A5F0058EA02 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = F2EFB27C10B48A5F0058EA02 /* dsa_pub.pem */; };
 		F2EFB2A210B493A60058EA02 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2EFB2A110B493A60058EA02 /* Sparkle.framework */; };
 		F2EFB2A510B493AC0058EA02 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F2EFB2A110B493A60058EA02 /* Sparkle.framework */; };
@@ -117,6 +118,8 @@
 		F2BC024510C56E2C00ABC5EA /* sequenz.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = sequenz.icns; sourceTree = "<group>"; };
 		F2BC05BB10AB52E700C3C70B /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = /usr/lib/libcurl.dylib; sourceTree = "<absolute>"; };
 		F2C63D9A10A4E455009AC351 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
+		F2C99F7D10D017CB008B28BD /* CameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraController.h; sourceTree = "<group>"; };
+		F2C99F7E10D017CB008B28BD /* CameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraController.m; sourceTree = "<group>"; };
 		F2EFB27C10B48A5F0058EA02 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		F2EFB2A110B493A60058EA02 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		F2F0EC0A10C9359400564C02 /* SequenzHelp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SequenzHelp; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 				F20F9AAB10BC46FF0019BEAC /* MiddleBarBorder.m */,
 				F227522410BE85E9001A37B0 /* CameraSuspendedView.h */,
 				F227522510BE85E9001A37B0 /* CameraSuspendedView.m */,
+				F2C99F7D10D017CB008B28BD /* CameraController.h */,
+				F2C99F7E10D017CB008B28BD /* CameraController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 				F26EFB0010BAFD7F0066B042 /* ShadowBox.m in Sources */,
 				F20F9AAC10BC46FF0019BEAC /* MiddleBarBorder.m in Sources */,
 				F227522610BE85E9001A37B0 /* CameraSuspendedView.m in Sources */,
+				F2C99F7F10D017CB008B28BD /* CameraController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

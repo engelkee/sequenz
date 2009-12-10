@@ -12,7 +12,7 @@
 #import "PrefsController.h"
 #import "SideBarPaneView.h"
 #import	"CameraSuspendedView.h"
-
+#import "CameraController.h"
 
 #define INTERVAL_UNIT_SEC 0
 #define INTERVAL_UNIT_MIN 1
@@ -67,6 +67,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 	self = [super init];
 	if (self != nil) {
 		userDefaults = [NSUserDefaults standardUserDefaults];
+		camController = [CameraController sharedCameraController];
 		ftpController = [[FTPController alloc] init];
 		[ftpController setDelegate:self];
 	}
@@ -75,7 +76,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[mCamera release];
+	//[mCamera release];
 	[ftpController release];
 	[super dealloc];
 }
@@ -85,10 +86,12 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
+	/*
 	[[mCamera mCaptureSession] stopRunning];
 	if ([[mCamera device] isOpen]) {
 		[[mCamera device] close];
 	}
+	 */
 }
 
 - (void)awakeFromNib {
@@ -105,39 +108,37 @@ NSString *SQFTPPath = @"SQFTPPath";
 	[self repositionViewsIgnoringView:nil];
 
 	[window setMovableByWindowBackground:YES];
-
-	mCamera = [[Camera alloc] init];
-	[mCaptureView setDelegate:self];
-	[mCaptureView setCaptureSession:[mCamera mCaptureSession]];
-	[[mCamera mCaptureSession] startRunning];
+	[camMenu setDelegate:self];
+	
+	[mCaptureView setCaptureSession:[camController mCaptureSession]];
+	[camController changeDevice:[[camController defaultDevice] localizedDisplayName]];
 	
 	[qtSwapView addSubview:mCaptureView];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraAttributeChanged:) name:QTCaptureDeviceAttributeDidChangeNotification object:nil];
 	
 	[self checkCameraStatus];
+	
+	
 }
 
 #pragma mark Private methods
 
 - (void)cameraAttributeChanged:(NSNotification *)notification {
-#ifndef NDEBUG
-	NSLog(@"notification dict: %@", [notification userInfo]);
-	NSLog(@"values for keys: %@", [[mCamera device] dictionaryWithValuesForKeys:[[notification userInfo] allValues]]);
-#endif
 	[self checkCameraStatus];
 }
 
 - (void)checkCameraStatus {
 	// check if cam is suspended
-	QTCaptureDevice *cam = [mCamera device];
+	//QTCaptureDevice *cam = [mCamera device];
 	NSNumber *suspended = nil;
 	
-	if (cam == nil) {
+	//if (cam == nil) {
+	if ([camController userDevice] == nil) {
 		[suspendedView setAttrString:NSLocalizedString(@"Camera used by another application", @"camera used status string")];
 		suspended = [NSNumber numberWithBool:YES];
 	} else {
-		suspended = [cam attributeForKey:QTCaptureDeviceSuspendedAttribute];
+		suspended = [[camController userDevice] attributeForKey:QTCaptureDeviceSuspendedAttribute];
 		[suspendedView setAttrString:NSLocalizedString(@"Camera turned off", @"camera suspended status string")];
 	}
 	
@@ -242,15 +243,6 @@ NSString *SQFTPPath = @"SQFTPPath";
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=dom@gwosdek.net&item_name=Sequenz&no_shipping=1&cn=Comments&tax=0&currency_code=EUR&lc=US"]];
 }
 
-- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
-	//NSString *selectorString = NSStringFromSelector([menuItem action]);
-	if ([menuItem action] == @selector(toggleRecording:)) {
-		return (isCameraOn && !isRecording);
-	} else {
-		return YES;
-	}
-}
-
 - (IBAction)setServerAdress:(id)sender {
 }
 
@@ -296,10 +288,14 @@ NSString *SQFTPPath = @"SQFTPPath";
 	}
 }
 
+- (void)chooseCameraFromMenu:(id)sender {
+	[camController changeDevice:[sender title]];
+}
+
 - (void)capturePic:(NSTimer *)aTimer {
 	NSNumber *factor = [userDefaults objectForKey:SQImageQuality];
 	
-	NSData *imageData = [mCamera takePictureWithFileType:NSJPEGFileType quality:factor];
+	NSData *imageData = [camController takePictureWithFileType:NSJPEGFileType quality:factor];
 
 	[ftpController uploadData:imageData 
 						toURL:[self composedUploadURL] 
@@ -309,6 +305,35 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 #pragma mark Delegates
+
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+	if ([menuItem action] == @selector(toggleRecording:)) {
+		return (isCameraOn && !isRecording);
+	} else if ([menuItem action] == @selector(chooseCameraFromMenu:)) {
+		return YES;
+	} else {
+		return YES;
+	}
+}
+
+- (void)menuNeedsUpdate:(NSMenu *)menu {
+	[camMenu removeAllItems];
+	if ([camController camerasAvailable]) {
+		for (NSString *s in [[camController devicesDict] allKeys]) {
+			NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:s action:@selector(chooseCameraFromMenu:) keyEquivalent:@""];
+			if ([s isEqualToString:[[camController userDevice] localizedDisplayName]]) {
+				[item setState:NSOnState];
+			}
+			[camMenu addItem:item];
+			[item release];
+		}
+	} else {
+		NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"No camera available", @"no camera status string") action:nil keyEquivalent:@""];
+		[camMenu addItem:item];
+		[item release];
+	}
+
+}
 
 - (CIImage *)view:(QTCaptureView *)view willDisplayImage:(CIImage *)image {
 	NSAffineTransform* flipTransform = [NSAffineTransform transform];

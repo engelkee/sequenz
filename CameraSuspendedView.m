@@ -18,7 +18,7 @@
     if (self) {
         attrDict = [[NSMutableDictionary alloc] init];
 		[attrDict setObject:[NSColor whiteColor] forKey:NSForegroundColorAttributeName];
-		[attrDict setObject:[NSFont fontWithName:@"Lucida Grande" size:16] forKey:NSFontAttributeName];
+		[attrDict setObject:[NSFont fontWithName:@"Lucida Grande" size:13] forKey:NSFontAttributeName];
 		[self setAttrString:@"Camera turned off"];
     }
     return self;
