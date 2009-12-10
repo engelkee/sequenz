@@ -39,6 +39,7 @@ static CameraController *gCameraController;
 	if (self != nil) {
 		mCaptureSession = [[QTCaptureSession alloc] init];
 		devicesDict = [[NSMutableDictionary alloc] init];
+		//NSMenu *menu = [[NSApp delegate] valueForKey:@"camMenu"];
 		[self updateCameras:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCameras:) name:QTCaptureDeviceWasConnectedNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCameras:) name:QTCaptureDeviceWasDisconnectedNotification object:nil];
