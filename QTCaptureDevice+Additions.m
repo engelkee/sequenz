@@ -15,4 +15,9 @@
 	return [[self attributeForKey:QTCaptureDeviceSuspendedAttribute] boolValue];
 }
 
++ (BOOL)hasCamerasAvailable {
+	int count = [[QTCaptureDevice inputDevicesWithMediaType:QTMediaTypeVideo] count];
+	return (count > 0);
+}
+
 @end

@@ -19,7 +19,7 @@
         attrDict = [[NSMutableDictionary alloc] init];
 		[attrDict setObject:[NSColor whiteColor] forKey:NSForegroundColorAttributeName];
 		[attrDict setObject:[NSFont fontWithName:@"Lucida Grande" size:13] forKey:NSFontAttributeName];
-		[self setAttrString:@"Camera turned off"];
+		[self setAttrString:NSLocalizedString(@"Camera turned off", @"camera suspended status string")];
     }
     return self;
 }

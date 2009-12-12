@@ -10,7 +10,6 @@
 #import <QTKit/QTKit.h>
 #import <QuartzCore/CoreAnimation.h>
 
-@class Camera;
 @class FTPController;
 @class PrefsController;
 @class SideBarPaneView;
@@ -18,7 +17,7 @@
 @class CameraController;
 
 @interface SequenzAppDelegate : NSObject <NSApplicationDelegate> {
-	Camera *mCamera;
+
 	FTPController *ftpController;
 	PrefsController *prefController;
 	NSUserDefaults *userDefaults;
@@ -57,6 +56,7 @@
 @property (assign) IBOutlet NSWindow *window;
 @property BOOL isRecording;
 @property BOOL isCameraOn;
+@property (readonly) CameraController *camController;
 
 - (void)startRecording;
 - (void)stopRecording;

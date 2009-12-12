@@ -12,6 +12,7 @@
 
 @interface QTCaptureDevice (SQAdditions)
 
++ (BOOL)hasCamerasAvailable;
 @property (readonly) BOOL isSuspended;
 
 @end
