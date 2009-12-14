@@ -26,7 +26,7 @@
 	CVImageBufferRef mCurrentImageBuffer;
 	NSMutableDictionary *devicesDict;
 	
-	BOOL cameraIsSuspended;
+	BOOL cameraSuspended;
 	id delegate;
 }
 
@@ -36,7 +36,7 @@
 @property (retain, readonly) QTCaptureDevice *defaultDevice;
 @property (retain, readonly) QTCaptureDevice *userDevice;
 @property (retain) NSMutableDictionary *devicesDict;
-@property BOOL cameraIsSuspended;
+@property BOOL cameraSuspended;
 @property (assign) id delegate;
 
 - (NSData *)takePictureWithFileType:(NSBitmapImageFileType)type quality:(NSNumber *)qual;

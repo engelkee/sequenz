@@ -21,11 +21,11 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="869"/>
-			<integer value="1220"/>
-			<integer value="1284"/>
 			<integer value="81"/>
+			<integer value="1284"/>
+			<integer value="1220"/>
 			<integer value="1219"/>
+			<integer value="869"/>
 			<integer value="1285"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -450,14 +450,13 @@
 							<int key="NSvFlags">268</int>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSButton" id="602356454">
+								<object class="NSButton" id="55919209">
 									<reference key="NSNextResponder" ref="189265280"/>
-									<int key="NSvFlags">261</int>
-									<string key="NSFrame">{{181, 11}, {39, 38}}</string>
+									<int key="NSvFlags">268</int>
+									<string key="NSFrame">{{181, 12}, {39, 38}}</string>
 									<reference key="NSSuperview" ref="189265280"/>
-									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<bool key="NSEnabled">YES</bool>
-									<object class="NSButtonCell" key="NSCell" id="169651002">
+									<object class="NSButtonCell" key="NSCell" id="560001563">
 										<int key="NSCellFlags">67239424</int>
 										<int key="NSCellFlags2">134217728</int>
 										<string key="NSContents"/>
@@ -466,8 +465,8 @@
 											<double key="NSSize">13</double>
 											<int key="NSfFlags">1044</int>
 										</object>
-										<reference key="NSControlView" ref="602356454"/>
-										<int key="NSButtonFlags">-931905281</int>
+										<reference key="NSControlView" ref="55919209"/>
+										<int key="NSButtonFlags">-935067393</int>
 										<int key="NSButtonFlags2">135</int>
 										<object class="NSCustomResource" key="NSNormalImage">
 											<string key="NSClassName">NSImage</string>
@@ -479,8 +478,8 @@
 										</object>
 										<string key="NSAlternateContents"/>
 										<string key="NSKeyEquivalent"/>
-										<int key="NSPeriodicDelay">400</int>
-										<int key="NSPeriodicInterval">75</int>
+										<int key="NSPeriodicDelay">200</int>
+										<int key="NSPeriodicInterval">25</int>
 									</object>
 								</object>
 							</object>
@@ -1622,42 +1621,6 @@
 					<int key="connectionID">1265</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">toggleRecording:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="602356454"/>
-					</object>
-					<int key="connectionID">1266</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">startStopButton</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="602356454"/>
-					</object>
-					<int key="connectionID">1267</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: values.SQFTPServerAddress</string>
-						<reference key="source" ref="602356454"/>
-						<reference key="destination" ref="713448826"/>
-						<object class="NSNibBindingConnector" key="connector" id="484942176">
-							<reference key="NSSource" ref="602356454"/>
-							<reference key="NSDestination" ref="713448826"/>
-							<string key="NSLabel">enabled: values.SQFTPServerAddress</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">values.SQFTPServerAddress</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSIsNotNil</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">1268</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: values.SQImageQuality</string>
 						<reference key="source" ref="508416256"/>
@@ -1731,15 +1694,35 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled2: camController.cameraIsSuspended</string>
-						<reference key="source" ref="602356454"/>
+						<string key="label">enabled: values.SQFTPServerAddress</string>
+						<reference key="source" ref="55919209"/>
+						<reference key="destination" ref="713448826"/>
+						<object class="NSNibBindingConnector" key="connector" id="277747986">
+							<reference key="NSSource" ref="55919209"/>
+							<reference key="NSDestination" ref="713448826"/>
+							<string key="NSLabel">enabled: values.SQFTPServerAddress</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">values.SQFTPServerAddress</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNotNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1389</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled2: self.isCameraOn</string>
+						<reference key="source" ref="55919209"/>
 						<reference key="destination" ref="976324537"/>
 						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="602356454"/>
+							<reference key="NSSource" ref="55919209"/>
 							<reference key="NSDestination" ref="976324537"/>
-							<string key="NSLabel">enabled2: camController.cameraIsSuspended</string>
+							<string key="NSLabel">enabled2: self.isCameraOn</string>
 							<string key="NSBinding">enabled2</string>
-							<string key="NSKeyPath">camController.cameraIsSuspended</string>
+							<string key="NSKeyPath">self.isCameraOn</string>
 							<object class="NSDictionary" key="NSOptions">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSArray" key="dict.sortedKeys">
@@ -1757,11 +1740,27 @@
 									<integer value="-1"/>
 								</object>
 							</object>
-							<reference key="NSPreviousConnector" ref="484942176"/>
+							<reference key="NSPreviousConnector" ref="277747986"/>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">1381</int>
+					<int key="connectionID">1392</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">toggleRecording:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="55919209"/>
+					</object>
+					<int key="connectionID">1393</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">startStopButton</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="55919209"/>
+					</object>
+					<int key="connectionID">1394</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1946,8 +1945,8 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="270234001"/>
-							<reference ref="189265280"/>
 							<reference ref="840856315"/>
+							<reference ref="189265280"/>
 						</object>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -2489,23 +2488,9 @@
 						<reference key="object" ref="189265280"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="602356454"/>
+							<reference ref="55919209"/>
 						</object>
 						<reference key="parent" ref="439893737"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">970</int>
-						<reference key="object" ref="602356454"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="169651002"/>
-						</object>
-						<reference key="parent" ref="189265280"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">971</int>
-						<reference key="object" ref="169651002"/>
-						<reference key="parent" ref="602356454"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">1285</int>
@@ -2563,6 +2548,20 @@
 						</object>
 						<reference key="parent" ref="316439783"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1385</int>
+						<reference key="object" ref="55919209"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="560001563"/>
+						</object>
+						<reference key="parent" ref="189265280"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1386</int>
+						<reference key="object" ref="560001563"/>
+						<reference key="parent" ref="55919209"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -2614,6 +2613,8 @@
 					<string>1356.IBPluginDependency</string>
 					<string>136.IBPluginDependency</string>
 					<string>136.ImportedFromIB2</string>
+					<string>1385.IBPluginDependency</string>
+					<string>1386.IBPluginDependency</string>
 					<string>145.IBPluginDependency</string>
 					<string>145.ImportedFromIB2</string>
 					<string>149.IBPluginDependency</string>
@@ -2730,8 +2731,6 @@
 					<string>963.IBPluginDependency</string>
 					<string>964.IBPluginDependency</string>
 					<string>965.IBPluginDependency</string>
-					<string>970.IBPluginDependency</string>
-					<string>971.IBPluginDependency</string>
 					<string>972.IBEditorWindowLastContentRect</string>
 					<string>972.IBPluginDependency</string>
 					<string>985.IBPluginDependency</string>
@@ -2796,6 +2795,8 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2919,8 +2920,6 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{422, 441}, {400, 165}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2946,7 +2945,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1384</int>
+			<int key="maxID">1394</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

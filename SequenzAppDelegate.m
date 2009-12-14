@@ -89,6 +89,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 }
 
 - (void)awakeFromNib {
+	
 	topMargin = NSHeight([[sideBarView superview] frame]) - NSMaxY([sideBarView frame]);
 	[sideBarView addSubview:recPane];
 	[recPane setPostsFrameChangedNotifications:YES];
@@ -107,11 +108,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 	[mCaptureView setCaptureSession:[camController mCaptureSession]];
 	[camController addAnyCaptureDevice];
 	
-	//[camController addObserver:self forKeyPath:@"cameraIsSuspended" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:nil];
-	
-	//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraAttributeChanged:) name:QTCaptureDeviceAttributeDidChangeNotification object:nil];
-	
-	//[self checkCameraStatus];
+	//[camController addObserver:self forKeyPath:@"cameraIsSuspended" options:NSKeyValueObservingOptionNew context:nil];
 	
 	
 }
@@ -124,48 +121,6 @@ NSString *SQFTPPath = @"SQFTPPath";
 #endif
 }
 
-/*
-- (void)cameraAttributeChanged:(NSNotification *)notification {
-	[self checkCameraStatus];
-}
-
-- (void)checkCameraStatus {
-	NSNumber *suspended = nil;
-	
-	if ([camController userDevice] == nil) {
-		[suspendedView setAttrString:NSLocalizedString(@"Camera used by another application", @"camera used status string")];
-		suspended = [NSNumber numberWithBool:YES];
-	} else {
-		suspended = [[camController userDevice] attributeForKey:QTCaptureDeviceSuspendedAttribute];
-		[suspendedView setAttrString:NSLocalizedString(@"Camera turned off", @"camera suspended status string")];
-	}
-	
-#ifndef NDEBUG
-	NSLog(@"suspended : %@", [suspended stringValue]);
-#endif
-
-	[self setIsCameraOn:![suspended boolValue]];
-	
-#ifndef NDEBUG
-	NSLog(@"isCameraOn: %i", isCameraOn);
-#endif
-	
-	if (![self isCameraOn]) {
-		if ([self isRecording]) {
-			[self stopRecording];
-		}
-#ifndef NDEBUG
-		NSLog(@"swap to suspended view");
-#endif
-		[qtSwapView	replaceSubview:mCaptureView with:(NSView *)suspendedView];
-	} else {
-#ifndef NDEBUG
-		NSLog(@"swap to capture view");
-#endif
-		[qtSwapView replaceSubview:(NSView *)suspendedView with:mCaptureView];
-	}
-}
-*/
 - (void)adjustSubview:(NSNotification *)notification {
 	[self repositionViewsIgnoringView:[notification object]];
 }
@@ -305,7 +260,7 @@ NSString *SQFTPPath = @"SQFTPPath";
 #pragma mark Delegates
 
 - (void)cameraSuspendedStatusDidChange {
-	if ([camController cameraIsSuspended]) {
+	if ([camController cameraSuspended]) {
 		if ([self isRecording]) {
 			[self stopRecording];
 		}

@@ -19,7 +19,7 @@
 
 @implementation CameraController
 
-@synthesize mCaptureSession, userDevice, defaultDevice, devicesDict, cameraIsSuspended, delegate;
+@synthesize mCaptureSession, userDevice, defaultDevice, devicesDict, cameraSuspended, delegate;
 
 static CameraController *gCameraController;
 
@@ -55,19 +55,14 @@ static CameraController *gCameraController;
 	[super dealloc];
 }
 
-- (void)setCameraIsSuspended:(BOOL)yn {
-	cameraIsSuspended = yn;
-	[self didChangeValueForKey:@"cameraIsSuspended"];
-	[self informCameraStatusChange];
-}
-
 - (void)cameraAttributeChanged:(NSNotification *)notification {
 	if ([[[notification userInfo] valueForKey:QTCaptureDeviceChangedAttributeKey] isEqualToString:@"suspended"]) {
 		if (userDevice) {
-			[self setCameraIsSuspended:[userDevice isSuspended]];
+			[self setCameraSuspended:[userDevice isSuspended]];
 	#ifndef NDEBUG
-			NSLog(@"camera suspended: %i", [self cameraIsSuspended]);
+			NSLog(@"camera suspended: %i", [self cameraSuspended]);
 	#endif
+			[self informCameraStatusChange];
 		}
 	}
 }
@@ -124,7 +119,8 @@ static CameraController *gCameraController;
 		BOOL success;
 		
 		userDevice = [QTCaptureDevice deviceWithUniqueID:[[self devicesDict] valueForKey:deviceName]];
-		[self setCameraIsSuspended:[userDevice isSuspended]];
+		[self setCameraSuspended:[userDevice isSuspended]];
+		[self informCameraStatusChange];
 		success = [userDevice open:&err];
 		if (!success) {
 			[[NSAlert alertWithError:err] runModal];
