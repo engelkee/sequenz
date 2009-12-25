@@ -11,7 +11,7 @@
 
 @implementation CameraSuspendedView
 
-@synthesize attrString, attrDict;
+@synthesize attrString;
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];

@@ -34,13 +34,24 @@
 		F235BBCA10A2D247001B9C73 /* Prefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = F235BBC810A2D247001B9C73 /* Prefs.xib */; };
 		F235BBD610A2D3E8001B9C73 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F235BBD510A2D3E8001B9C73 /* PrefsController.m */; };
 		F24A59F910A096FC0096BC7B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24A59F810A096FC0096BC7B /* QuartzCore.framework */; };
+		F25B16E310D7CF6D00266CEF /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F25B16E210D7CF6D00266CEF /* MainWindowController.m */; };
+		F25B171E10D80AA500266CEF /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F25B171C10D80AA500266CEF /* MainWindow.xib */; };
+		F25B172510D81F8700266CEF /* SuspendedCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F25B172410D81F8700266CEF /* SuspendedCameraViewController.m */; };
+		F25B173010D820B600266CEF /* NoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F25B172F10D820B600266CEF /* NoCameraViewController.m */; };
+		F25B178810D9392300266CEF /* CaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F25B178710D9392300266CEF /* CaptureViewController.m */; };
+		F25B17DB10D9428A00266CEF /* CaptureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F25B17D910D9428A00266CEF /* CaptureView.xib */; };
+		F25B17DE10D9429700266CEF /* NoCameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F25B17DC10D9429700266CEF /* NoCameraView.xib */; };
+		F25B17E110D9429C00266CEF /* SuspendedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F25B17DF10D9429C00266CEF /* SuspendedView.xib */; };
+		F25B1AEC10DAA9EB00266CEF /* CaptureButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F25B1AEB10DAA9EB00266CEF /* CaptureButtonCell.m */; };
+		F25B1AEE10DAAA8100266CEF /* media-record_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F25B1AED10DAAA8100266CEF /* media-record_pressed.png */; };
 		F260D3DF10B41D8B00E3F7B0 /* DisabledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F260D3DE10B41D8B00E3F7B0 /* DisabledTextField.m */; };
 		F2675BDA10C3155700F0E7D0 /* media-record.png in Resources */ = {isa = PBXBuildFile; fileRef = F2675BD910C3155700F0E7D0 /* media-record.png */; };
 		F2675BDE10C3165900F0E7D0 /* media-record_sw.png in Resources */ = {isa = PBXBuildFile; fileRef = F2675BDD10C3165900F0E7D0 /* media-record_sw.png */; };
-		F26EFB0010BAFD7F0066B042 /* ShadowBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F26EFAFF10BAFD7F0066B042 /* ShadowBox.m */; };
 		F276828710A8362300AD45C2 /* FTPController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276828610A8362300AD45C2 /* FTPController.m */; };
+		F2869E8310DFAC6300462874 /* PathToImageValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F2869E8210DFAC6300462874 /* PathToImageValueTransformer.m */; };
 		F29B181110CE899C00B9260E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F29B180F10CE899C00B9260E /* Localizable.strings */; };
 		F29E005D10B97DD30048C14C /* SideBarPaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = F29E005C10B97DD30048C14C /* SideBarPaneView.m */; };
+		F2A4271510E5383100AF970E /* media-record_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A4271410E5383100AF970E /* media-record_disabled.png */; };
 		F2BC024610C56E2C00ABC5EA /* sequenz.icns in Resources */ = {isa = PBXBuildFile; fileRef = F2BC024510C56E2C00ABC5EA /* sequenz.icns */; };
 		F2BC05BC10AB52E700C3C70B /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BC05BB10AB52E700C3C70B /* libcurl.dylib */; };
 		F2C63D9B10A4E455009AC351 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C63D9A10A4E455009AC351 /* QTKit.framework */; };
@@ -99,20 +110,34 @@
 		F235BBD410A2D3E8001B9C73 /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsController.h; sourceTree = "<group>"; };
 		F235BBD510A2D3E8001B9C73 /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsController.m; sourceTree = "<group>"; };
 		F24A59F810A096FC0096BC7B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		F25B16E110D7CF6D00266CEF /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		F25B16E210D7CF6D00266CEF /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		F25B171D10D80AA500266CEF /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		F25B172310D81F8700266CEF /* SuspendedCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspendedCameraViewController.h; sourceTree = "<group>"; };
+		F25B172410D81F8700266CEF /* SuspendedCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendedCameraViewController.m; sourceTree = "<group>"; };
+		F25B172E10D820B600266CEF /* NoCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoCameraViewController.h; sourceTree = "<group>"; };
+		F25B172F10D820B600266CEF /* NoCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoCameraViewController.m; sourceTree = "<group>"; };
+		F25B178610D9392300266CEF /* CaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureViewController.h; sourceTree = "<group>"; };
+		F25B178710D9392300266CEF /* CaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureViewController.m; sourceTree = "<group>"; };
+		F25B17DA10D9428A00266CEF /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/CaptureView.xib; sourceTree = "<group>"; };
+		F25B17DD10D9429700266CEF /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/NoCameraView.xib; sourceTree = "<group>"; };
+		F25B17E010D9429C00266CEF /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/SuspendedView.xib; sourceTree = "<group>"; };
+		F25B1AEA10DAA9EB00266CEF /* CaptureButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureButtonCell.h; sourceTree = "<group>"; };
+		F25B1AEB10DAA9EB00266CEF /* CaptureButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureButtonCell.m; sourceTree = "<group>"; };
+		F25B1AED10DAAA8100266CEF /* media-record_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media-record_pressed.png"; sourceTree = "<group>"; };
 		F260D3DD10B41D8B00E3F7B0 /* DisabledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisabledTextField.h; sourceTree = "<group>"; };
 		F260D3DE10B41D8B00E3F7B0 /* DisabledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisabledTextField.m; sourceTree = "<group>"; };
 		F2675BD910C3155700F0E7D0 /* media-record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media-record.png"; sourceTree = "<group>"; };
 		F2675BDD10C3165900F0E7D0 /* media-record_sw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media-record_sw.png"; sourceTree = "<group>"; };
-		F26EFAFE10BAFD7F0066B042 /* ShadowBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowBox.h; sourceTree = "<group>"; };
-		F26EFAFF10BAFD7F0066B042 /* ShadowBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowBox.m; sourceTree = "<group>"; };
 		F276828510A8362300AD45C2 /* FTPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPController.h; sourceTree = "<group>"; };
 		F276828610A8362300AD45C2 /* FTPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPController.m; sourceTree = "<group>"; };
-		F29B17CC10CE7FBA00B9260E /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		F29B17EB10CE87BB00B9260E /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/Prefs.xib; sourceTree = "<group>"; };
+		F2869E8110DFAC6300462874 /* PathToImageValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathToImageValueTransformer.h; sourceTree = "<group>"; };
+		F2869E8210DFAC6300462874 /* PathToImageValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathToImageValueTransformer.m; sourceTree = "<group>"; };
 		F29B181010CE899C00B9260E /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F29B181210CE8BEE00B9260E /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F29E005B10B97DD30048C14C /* SideBarPaneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBarPaneView.h; sourceTree = "<group>"; };
 		F29E005C10B97DD30048C14C /* SideBarPaneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBarPaneView.m; sourceTree = "<group>"; };
+		F2A4271410E5383100AF970E /* media-record_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media-record_disabled.png"; sourceTree = "<group>"; };
 		F2BC024510C56E2C00ABC5EA /* sequenz.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = sequenz.icns; sourceTree = "<group>"; };
 		F2BC05BB10AB52E700C3C70B /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = /usr/lib/libcurl.dylib; sourceTree = "<absolute>"; };
 		F2C63D9A10A4E455009AC351 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
@@ -144,28 +169,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				256AC3D80F4B6AC300CF3369 /* SequenzAppDelegate.h */,
-				256AC3D90F4B6AC300CF3369 /* SequenzAppDelegate.m */,
-				F235BBD410A2D3E8001B9C73 /* PrefsController.h */,
-				F235BBD510A2D3E8001B9C73 /* PrefsController.m */,
-				F276828510A8362300AD45C2 /* FTPController.h */,
-				F276828610A8362300AD45C2 /* FTPController.m */,
-				F202D17A10AACD5F00905A04 /* URLFormatter.h */,
-				F202D17B10AACD5F00905A04 /* URLFormatter.m */,
-				F260D3DD10B41D8B00E3F7B0 /* DisabledTextField.h */,
-				F260D3DE10B41D8B00E3F7B0 /* DisabledTextField.m */,
-				F29E005B10B97DD30048C14C /* SideBarPaneView.h */,
-				F29E005C10B97DD30048C14C /* SideBarPaneView.m */,
-				F26EFAFE10BAFD7F0066B042 /* ShadowBox.h */,
-				F26EFAFF10BAFD7F0066B042 /* ShadowBox.m */,
-				F20F9AAA10BC46FF0019BEAC /* MiddleBarBorder.h */,
-				F20F9AAB10BC46FF0019BEAC /* MiddleBarBorder.m */,
-				F227522410BE85E9001A37B0 /* CameraSuspendedView.h */,
-				F227522510BE85E9001A37B0 /* CameraSuspendedView.m */,
-				F2C99F7D10D017CB008B28BD /* CameraController.h */,
-				F2C99F7E10D017CB008B28BD /* CameraController.m */,
-				F2C9A14A10D161B8008B28BD /* QTCaptureDevice+Additions.h */,
-				F2C9A14B10D161B8008B28BD /* QTCaptureDevice+Additions.m */,
+				F2869F7C10E0E18800462874 /* Helpers */,
+				F2869EF110DFD1EA00462874 /* Controller */,
+				F2869EF010DFD1E400462874 /* Views */,
+				F25B190210DA312300266CEF /* View Controller */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -224,6 +231,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F2A4271410E5383100AF970E /* media-record_disabled.png */,
+				F25B1AED10DAAA8100266CEF /* media-record_pressed.png */,
+				F25B17DF10D9429C00266CEF /* SuspendedView.xib */,
+				F25B17DC10D9429700266CEF /* NoCameraView.xib */,
+				F25B17D910D9428A00266CEF /* CaptureView.xib */,
+				F25B171C10D80AA500266CEF /* MainWindow.xib */,
 				F221D5CC10CE5D3B007453AC /* Credits.rtf */,
 				F2F0EC0A10C9359400564C02 /* SequenzHelp */,
 				F2BC024510C56E2C00ABC5EA /* sequenz.icns */,
@@ -246,6 +259,66 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F25B190210DA312300266CEF /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F25B172310D81F8700266CEF /* SuspendedCameraViewController.h */,
+				F25B172410D81F8700266CEF /* SuspendedCameraViewController.m */,
+				F25B172E10D820B600266CEF /* NoCameraViewController.h */,
+				F25B172F10D820B600266CEF /* NoCameraViewController.m */,
+				F25B178610D9392300266CEF /* CaptureViewController.h */,
+				F25B178710D9392300266CEF /* CaptureViewController.m */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		F2869EF010DFD1E400462874 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F260D3DD10B41D8B00E3F7B0 /* DisabledTextField.h */,
+				F260D3DE10B41D8B00E3F7B0 /* DisabledTextField.m */,
+				F29E005B10B97DD30048C14C /* SideBarPaneView.h */,
+				F29E005C10B97DD30048C14C /* SideBarPaneView.m */,
+				F20F9AAA10BC46FF0019BEAC /* MiddleBarBorder.h */,
+				F20F9AAB10BC46FF0019BEAC /* MiddleBarBorder.m */,
+				F227522410BE85E9001A37B0 /* CameraSuspendedView.h */,
+				F227522510BE85E9001A37B0 /* CameraSuspendedView.m */,
+				F25B1AEA10DAA9EB00266CEF /* CaptureButtonCell.h */,
+				F25B1AEB10DAA9EB00266CEF /* CaptureButtonCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F2869EF110DFD1EA00462874 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				256AC3D80F4B6AC300CF3369 /* SequenzAppDelegate.h */,
+				256AC3D90F4B6AC300CF3369 /* SequenzAppDelegate.m */,
+				F25B16E110D7CF6D00266CEF /* MainWindowController.h */,
+				F25B16E210D7CF6D00266CEF /* MainWindowController.m */,
+				F2C99F7D10D017CB008B28BD /* CameraController.h */,
+				F2C99F7E10D017CB008B28BD /* CameraController.m */,
+				F235BBD410A2D3E8001B9C73 /* PrefsController.h */,
+				F235BBD510A2D3E8001B9C73 /* PrefsController.m */,
+				F276828510A8362300AD45C2 /* FTPController.h */,
+				F276828610A8362300AD45C2 /* FTPController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F2869F7C10E0E18800462874 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F2869E8110DFAC6300462874 /* PathToImageValueTransformer.h */,
+				F2869E8210DFAC6300462874 /* PathToImageValueTransformer.m */,
+				F202D17A10AACD5F00905A04 /* URLFormatter.h */,
+				F202D17B10AACD5F00905A04 /* URLFormatter.m */,
+				F2C9A14A10D161B8008B28BD /* QTCaptureDevice+Additions.h */,
+				F2C9A14B10D161B8008B28BD /* QTCaptureDevice+Additions.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +376,12 @@
 				F2F0EC1A10C9359400564C02 /* SequenzHelp in Resources */,
 				F221D5CD10CE5D3B007453AC /* Credits.rtf in Resources */,
 				F29B181110CE899C00B9260E /* Localizable.strings in Resources */,
+				F25B171E10D80AA500266CEF /* MainWindow.xib in Resources */,
+				F25B17DB10D9428A00266CEF /* CaptureView.xib in Resources */,
+				F25B17DE10D9429700266CEF /* NoCameraView.xib in Resources */,
+				F25B17E110D9429C00266CEF /* SuspendedView.xib in Resources */,
+				F25B1AEE10DAAA8100266CEF /* media-record_pressed.png in Resources */,
+				F2A4271510E5383100AF970E /* media-record_disabled.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,11 +415,16 @@
 				F202D17C10AACD5F00905A04 /* URLFormatter.m in Sources */,
 				F260D3DF10B41D8B00E3F7B0 /* DisabledTextField.m in Sources */,
 				F29E005D10B97DD30048C14C /* SideBarPaneView.m in Sources */,
-				F26EFB0010BAFD7F0066B042 /* ShadowBox.m in Sources */,
 				F20F9AAC10BC46FF0019BEAC /* MiddleBarBorder.m in Sources */,
 				F227522610BE85E9001A37B0 /* CameraSuspendedView.m in Sources */,
 				F2C99F7F10D017CB008B28BD /* CameraController.m in Sources */,
 				F2C9A14C10D161B8008B28BD /* QTCaptureDevice+Additions.m in Sources */,
+				F25B16E310D7CF6D00266CEF /* MainWindowController.m in Sources */,
+				F25B172510D81F8700266CEF /* SuspendedCameraViewController.m in Sources */,
+				F25B173010D820B600266CEF /* NoCameraViewController.m in Sources */,
+				F25B178810D9392300266CEF /* CaptureViewController.m in Sources */,
+				F25B1AEC10DAA9EB00266CEF /* CaptureButtonCell.m in Sources */,
+				F2869E8310DFAC6300462874 /* PathToImageValueTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +451,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1DDD58150DA1D0A300B32029 /* English */,
-				F29B17CC10CE7FBA00B9260E /* German */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -376,9 +459,40 @@
 			isa = PBXVariantGroup;
 			children = (
 				F235BBC910A2D247001B9C73 /* English */,
-				F29B17EB10CE87BB00B9260E /* German */,
 			);
 			name = Prefs.xib;
+			sourceTree = "<group>";
+		};
+		F25B171C10D80AA500266CEF /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F25B171D10D80AA500266CEF /* English */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		F25B17D910D9428A00266CEF /* CaptureView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F25B17DA10D9428A00266CEF /* English */,
+			);
+			name = CaptureView.xib;
+			sourceTree = "<group>";
+		};
+		F25B17DC10D9429700266CEF /* NoCameraView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F25B17DD10D9429700266CEF /* English */,
+			);
+			name = NoCameraView.xib;
+			sourceTree = "<group>";
+		};
+		F25B17DF10D9429C00266CEF /* SuspendedView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F25B17E010D9429C00266CEF /* English */,
+			);
+			name = SuspendedView.xib;
 			sourceTree = "<group>";
 		};
 		F29B180F10CE899C00B9260E /* Localizable.strings */ = {

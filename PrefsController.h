@@ -20,17 +20,20 @@ extern NSString *SQFTPServerAddress;
 extern NSString *SQFTPUsername;
 extern NSString *SQFTPPath;
 
+extern NSString *SQSaveSequenceFlag;
+extern NSString *SQSequenceNumber;
+extern NSString *SQSaveToDiskFlag;
+extern NSString *SQSaveToDiskPath;
+
 @interface PrefsController : NSWindowController {
 
-	IBOutlet NSButton *captureWithTimestamp;
+	IBOutlet NSPopUpButton *saveFolderPopUp;
 	IBOutlet NSTextField *fontExample;
 	
 	NSUserDefaults *userDefaults;
-	
-	//IBOutlet NSView *imagePrefView;
-	//IBOutlet NSView *uploadPrefView;
 }
 
 //- (IBAction)setPrefsView:(id)sender;
+- (IBAction)chooseSaveFolder:(id)sender;
 
 @end

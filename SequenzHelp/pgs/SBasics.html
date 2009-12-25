@@ -21,18 +21,25 @@
 
 	<h1>Sequenz Basics</h1>
 	<p>
-	Sequenz is a simple and easy to use webcam application. It takes pictures with your iSight camera with a selectable
-	time interval and uploads them to your FTP server. It supports secure FTP connections over TLS/SSL.
+	Sequenz is a simple and easy to use webcam application. It takes pictures from your webcam with a selectable
+	time interval and uploads them to your FTP server or saves them to your local disk. It supports secure FTP connections over TLS/SSL.
 	</p>
+	<h2>Saving images to a FTP server</h2>
 	<p>
 	To get started, fill out the FTP server values, like server address, user name, password and path on the server. 
 	You can set the default image filename to any name you want. It will be uploaded with an extension ".jpg" in jpeg file format.
-	The file dimension is 640x480 pixel.
+	The file dimension is always the maximum supported native camera resolution.
 	</p>
+	<h2>Saving images to a local disk</h2>
 	<p>
-	After all FTP information is present, start the recording either by clicking the menu "File" > "Record", pressing "Command + R" as shortcut or pressing the
+		To save images into a directory on your local disk, go to Sequenz preferences and select the "Save to Disk" option and specify a save folder. If you don't want to use a FTP server, leave the FTP server value(s) empty to save images only on your local disk.
+		</p>
+	<p>
+	After all information is present, start the recording either by clicking the menu "File" > "Record", pressing "Command + R" as shortcut or pressing the
 	record button in the main window. To stop the recording, simply press the record button again.
 	</p>
+	
+	
 	<p>
 	Sequenz is freeware. If you like Sequenz and want to support its future development, please <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=dom@gwosdek.net&item_name=Sequenz&no_shipping=1&cn=Comments&tax=0&currency_code=EUR&lc=US">donate via PayPal</a>.
 	</p>

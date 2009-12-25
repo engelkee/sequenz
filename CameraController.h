@@ -9,13 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import <QTKit/QTKit.h>
 
-@interface NSObject (CameraController)
-
-- (void)noCameraAvailable;
-- (void)cameraSuspendedStatusDidChange;
-
-@end
-
 @interface CameraController : NSObject {
 	QTCaptureSession *mCaptureSession;
 	QTCaptureDecompressedVideoOutput *mCaptureDecompressedVideoOutput;
@@ -27,7 +20,6 @@
 	NSMutableDictionary *devicesDict;
 	
 	BOOL cameraSuspended;
-	id delegate;
 }
 
 + (id)sharedCameraController;
@@ -37,7 +29,6 @@
 @property (retain, readonly) QTCaptureDevice *userDevice;
 @property (retain) NSMutableDictionary *devicesDict;
 @property BOOL cameraSuspended;
-@property (assign) id delegate;
 
 - (NSData *)takePictureWithFileType:(NSBitmapImageFileType)type quality:(NSNumber *)qual;
 - (void)changeDevice:(NSString *)deviceName;

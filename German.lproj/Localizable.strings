@@ -6,8 +6,6 @@
    Copyright 2009 Dominik Gwosdek. All rights reserved.
  */
 
-/* camera used status string */
-"Camera used by another application" = "Die Kamera wird von einem anderen Programm verwendet.";
 
 /* camera suspended status string */
 "Camera turned off" = "Die Kamera ist aus.";

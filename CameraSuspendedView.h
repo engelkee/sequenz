@@ -15,5 +15,5 @@
 }
 
 @property (retain) NSString *attrString;
-@property (retain) NSMutableDictionary *attrDict;
+
 @end

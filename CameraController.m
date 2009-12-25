@@ -14,12 +14,17 @@
 
 - (void)drawCaptureDate:(NSDate *)date toImageRep:(NSBitmapImageRep *)rep;
 - (void)updateCameras:(NSNotification *)notification;
+- (void)prepareDevices;
 
 @end
 
 @implementation CameraController
 
-@synthesize mCaptureSession, userDevice, defaultDevice, devicesDict, cameraSuspended, delegate;
+@synthesize mCaptureSession;
+@synthesize userDevice;
+@synthesize defaultDevice;
+@synthesize devicesDict; 
+@synthesize cameraSuspended;
 
 static CameraController *gCameraController;
 
@@ -39,7 +44,7 @@ static CameraController *gCameraController;
 	if (self != nil) {
 		mCaptureSession = [[QTCaptureSession alloc] init];
 		devicesDict = [[NSMutableDictionary alloc] init];
-		[self updateCameras:nil];
+		[self prepareDevices];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCameras:) name:QTCaptureDeviceWasConnectedNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCameras:) name:QTCaptureDeviceWasDisconnectedNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraAttributeChanged:) name:QTCaptureDeviceAttributeDidChangeNotification object:nil];
@@ -59,28 +64,11 @@ static CameraController *gCameraController;
 	if ([[[notification userInfo] valueForKey:QTCaptureDeviceChangedAttributeKey] isEqualToString:@"suspended"]) {
 		if (userDevice) {
 			[self setCameraSuspended:[userDevice isSuspended]];
-	#ifndef NDEBUG
-			NSLog(@"camera suspended: %i", [self cameraSuspended]);
-	#endif
-			[self informCameraStatusChange];
 		}
 	}
 }
 
-- (void)informCameraStatusChange {
-	if (delegate != nil && [delegate respondsToSelector:@selector(cameraSuspendedStatusDidChange)]) {
-		[delegate cameraSuspendedStatusDidChange];
-	}
-}
-
-- (void)informNoCameraAvailable {
-	if (delegate != nil && [delegate respondsToSelector:@selector(noCameraAvailable)]) {
-		[delegate noCameraAvailable];
-	}
-}
-
 - (void)addAnyCaptureDevice {
-	[self updateCameras:nil];
 	if ([QTCaptureDevice hasCamerasAvailable]) {
 		NSArray *keys = [devicesDict allKeys];
 		if ([keys count] > 0) {
@@ -89,15 +77,42 @@ static CameraController *gCameraController;
 	}
 }
 
-- (void)updateCameras:(NSNotification *)notification {
-	[[self devicesDict] removeAllObjects];
-	for (QTCaptureDevice *d in [QTCaptureDevice inputDevicesWithMediaType:QTMediaTypeVideo]) {
-		[[self devicesDict] setValue:[d uniqueID] forKey:[d localizedDisplayName]];
+- (void)prepareDevices {
+	[self willChangeValueForKey:@"devicesDict"];
+	for	(QTCaptureDevice *d in [QTCaptureDevice inputDevicesWithMediaType:QTMediaTypeVideo]) {
+		[devicesDict setValue:[d uniqueID] forKey:[d localizedDisplayName]];
 	}
+	[self didChangeValueForKey:@"devicesDict"];
+}
 
-	if (![QTCaptureDevice hasCamerasAvailable]) {
-		[self informNoCameraAvailable];
+- (void)updateCameras:(NSNotification *)notification {
+#ifndef NDEBUG
+	NSLog(@"noti: %@\n userinfo: %@", notification, [notification userInfo]);
+#endif
+	// Get the (dis)connected device
+	QTCaptureDevice *device = [notification object];
+	
+	[self willChangeValueForKey:@"devicesDict"];
+	
+	// Remove or add the device
+	if ([[notification name] isEqual:QTCaptureDeviceWasDisconnectedNotification]) {
+		[devicesDict removeObjectForKey:[device localizedDisplayName]];
+		
+		// Check if the disconnected device is the currently used device and if so, select another input device.
+		if ([device isEqual:userDevice]) {
+#ifndef NDEBUG
+			NSLog(@"disconnected user device!");
+#endif
+			[self addAnyCaptureDevice];
+		}
+	} else {
+		[devicesDict setValue:[device uniqueID] forKey:[device localizedDisplayName]];
+		
+		// Change to the new connected device
+		[self changeDevice:[device localizedDisplayName]];
 	}
+	
+	[self didChangeValueForKey:@"devicesDict"];
 }
 
 - (void)changeDevice:(NSString *)deviceName {
@@ -120,7 +135,6 @@ static CameraController *gCameraController;
 		
 		userDevice = [QTCaptureDevice deviceWithUniqueID:[[self devicesDict] valueForKey:deviceName]];
 		[self setCameraSuspended:[userDevice isSuspended]];
-		[self informCameraStatusChange];
 		success = [userDevice open:&err];
 		if (!success) {
 			[[NSAlert alertWithError:err] runModal];
@@ -199,26 +213,6 @@ static CameraController *gCameraController;
 	[attrsDictionary setObject:color forKey:NSForegroundColorAttributeName];
 	[dateString drawAtPoint:NSMakePoint(10.0, 10.0) withAttributes:attrsDictionary];
 	[NSGraphicsContext restoreGraphicsState];
-}
-
-- (void)menuNeedsUpdate:(NSMenu *)menu {
-	/*
-	[camMenu removeAllItems];
-	if ([camController camerasAvailable]) {
-		for (NSString *s in [[camController devicesDict] allKeys]) {
-			NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:s action:@selector(chooseCameraFromMenu:) keyEquivalent:@""];
-			if ([s isEqualToString:[[camController userDevice] localizedDisplayName]]) {
-				[item setState:NSOnState];
-			}
-			[camMenu addItem:item];
-			[item release];
-		}
-	} else {
-		NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"No camera available", @"no camera status string") action:nil keyEquivalent:@""];
-		[camMenu addItem:item];
-		[item release];
-	}
-	*/
 }
 
 @end
