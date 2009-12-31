@@ -110,6 +110,8 @@
 		F235BBD410A2D3E8001B9C73 /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsController.h; sourceTree = "<group>"; };
 		F235BBD510A2D3E8001B9C73 /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsController.m; sourceTree = "<group>"; };
 		F24A59F810A096FC0096BC7B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		F25AC21B10ECC0B800728537 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/Prefs.xib; sourceTree = "<group>"; };
+		F25AC21D10ECC3AB00728537 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F25B16E110D7CF6D00266CEF /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		F25B16E210D7CF6D00266CEF /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		F25B171D10D80AA500266CEF /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainWindow.xib; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1DDD58150DA1D0A300B32029 /* English */,
+				F25AC21D10ECC3AB00728537 /* German */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F235BBC910A2D247001B9C73 /* English */,
+				F25AC21B10ECC0B800728537 /* German */,
 			);
 			name = Prefs.xib;
 			sourceTree = "<group>";
