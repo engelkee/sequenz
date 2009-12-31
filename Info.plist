@@ -19,11 +19,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.3</string>
+	<string>1.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>17</string>
+	<string>18</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSMainNibFile</key>
@@ -35,7 +35,7 @@
 	<key>SUScheduledCheckInterval</key>
 	<string>86400</string>
 	<key>SUFeedURL</key>
-	<string>http://gwosdek.net/sequenz/appcast/appcast.xml</string>
+	<string>http://gwosdek.net/downloads/sequenz/appcast/appcast.xml</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>SequenzHelp</string>
 	<key>CFBundleHelpBookName</key>
