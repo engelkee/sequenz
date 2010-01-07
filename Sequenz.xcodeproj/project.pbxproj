@@ -52,6 +52,7 @@
 		F29B181110CE899C00B9260E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F29B180F10CE899C00B9260E /* Localizable.strings */; };
 		F29E005D10B97DD30048C14C /* SideBarPaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = F29E005C10B97DD30048C14C /* SideBarPaneView.m */; };
 		F2A4271510E5383100AF970E /* media-record_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A4271410E5383100AF970E /* media-record_disabled.png */; };
+		F2BAA1FE10F6740E004FB0AF /* Counter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2BAA1FD10F6740E004FB0AF /* Counter.m */; };
 		F2BC024610C56E2C00ABC5EA /* sequenz.icns in Resources */ = {isa = PBXBuildFile; fileRef = F2BC024510C56E2C00ABC5EA /* sequenz.icns */; };
 		F2BC05BC10AB52E700C3C70B /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BC05BB10AB52E700C3C70B /* libcurl.dylib */; };
 		F2C63D9B10A4E455009AC351 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C63D9A10A4E455009AC351 /* QTKit.framework */; };
@@ -140,6 +141,8 @@
 		F29E005B10B97DD30048C14C /* SideBarPaneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBarPaneView.h; sourceTree = "<group>"; };
 		F29E005C10B97DD30048C14C /* SideBarPaneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBarPaneView.m; sourceTree = "<group>"; };
 		F2A4271410E5383100AF970E /* media-record_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media-record_disabled.png"; sourceTree = "<group>"; };
+		F2BAA1FC10F6740E004FB0AF /* Counter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Counter.h; sourceTree = "<group>"; };
+		F2BAA1FD10F6740E004FB0AF /* Counter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Counter.m; sourceTree = "<group>"; };
 		F2BC024510C56E2C00ABC5EA /* sequenz.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = sequenz.icns; sourceTree = "<group>"; };
 		F2BC05BB10AB52E700C3C70B /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = /usr/lib/libcurl.dylib; sourceTree = "<absolute>"; };
 		F2C63D9A10A4E455009AC351 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
@@ -319,6 +322,8 @@
 				F202D17B10AACD5F00905A04 /* URLFormatter.m */,
 				F2C9A14A10D161B8008B28BD /* QTCaptureDevice+Additions.h */,
 				F2C9A14B10D161B8008B28BD /* QTCaptureDevice+Additions.m */,
+				F2BAA1FC10F6740E004FB0AF /* Counter.h */,
+				F2BAA1FD10F6740E004FB0AF /* Counter.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 				F25B178810D9392300266CEF /* CaptureViewController.m in Sources */,
 				F25B1AEC10DAA9EB00266CEF /* CaptureButtonCell.m in Sources */,
 				F2869E8310DFAC6300462874 /* PathToImageValueTransformer.m in Sources */,
+				F2BAA1FE10F6740E004FB0AF /* Counter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
