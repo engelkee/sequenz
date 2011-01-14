@@ -24,6 +24,7 @@ extern NSString *SQSaveSequenceFlag;
 extern NSString *SQSequenceNumber;
 extern NSString *SQSaveToDiskFlag;
 extern NSString *SQSaveToDiskPath;
+extern NSString *SQStartAuto;
 
 @interface PrefsController : NSWindowController {
 

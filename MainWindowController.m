@@ -34,6 +34,7 @@ NSString *SQImageFilename = @"SQImageFilename";
 NSString *SQFTPServerAddress = @"SQFTPServerAddress";
 NSString *SQFTPUsername = @"SQFTPUsername";
 NSString *SQFTPPath = @"SQFTPPath";
+NSString *SQStartAuto = @"SQStartAuto";
 
 NSString *kSuspendedView = @"SuspendedView";
 NSString *kNoCameraView = @"NoCameraView";
@@ -105,6 +106,30 @@ NSString *kCaptureView = @"CaptureView";
 }
 
 #pragma mark Private methods
+
+- (void)writeToKeychain {
+	NSURLProtectionSpace *protectionSpace = [[[NSURLProtectionSpace alloc] initWithHost:[[NSURL URLWithString:[userDefaults objectForKey:@"SQFTPServerAddress"]] host]
+																				   port:0 
+																			   protocol:@"ftps" 
+																				  realm:nil 
+																   authenticationMethod:NSURLAuthenticationMethodDefault] autorelease];
+	NSURLCredential *credential = [ NSURLCredential credentialWithUser:[userDefaults objectForKey:@"SQFTPUsername"] 
+															  password:[passwordTextField stringValue]
+														   persistence:NSURLCredentialPersistencePermanent];
+	[[NSURLCredentialStorage sharedCredentialStorage] setDefaultCredential:credential forProtectionSpace:protectionSpace];
+}
+
+- (void)readFromKeyChain {
+	NSURLProtectionSpace *protectionSpace = [[[NSURLProtectionSpace alloc] initWithHost:[[NSURL URLWithString:[userDefaults objectForKey:@"SQFTPServerAddress"]] host] 
+																					port:0 
+																				protocol:@"ftps" 
+																				   realm:nil 
+																	authenticationMethod:NSURLAuthenticationMethodDefault] autorelease];
+	NSURLCredential *credential = [[NSURLCredentialStorage sharedCredentialStorage] defaultCredentialForProtectionSpace:protectionSpace];
+	if (credential && [credential hasPassword]) {
+		[passwordTextField setStringValue:[credential password]];
+	}
+}
 
 - (BOOL)recEnabled {
 	return [self isCameraOn] && ([userDefaults boolForKey:@"SQSaveToDiskFlag"] || [userDefaults objectForKey:@"SQFTPServerAddress"]);

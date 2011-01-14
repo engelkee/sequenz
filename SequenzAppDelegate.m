@@ -21,6 +21,7 @@
 	[defaultValues setObject:[NSKeyedArchiver archivedDataWithRootObject:[NSFont fontWithName:@"Times-Roman" size:12.0]] forKey:SQTimestampFont];
 	[defaultValues setObject:[NSKeyedArchiver archivedDataWithRootObject:[NSColor blackColor]] forKey:SQTimestampColor];
 	[defaultValues setObject:[NSNumber numberWithBool:YES] forKey:@"SUEnableAutomaticChecks"];
+	[defaultValues setObject:[NSNumber numberWithBool:NO] forKey:SQStartAuto];
 	
 	NSString *downloadsDirectory;
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDownloadsDirectory, NSUserDomainMask, YES);
@@ -36,8 +37,20 @@
 	mMainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
 	[[mMainWindowController window] makeMainWindow];
 	[[mMainWindowController window] makeKeyAndOrderFront:self];
+	[mMainWindowController readFromKeyChain];
 	[cameraMenu setDelegate:mMainWindowController];
 	
+	if([[NSUserDefaults standardUserDefaults] boolForKey:SQStartAuto] && [mMainWindowController recEnabled]) {
+		[mMainWindowController startRecording];
+	}
+	
+}
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification {
+#ifndef NDEBUG
+	NSLog(@"Application will terminate... writing to keychain");
+#endif
+	[mMainWindowController writeToKeychain];
 }
 
 - (void)dealloc {
