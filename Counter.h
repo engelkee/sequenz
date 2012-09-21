@@ -15,7 +15,7 @@
 
 @property (nonatomic, assign, readonly) int count;
 
-- (id)initWithValue:(int)value;
+- (void)initWithValue:(int)value;
 - (void)reset;
 - (void)increment;
 

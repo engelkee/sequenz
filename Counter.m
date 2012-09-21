@@ -21,7 +21,7 @@
 	return self;
 }
 
-- (id)initWithValue:(int)value {
+- (void)initWithValue:(int)value {
 	count = value;
 }
 

@@ -105,6 +105,10 @@ NSString *kCaptureView = @"CaptureView";
 	
 }
 
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+    return YES;
+}
+
 #pragma mark Private methods
 
 - (void)writeToKeychain {
@@ -279,8 +283,11 @@ NSString *kCaptureView = @"CaptureView";
 - (NSString *)imageWithSequence:(BOOL)yn {
 	NSString *filename;
 	if (yn) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyyMMdd_HHmmss"];
 		filename = [userDefaults objectForKey:SQImageFilename];
-		filename = [filename stringByAppendingString:[NSString stringWithFormat:@"%i", [self filenameCounter]]];
+		filename = [filename stringByAppendingString:[NSString stringWithFormat:@"_%@", [dateFormatter stringFromDate:[NSDate date]]]];
+        [dateFormatter release];
 	} else {
 		filename = [userDefaults objectForKey:SQImageFilename];
 	}
