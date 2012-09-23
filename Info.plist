@@ -2,12 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2011 Dominik Engelke</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleHelpBookFolder</key>
+	<string>SequenzHelp</string>
+	<key>CFBundleHelpBookName</key>
+	<string>Sequenz Help</string>
 	<key>CFBundleIconFile</key>
 	<string>sequenz</string>
 	<key>CFBundleIdentifier</key>
@@ -19,26 +21,24 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2b</string>
+	<string>1.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>19</string>
+	<string>20</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2012 Dominik Engelke</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>SUFeedURL</key>
+	<string>http://gwosdek.net/downloads/sequenz/appcast/appcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 	<key>SUScheduledCheckInterval</key>
 	<string>86400</string>
-	<key>SUFeedURL</key>
-	<string>http://gwosdek.net/downloads/sequenz/appcast/appcast.xml</string>
-	<key>CFBundleHelpBookFolder</key>
-	<string>SequenzHelp</string>
-	<key>CFBundleHelpBookName</key>
-	<string>Sequenz Help</string>
 </dict>
 </plist>
